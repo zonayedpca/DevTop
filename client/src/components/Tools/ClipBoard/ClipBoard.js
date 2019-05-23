@@ -5,6 +5,10 @@ import Content from './Content';
 import { Head } from '../../common';
 
 class ClipBoard extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="clipboard-area">

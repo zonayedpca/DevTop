@@ -5,8 +5,18 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "electron": "electron app.js",
-    "start": "npm run electron"
+    "client": "npm start --prefix client",
+    "build": "npm run build --prefix client",
+    "electron": "electron .",
+    "start": "concurrently \"npm run client\" \"npm run electron\"",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "devtop.essential",
+    "mac": {
+      "category": "devtop.essential"
+    }
   },
   "repository": {
     "type": "git",
@@ -26,6 +36,8 @@
   },
   "homepage": "https://github.com/zonayedpca/DevTop#readme",
   "devDependencies": {
-    "electron": "^5.0.1"
+    "concurrently": "^4.1.0",
+    "electron": "^5.0.1",
+    "electron-builder": "^20.40.2"
   }
 }

@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Tray } = require('electron');
+const { app, clipboard } = require('electron');
 const path = require('path');
 
 const MainWindow = require('./src/module/MainWindow');
@@ -18,11 +18,20 @@ let tray;
 
 app.on('ready', () => {
   // app.dock.hide(); // for iOS
+  let clipboardText = clipboard.readText();
+  let text;
+  setInterval(() => {
+    text = clipboard.readText();
+    if(clipboardText !== text) {
+      clipboardText = text;
+      mainWindow.webContents.send('clipboard:send', text);
+    }
+  }, 1000)
   mainWindow = new MainWindow({
     height: 420,
     width: 360,
-    frame: false,
-    resizable: false,
+    // frame: false,
+    // resizable: false,
     show: false,
     webPreferences: { backgroundThrottling: false }
   }, WINDOW_URL);
