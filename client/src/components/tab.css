@@ -1,0 +1,26 @@
+.rc-tabs-tab {
+  color: #9E9E9E;
+  padding: 5px 10px;
+}
+
+.rc-tabs-content {
+  height: 360px;
+}
+
+.rc-tabs-tabpane-active {
+  padding: 15px;
+}
+
+.rc-tabs-top .rc-tabs-tab {
+  margin-right: 0;
+}
+
+.rc-tabs-tab-active,
+.rc-tabs-tab-active:hover,
+.rc-tabs-tab:hover {
+  color: #2196F3
+}
+
+.rc-tabs-ink-bar {
+  background-color: #2196F3
+}
