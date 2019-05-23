@@ -1,6 +1,9 @@
 const { app, BrowserWindow, Tray } = require('electron');
 const path = require('path');
 
+const MainWindow = require('./src/module/MainWindow');
+const ApplicationTray = require('./src/module/ApplicationTray');
+
 function isDev() {
   return process.mainModule.filename.indexOf('app.asar') === -1;
 }
@@ -14,29 +17,12 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
+  mainWindow = new MainWindow({
     height: 420,
     width: 360,
     frame: false,
     resizable: false,
     show: false
-  });
-  mainWindow.loadURL(WINDOW_URL);
-  tray = new Tray(iconPath);
-  tray.on('click', (event, bounds) => {
-    mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
-    const { x, y } = bounds;
-    const { height, width } = mainWindow.getBounds();
-    if(process.env === 'darwin') {
-      mainWindow.setBounds({
-        x: x - (width/2),
-        y: 0
-      });
-    } else {
-      mainWindow.setBounds({
-        x: x - (width/2),
-        y: y - height
-      });
-    }
-  })
+  }, WINDOW_URL);
+  tray = new ApplicationTray(iconPath, mainWindow);
 })
