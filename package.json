@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/zonayedpca/DevTop/issues"
   },
-  "homepage": "https://github.com/zonayedpca/DevTop#readme"
+  "homepage": "https://github.com/zonayedpca/DevTop#readme",
+  "devDependencies": {
+    "electron": "^5.0.1"
+  }
 }
