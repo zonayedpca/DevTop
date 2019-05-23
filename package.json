@@ -1,0 +1,26 @@
+{
+  "name": "devtop",
+  "version": "1.0.0",
+  "description": "DevTop - Essential Tools for Developers",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zonayedpca/DevTop.git"
+  },
+  "keywords": [
+    "desktop",
+    "dev-tools",
+    "developer-tools",
+    "essential-dev",
+    "essential-developer"
+  ],
+  "author": "Zonayed Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zonayedpca/DevTop/issues"
+  },
+  "homepage": "https://github.com/zonayedpca/DevTop#readme"
+}
