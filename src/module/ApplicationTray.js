@@ -1,10 +1,12 @@
-const { Tray } = require('electron');
+const { app, Tray, Menu } = require('electron');
 
 class ApplicationTray extends Tray {
   constructor(iconPath, mainWindow) {
     super(iconPath);
     this.mainWindow = mainWindow;
     this.on('click', this.onClick.bind(this));
+    this.on('right-click', this.onRightClick.bind(this));
+    this.setToolTip('DevTop');
   }
 
   onClick = (event, bounds) => {
@@ -22,6 +24,18 @@ class ApplicationTray extends Tray {
         y: y - height
       });
     }
+  }
+
+  onRightClick = () => {
+    const menuConfig = Menu.buildFromTemplate([
+      {
+        label: 'Quit',
+        click: () => {
+          app.quit()
+        }
+      }
+    ]);
+    this.popUpContextMenu(menuConfig);
   }
 }
 

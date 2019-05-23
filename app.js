@@ -17,12 +17,14 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
+  // app.dock.hide(); // for iOS
   mainWindow = new MainWindow({
     height: 420,
     width: 360,
     frame: false,
     resizable: false,
-    show: false
+    show: false,
+    webPreferences: { backgroundThrottling: false }
   }, WINDOW_URL);
   tray = new ApplicationTray(iconPath, mainWindow);
 })
