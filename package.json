@@ -4,7 +4,9 @@
   "description": "DevTop - Essential Tools for Developers",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "electron app.js",
+    "start": "npm run electron"
   },
   "repository": {
     "type": "git",
