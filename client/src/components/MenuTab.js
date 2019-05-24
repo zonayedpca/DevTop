@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/SwipeableTabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
 import { FiClipboard, FiCode, FiClock, FiLink, FiList, FiGrid } from "react-icons/fi";
 
 import ClipBoard from './Tools/ClipBoard/ClipBoard';
 import Code from './Tools/Code/Code';
 
-import 'rc-tabs/assets/index.css';
 import './tab.css'
+
+const TabContainer = props => (
+  <Typography component="div" style={{ padding: 8 * 3 }}>
+    {props.children}
+  </Typography>
+)
 
 class MenuTab extends Component {
   state = {
-    activeKey: '1'
+    value: 0
   };
 
-  onChange = activeKey => {
-    this.setState({
-      activeKey,
-    });
-  }
-
-  handleNotExistKey = () => {
-    this.setState({
-      activeKey: '-1',
-    });
+  handleChange = (event, newValue) => {
+    this.setState({ value: newValue });
   }
 
   render() {
-    const { tabHeadStyle, tabContentStyle, iconStyle } = styles;
-
+    const { value } = this.state;
+    const { iconStyle } = styles;
     const clipBoardIcon = <FiClipboard style={iconStyle} />;
     const codeIcon = <FiCode style={iconStyle} />;
     const clockIcon = <FiClock style={iconStyle} />;
@@ -38,33 +36,31 @@ class MenuTab extends Component {
     const toolIcon = <FiGrid style={iconStyle} />;
 
     return (
-      <div>
+      <div className="tab">
+        <AppBar position="static" color="default">
           <Tabs
-            renderTabBar={() => <ScrollableInkTabBar style={tabHeadStyle} onTabClick={this.onTabClick}/>}
-            renderTabContent={() => <TabContent animatedWithMargin />}
-            activeKey={this.state.activeKey}
-            onChange={this.onChange}
+            style={{ background: '#fff' }}
+            value={value}
+            onChange={this.handleChange}
           >
-            <TabPane style={tabContentStyle} tab={clipBoardIcon} key="1">
-              <ClipBoard />
-            </TabPane>
-            <TabPane style={tabContentStyle} tab={codeIcon} key="2">
-              <Code />
-            </TabPane>
-            <TabPane style={tabContentStyle} tab={linkIcon} key="3">
-              Shortlink content will go here!
-            </TabPane>
-            <TabPane style={tabContentStyle} tab={listIcon} key="4">
-              To do list will go here!
-            </TabPane>
-            <TabPane style={tabContentStyle} tab={clockIcon} key="5">
-              All Kinds of Timer!
-            </TabPane>
-            <TabPane style={tabContentStyle} tab={toolIcon} key="6">
-              Quick Action Bar!
-            </TabPane>
+            <Tab icon={clipBoardIcon} aria-label="ClipBoard" />
+            <Tab icon={codeIcon} aria-label="Code" />
+            <Tab icon={linkIcon} aria-label="ShortLink" />
+            <Tab icon={listIcon} aria-label="Todo" />
+            <Tab icon={clockIcon} aria-label="Clock" />
+            <Tab icon={toolIcon} aria-label="Tools" />
           </Tabs>
+        </AppBar>
+        <div className="tab-content">
+          {value === 0 && <TabContainer><ClipBoard /></TabContainer>}
+          {value === 1 && <TabContainer><Code /></TabContainer>}
+          {value === 2 && <TabContainer>Item Three</TabContainer>}
+          {value === 3 && <TabContainer>Item Four</TabContainer>}
+          {value === 4 && <TabContainer>Item Five</TabContainer>}
+          {value === 5 && <TabContainer>Item Six</TabContainer>}
+          {value === 6 && <TabContainer>Item Seven</TabContainer>}
         </div>
+      </div>
     )
   }
 }

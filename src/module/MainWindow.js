@@ -3,14 +3,14 @@ const { BrowserWindow, shell } = require('electron');
 class MainWindow extends BrowserWindow {
   constructor(config, windowUrl) {
     super(config);
-    // this.setSkipTaskbar(true); // enable after development
+    this.setSkipTaskbar(true); // enable after development
     this.loadURL(windowUrl);
     this.on('blur', this.onBlur.bind(this));
     this.webContents.on('will-navigate', this.onWillNavigate.bind(this));
   }
 
   onBlur() {
-    // this.hide(); // enable this after development
+    this.hide(); // enable this after development
   }
 
   onWillNavigate(event, url) {

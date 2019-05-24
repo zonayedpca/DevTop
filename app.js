@@ -22,8 +22,8 @@ app.on('ready', () => {
   mainWindow = new MainWindow({
     height: 420,
     width: 360,
-    // frame: false,
-    // resizable: false,
+    frame: false,
+    resizable: false,
     show: false,
     webPreferences: { backgroundThrottling: false }
   }, WINDOW_URL);

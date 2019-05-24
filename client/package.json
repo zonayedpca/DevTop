@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.0.0",
     "axios": "^0.18.0",
-    "rc-tabs": "^9.6.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.7.0",

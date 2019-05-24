@@ -1,36 +1,15 @@
-.rc-tabs-top .rc-tabs-bar {
+header.MuiPaper-root {
   position: fixed;
-  z-index: 1;
 }
 
-.rc-tabs-tab {
-  color: #9E9E9E;
-  padding: 12px 10px;
-  line-height: 1;
+.tab-content {
+  padding-top: 45px;
 }
 
-.rc-tabs-content {
-  height: 100%;
-  margin-top: 45px;
+.MuiTabs-flexContainer .MuiTab-root {
+  min-width: 45px;
 }
 
-.rc-tabs-tabpane-active {
-  padding: 15px;
-  background-color: #f5f5f5;
-}
-
-
-
-.rc-tabs-top .rc-tabs-tab {
-  margin-right: 0;
-}
-
-.rc-tabs-tab-active,
-.rc-tabs-tab-active:hover,
-.rc-tabs-tab:hover {
-  color: #2196F3
-}
-
-.rc-tabs-ink-bar {
-  background-color: #2196F3
+.MuiTabs-flexContainer .MuiTabs-indicator {
+  background-color: #108ee9;
 }
