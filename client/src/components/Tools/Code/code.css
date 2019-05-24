@@ -1,0 +1,81 @@
+.info-left {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.info-right {
+  flex: 1;
+}
+
+.single-code a {
+  text-decoration: none;
+  color: #108ee9;
+}
+
+.single-code a:hover {
+  text-decoration: underline;
+}
+
+.file-created {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.file-desc {
+  font-size: 16px;
+}
+
+.info-right ul li {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.info-right ul {
+  text-align: right;
+}
+
+.info-right ul li a {
+  color: #333;
+  font-size: 16px;
+}
+
+.info-right ul li a:hover {
+  text-decoration: none;
+  color: #2196f3;
+}
+
+.code-other ul li {
+  display: inline-block;
+  padding: 5px 0;
+  margin-right: 5px;
+}
+
+.file-name .privacy {
+  border: solid 1px #eee;
+  font-size: 13px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #333;
+}
+
+.nav {
+  text-align: center;
+}
+
+.nav ul li {
+  display: inline-block;
+  background: #108ee9;
+  margin: 0 5px;
+  color: #fff;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  height: 40px;
+  width: 40px;
+  line-height: 45px;
+}
