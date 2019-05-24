@@ -17,7 +17,6 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
-  // app.dock.hide(); // for iOS
   let clipboardListener = null;
   ipcMain.on('clipboard:play', () => {
     clearInterval(clipboardListener);
@@ -26,7 +25,7 @@ app.on('ready', () => {
     let text;
     clipboardListener = setInterval(() => {
       text = clipboard.readText();
-      if(clipboardText !== text) {
+      if(clipboardText !== text && text.length) {
         clipboardText = text;
         mainWindow.webContents.send('clipboard:send', text);
       }

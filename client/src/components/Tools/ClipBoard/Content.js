@@ -4,7 +4,7 @@ import { FiCopy, FiTrash2 } from "react-icons/fi";
 import { short, blankChar } from '../../../utils';
 
 export default ({ id, data, onCopy, onRemove }) => {
-  const isBlankChar = (/^[ ]+$/g).test(data);
+  const isBlankChar = (/^\s+$/g).test(data);
   return (
     <li id={id} className="card clipboard-content">
       <p className={isBlankChar ? `blank-char` : ''}>{isBlankChar ? blankChar(data) : short(data)}</p>
