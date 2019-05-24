@@ -1,4 +1,4 @@
-const { app, clipboard } = require('electron');
+const { app, clipboard, ipcMain } = require('electron');
 const path = require('path');
 
 const MainWindow = require('./src/module/MainWindow');
@@ -18,15 +18,30 @@ let tray;
 
 app.on('ready', () => {
   // app.dock.hide(); // for iOS
-  let clipboardText = clipboard.readText();
-  let text;
-  setInterval(() => {
-    text = clipboard.readText();
-    if(clipboardText !== text) {
-      clipboardText = text;
-      mainWindow.webContents.send('clipboard:send', text);
-    }
-  }, 1000)
+  let clipboardListener = null;
+  ipcMain.on('clipboard:play', () => {
+    clearInterval(clipboardListener);
+    mainWindow.webContents.send('clipboard:play');
+    let clipboardText = clipboard.readText();
+    let text;
+    clipboardListener = setInterval(() => {
+      text = clipboard.readText();
+      if(clipboardText !== text) {
+        clipboardText = text;
+        mainWindow.webContents.send('clipboard:send', text);
+      }
+    }, 1000);
+  });
+
+  ipcMain.on('clipboard:pause', () => {
+    clearInterval(clipboardListener);
+    mainWindow.webContents.send('clipboard:pause');
+  });
+
+  ipcMain.on('clipboard:copy', (event, data) => {
+    clipboard.writeText(data);
+  })
+
   mainWindow = new MainWindow({
     height: 420,
     width: 360,

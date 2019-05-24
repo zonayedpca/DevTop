@@ -44,6 +44,12 @@ body {
   position: relative;
 }
 
+.clipboard-content p.blank-char {
+  font-weight: 300;
+  font-style: italic;
+  color: #9e9e9e;
+}
+
 .clipboard-content .tools {
   position: absolute;
   opacity: 0;

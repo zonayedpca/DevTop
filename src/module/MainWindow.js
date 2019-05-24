@@ -8,7 +8,7 @@ class MainWindow extends BrowserWindow {
   }
 
   onBlur() {
-    this.hide();
+    // this.hide(); // enable this after development
   }
 }
 
