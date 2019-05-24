@@ -1,8 +1,10 @@
-const { app, clipboard, ipcMain } = require('electron');
+const { app } = require('electron');
 const path = require('path');
 
 const MainWindow = require('./src/module/MainWindow');
 const ApplicationTray = require('./src/module/ApplicationTray');
+
+const { clipboard } = require('./src/service');
 
 function isDev() {
   return process.mainModule.filename.indexOf('app.asar') === -1;
@@ -17,30 +19,6 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
-  let clipboardListener = null;
-  ipcMain.on('clipboard:play', () => {
-    clearInterval(clipboardListener);
-    mainWindow.webContents.send('clipboard:play');
-    let clipboardText = clipboard.readText();
-    let text;
-    clipboardListener = setInterval(() => {
-      text = clipboard.readText();
-      if(clipboardText !== text && text.length) {
-        clipboardText = text;
-        mainWindow.webContents.send('clipboard:send', text);
-      }
-    }, 1000);
-  });
-
-  ipcMain.on('clipboard:pause', () => {
-    clearInterval(clipboardListener);
-    mainWindow.webContents.send('clipboard:pause');
-  });
-
-  ipcMain.on('clipboard:copy', (event, data) => {
-    clipboard.writeText(data);
-  })
-
   mainWindow = new MainWindow({
     height: 420,
     width: 360,
@@ -50,4 +28,5 @@ app.on('ready', () => {
     webPreferences: { backgroundThrottling: false }
   }, WINDOW_URL);
   tray = new ApplicationTray(iconPath, mainWindow);
+  clipboard(mainWindow);
 })
