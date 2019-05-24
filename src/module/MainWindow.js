@@ -7,7 +7,7 @@ class MainWindow extends BrowserWindow {
     this.on('blur', this.onBlur.bind(this));
   }
 
-  onBlur = () => {
+  onBlur() {
     this.hide();
   }
 }

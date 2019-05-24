@@ -9,7 +9,7 @@ class ApplicationTray extends Tray {
     this.setToolTip('DevTop');
   }
 
-  onClick = (event, bounds) => {
+  onClick(event, bounds) {
     const { x, y } = bounds;
     const { height, width } = this.mainWindow.getBounds();
     this.mainWindow.isVisible() ? this.mainWindow.hide() : this.mainWindow.show();
@@ -26,7 +26,7 @@ class ApplicationTray extends Tray {
     }
   }
 
-  onRightClick = () => {
+  onRightClick() {
     const menuConfig = Menu.buildFromTemplate([
       {
         label: 'Quit',

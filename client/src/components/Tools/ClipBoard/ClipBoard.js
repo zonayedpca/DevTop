@@ -4,9 +4,12 @@ import { FiPauseCircle, FiPlayCircle, FiTrash2 } from 'react-icons/fi';
 import Content from './Content';
 import { Head } from '../../common';
 
+const electron = window.require('electron');
+const ipcRenderer = electron.ipcRenderer;
+
 class ClipBoard extends Component {
   componentDidMount() {
-
+    console.log(ipcRenderer);
   }
 
   render() {
