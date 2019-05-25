@@ -37,7 +37,7 @@
   "homepage": "https://github.com/zonayedpca/DevTop#readme",
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "electron": "^4.1.4",
+    "electron": "^5.0.2",
     "electron-builder": "^20.40.2"
   }
 }
