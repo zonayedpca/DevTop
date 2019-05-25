@@ -10,6 +10,8 @@ function isDev() {
   return process.mainModule.filename.indexOf('app.asar') === -1;
 }
 
+require('electron-reload')(__dirname);
+
 const currentClientDir = path.resolve('client');
 const WINDOW_URL = isDev() ? `http://localhost:3000` : 'currentClientDir/build/index.html';
 const iconName = process.platform === 'darwin' ? 'iconTemplate.png':'windows-icon.png';

@@ -2,7 +2,6 @@ const { ipcMain, clipboard } = require('electron');
 
 module.exports = mainWindow => {
   let clipboardListener = null;
-
   ipcMain.on('clipboard:play', () => {
     clearInterval(clipboardListener);
     mainWindow.webContents.send('clipboard:play');
