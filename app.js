@@ -25,7 +25,7 @@ app.on('ready', () => {
     // frame: false,
     // resizable: false,
     // show: false,
-    webPreferences: { backgroundThrottling: false }
+    webPreferences: { backgroundThrottling: false, nodeIntegration: true }
   }, WINDOW_URL);
   tray = new ApplicationTray(iconPath, mainWindow);
   clipboard(mainWindow);
