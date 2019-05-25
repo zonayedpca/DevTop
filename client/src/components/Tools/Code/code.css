@@ -50,9 +50,27 @@
 }
 
 .code-other ul li {
+  position: relative;
   display: inline-block;
   padding: 5px 0;
   margin-right: 5px;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.code-other ul li svg {
+  position: absolute;
+  background: #959da5;
+  color: #fff;
+  height: 20px;
+  left: 0;
+  width: 20px;
+  border-radius: 40px;
+  padding: 3px;
+}
+
+.file-name {
+  cursor: pointer;
 }
 
 .file-name .privacy {
@@ -61,6 +79,7 @@
   padding: 1px 5px;
   border-radius: 4px;
   color: #333;
+  margin-left: 5px;
 }
 
 .nav {

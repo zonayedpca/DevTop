@@ -7,6 +7,7 @@ import { FiClipboard, FiCode, FiClock, FiLink, FiList, FiGrid } from "react-icon
 
 import ClipBoard from './Tools/ClipBoard/ClipBoard';
 import Code from './Tools/Code/Code';
+import ShortLink from './Tools/ShortLink/ShortLink';
 
 import './tab.css'
 
@@ -54,7 +55,7 @@ class MenuTab extends Component {
         <div className="tab-content">
           {value === 0 && <TabContainer><ClipBoard /></TabContainer>}
           {value === 1 && <TabContainer><Code /></TabContainer>}
-          {value === 2 && <TabContainer>Item Three</TabContainer>}
+          {value === 2 && <TabContainer><ShortLink /></TabContainer>}
           {value === 3 && <TabContainer>Item Four</TabContainer>}
           {value === 4 && <TabContainer>Item Five</TabContainer>}
           {value === 5 && <TabContainer>Item Six</TabContainer>}

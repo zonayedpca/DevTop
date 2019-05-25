@@ -28,7 +28,6 @@ class Code extends Component {
     const { page } = this.state;
     const { options, getCode } = this.props;
     const { token } = options.github;
-    console.log(token, page);
     getCode(token, page);
   }
 
