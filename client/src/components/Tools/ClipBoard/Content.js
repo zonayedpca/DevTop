@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiCopy, FiTrash2 } from "react-icons/fi";
+import { FiCopy, FiTrash2 } from 'react-icons/fi';
 
 import { short, blankChar } from '../../../utils';
 
