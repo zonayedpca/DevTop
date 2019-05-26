@@ -8,8 +8,8 @@ import { FiClipboard, FiCode, FiClock, FiLink, FiList, FiGrid } from "react-icon
 import ClipBoard from './Tools/ClipBoard';
 import Code from './Tools/Code';
 import ShortLink from './Tools/ShortLink';
-// todo
-// timer
+import Todo from './Tools/Todo';
+import Timer from './Tools/Timer';
 import Bookmark from './Tools/Bookmark';
 
 import './tab.css'
@@ -59,8 +59,8 @@ class MenuTab extends Component {
           {value === 0 && <TabContainer><ClipBoard /></TabContainer>}
           {value === 1 && <TabContainer><Code /></TabContainer>}
           {value === 2 && <TabContainer><ShortLink /></TabContainer>}
-          {value === 3 && <TabContainer>Item Four</TabContainer>}
-          {value === 4 && <TabContainer>Item Five</TabContainer>}
+          {value === 3 && <TabContainer><Todo /></TabContainer>}
+          {value === 4 && <TabContainer><Timer /></TabContainer>}
           {value === 5 && <TabContainer><Bookmark /></TabContainer>}
         </div>
       </div>

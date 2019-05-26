@@ -8,12 +8,14 @@ export default ({ data: { name, link }, onRemove }) => (
     <div onClick={onRemove} className="bookmark-tool">
       <p><FiTrash /></p>
     </div>
-    <div className="bookmark-title">
-      <span>{firstLetter(link)}</span>
-      <p>{name}</p>
-    </div>
-    <div className="bookmark-link">
-      {short(link, 15)}
-    </div>
+    <a href={link}>
+      <div className="bookmark-title">
+        <span>{firstLetter(link)}</span>
+        <p>{name}</p>
+      </div>
+      <div className="bookmark-link">
+        {short(link, 15)}
+      </div>
+    </a>
   </div>
 )

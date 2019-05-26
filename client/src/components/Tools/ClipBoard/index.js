@@ -16,7 +16,7 @@ class ClipBoard extends Component {
   }
 
   componentDidMount() {
-    console.log('mounted');
+    // all to be moved in Actions
     const { clipboardSend } = this.props;
     this.onPlay();
     ipcRenderer.on('clipboard:send', (event, data) => {
@@ -29,10 +29,6 @@ class ClipBoard extends Component {
     ipcRenderer.on('clipboard:play', () => {
       this.setState({ enabled: true });
     });
-  }
-
-  componentWillUnmount() {
-
   }
 
   onCopy = id => {

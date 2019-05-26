@@ -50,6 +50,10 @@
   cursor: pointer;
 }
 
+.bookmark-content .bookmark-single a {
+  text-decoration: none;
+}
+
 .bookmark-content .bookmark-single:hover {
   border-color: #2196f3;
 }
