@@ -4,7 +4,7 @@ const path = require('path');
 const MainWindow = require('./src/module/MainWindow');
 const ApplicationTray = require('./src/module/ApplicationTray');
 
-const { clipboard } = require('./src/service');
+const { clipboard, code } = require('./src/service');
 
 function isDev() {
   return process.mainModule.filename.indexOf('app.asar') === -1;
@@ -31,4 +31,5 @@ app.on('ready', () => {
   }, WINDOW_URL);
   tray = new ApplicationTray(iconPath, mainWindow);
   clipboard(mainWindow);
+  code(mainWindow);
 })

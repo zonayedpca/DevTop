@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { ShowBox } from '../../common';
+
 class EmbeddedGist extends Component {
   constructor(props) {
       super(props);
@@ -47,7 +49,11 @@ class EmbeddedGist extends Component {
 
   render() {
     if (this.state.loading) {
-      return <div>loading...</div>;
+      return (
+        <ShowBox>
+          <p>Loading...</p>
+        </ShowBox>
+      );
     } else {
       return <div dangerouslySetInnerHTML={{__html: this.state.src}} />;
     }

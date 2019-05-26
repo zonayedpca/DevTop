@@ -6,6 +6,7 @@
   position: absolute;
   right: 0;
   top: -3px;
+  opacity: 1;
 }
 
 .head .tools li {
