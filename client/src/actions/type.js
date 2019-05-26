@@ -12,3 +12,8 @@ export const GET_CODE_ERROR = 'get_code_error';
 export const GET_LINK_LOADING = 'get_link_loading';
 export const GET_LINK = 'get_link';
 export const GET_LINK_ERROR = 'get_link_error';
+
+// Bookmark Types
+export const ADD_BOOKMARK = 'add_bookmark';
+export const REMOVE_BOOKMARK = 'remove_bookmark';
+export const REMOVE_ALL_BOOKMARK = 'remove_all_bookmark';

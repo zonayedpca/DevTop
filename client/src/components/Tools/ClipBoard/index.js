@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FiPauseCircle, FiPlayCircle, FiTrash2 } from 'react-icons/fi';
 
 import Content from './Content';
-import { Head } from '../../common';
+import { Head, ShowBox } from '../../common';
 
 import { clipboardSend, clipboardRemove, clipboardRemoveAll } from '../../../actions';
 
@@ -16,6 +16,7 @@ class ClipBoard extends Component {
   }
 
   componentDidMount() {
+    console.log('mounted');
     const { clipboardSend } = this.props;
     this.onPlay();
     ipcRenderer.on('clipboard:send', (event, data) => {
@@ -28,6 +29,10 @@ class ClipBoard extends Component {
     ipcRenderer.on('clipboard:play', () => {
       this.setState({ enabled: true });
     });
+  }
+
+  componentWillUnmount() {
+
   }
 
   onCopy = id => {
@@ -59,9 +64,9 @@ class ClipBoard extends Component {
     const keys = Object.keys(clipboards).reverse();
     if(!keys.length) {
       return (
-        <div>
+        <ShowBox>
           <p>Nothing Found!</p>
-        </div>
+        </ShowBox>
       )
     }
     return keys.map(clipboard =>

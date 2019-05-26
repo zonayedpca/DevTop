@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FiRefreshCcw, FiSettings } from 'react-icons/fi';
 
-import { Head } from '../../common';
+import { Head, ShowBox } from '../../common';
 
 import { getLink } from '../../../actions';
 
@@ -21,23 +21,23 @@ class ShortLink extends Component {
     const { shortlinks } = this.props;
     if(shortlinks.loading) {
       return (
-        <div>
-          <p>Loading</p>
-        </div>
+        <ShowBox>
+          <p>Loading...</p>
+        </ShowBox>
       )
     }
     if(shortlinks.error) {
       return (
-        <div>
+        <ShowBox>
           <p>Error: {shortlinks.error}</p>
-        </div>
+        </ShowBox>
       )
     }
     if(!shortlinks.data || !shortlinks.data.links) {
       return (
-        <div>
+        <ShowBox>
           <p>Nothing to show!</p>
-        </div>
+        </ShowBox>
       )
     }
     return (

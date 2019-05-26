@@ -1,0 +1,103 @@
+.bookmark-add form>* {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: solid 1px #9e9e9e;
+}
+
+.bookmark-add form input[name=name] {
+  border-bottom: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.bookmark-add form input[name=link] {
+
+}
+
+.bookmark-add form button {
+  border-top: none;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: not-allowed;
+}
+
+.bookmark-add form button.active {
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bookmark-content {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bookmark-content>div {
+  flex: 1 1 calc(50% - 10px);
+}
+
+.bookmark-content .bookmark-single {
+  position: relative;
+  background: #fff;
+  margin: 5px;
+  border: solid 1px #9e9e9e;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bookmark-content .bookmark-single:hover {
+  border-color: #2196f3;
+}
+
+.bookmark-content .bookmark-single:hover .bookmark-tool {
+  opacity: 1;
+}
+
+.bookmark-content .bookmark-tool {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0;
+}
+
+.bookmark-content .bookmark-tool p {
+  color: #959da5;
+}
+
+.bookmark-content .bookmark-tool p:hover {
+  color: #f44336;
+}
+
+.bookmark-content .bookmark-single:hover .bookmark-link {
+  background-color: #2196f3;
+}
+
+.bookmark-content .bookmark-single:hover .bookmark-title {
+  color: #2196f3;
+}
+
+.bookmark-content .bookmark-single .bookmark-title {
+  color: #9e9e9e;
+  padding: 10px 15px;
+}
+
+.bookmark-content .bookmark-single .bookmark-title span {
+  font-weight: 900;
+  font-size: 56px;
+}
+
+.bookmark-content .bookmark-single .bookmark-title p {
+  font-size: 15px;
+}
+
+.bookmark-content .bookmark-single .bookmark-link {
+  background: #9e9e9e;
+  color: #fff;
+  font-size: 13px;
+  padding: 5px 0;
+}

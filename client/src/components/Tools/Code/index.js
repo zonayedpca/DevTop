@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FiRefreshCcw, FiSettings, FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 
 import Content from './Content';
-import { Head } from '../../common';
+import { Head, ShowBox } from '../../common';
 
 import { getCode } from '../../../actions';
 
@@ -36,23 +36,23 @@ class Code extends Component {
     const { codes } = this.props;
     if(codes.loading) {
       return (
-        <div>
-          <p>Loading</p>
-        </div>
+        <ShowBox>
+          <p>Loading...</p>
+        </ShowBox>
       )
     }
     if(codes.error) {
       return (
-        <div>
+        <ShowBox>
           <p>Error: {codes.error}</p>
-        </div>
+        </ShowBox>
       )
     }
     if(!codes.data || !codes.data.length) {
       return (
-        <div>
+        <ShowBox>
           <p>Nothing to show!</p>
-        </div>
+        </ShowBox>
       )
     }
     return (

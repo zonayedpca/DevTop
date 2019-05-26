@@ -5,9 +5,12 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import { FiClipboard, FiCode, FiClock, FiLink, FiList, FiGrid } from "react-icons/fi";
 
-import ClipBoard from './Tools/ClipBoard/ClipBoard';
-import Code from './Tools/Code/Code';
-import ShortLink from './Tools/ShortLink/ShortLink';
+import ClipBoard from './Tools/ClipBoard';
+import Code from './Tools/Code';
+import ShortLink from './Tools/ShortLink';
+// todo
+// timer
+import Bookmark from './Tools/Bookmark';
 
 import './tab.css'
 
@@ -58,8 +61,7 @@ class MenuTab extends Component {
           {value === 2 && <TabContainer><ShortLink /></TabContainer>}
           {value === 3 && <TabContainer>Item Four</TabContainer>}
           {value === 4 && <TabContainer>Item Five</TabContainer>}
-          {value === 5 && <TabContainer>Item Six</TabContainer>}
-          {value === 6 && <TabContainer>Item Seven</TabContainer>}
+          {value === 5 && <TabContainer><Bookmark /></TabContainer>}
         </div>
       </div>
     )
