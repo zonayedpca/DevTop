@@ -1,9 +1,12 @@
 header.MuiPaper-root {
   position: fixed;
+  top: 0;
 }
 
 .tab-content {
-  padding-top: 45px;
+  margin-top: 50px;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
 }
 
 .MuiTabs-flexContainer .MuiTab-root {

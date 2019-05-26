@@ -29,3 +29,19 @@ export const getCode = (token, page) => {
     }
   }
 }
+
+export const createNewCode = (object, token) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.post(`https://api.github.com/gists`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        data: object
+      });
+      console.dir(data);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+}
