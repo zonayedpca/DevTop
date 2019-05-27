@@ -56,12 +56,24 @@ class MenuTab extends Component {
           </Tabs>
         </AppBar>
         <div className="tab-content">
-          {value === 0 && <TabContainer><ClipBoard /></TabContainer>}
-          {value === 1 && <TabContainer><Code /></TabContainer>}
-          {value === 2 && <TabContainer><ShortLink /></TabContainer>}
-          {value === 3 && <TabContainer><Todo /></TabContainer>}
-          {value === 4 && <TabContainer><Timer /></TabContainer>}
-          {value === 5 && <TabContainer><Bookmark /></TabContainer>}
+          <div className={value === 0 ? "show":"hidden"}>
+            <TabContainer><ClipBoard /></TabContainer>
+          </div>
+          <div className={value === 1 ? "show":"hidden"}>
+            <TabContainer><Code /></TabContainer>
+          </div>
+          <div className={value === 2 ? "show":"hidden"}>
+            <TabContainer><ShortLink /></TabContainer>
+          </div>
+          <div className={value === 3 ? "show":"hidden"}>
+            <TabContainer><Todo /></TabContainer>
+          </div>
+          <div className={value === 4 ? "show":"hidden"}>
+            <TabContainer><Timer /></TabContainer>
+          </div>
+          <div className={value === 5 ? "show":"hidden"}>
+            <TabContainer><Bookmark /></TabContainer>
+          </div>
         </div>
       </div>
     )

@@ -9,6 +9,10 @@ header.MuiPaper-root {
   overflow-y: scroll;
 }
 
+.tab-content .hidden {
+  display: none;
+}
+
 .MuiTabs-flexContainer .MuiTab-root {
   min-width: 45px;
 }

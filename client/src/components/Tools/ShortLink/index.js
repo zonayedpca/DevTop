@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FiRefreshCcw, FiSettings } from 'react-icons/fi';
 
+import Content from './Content';
 import { Head, ShowBox } from '../../common';
 
 import { getLink } from '../../../actions';
@@ -43,7 +44,7 @@ class ShortLink extends Component {
     return (
       <React.Fragment>
         <ul log={console.log(shortlinks)}>
-          {shortlinks.data.links.map(link => <li>{link.title}</li>)}
+          {shortlinks.data.links.map(link => <Content key={link.created_at} data={link} />)}
         </ul>
         <div className="nav">
           <ul>
