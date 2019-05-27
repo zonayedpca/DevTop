@@ -5,14 +5,19 @@ import { connect } from 'react-redux';
 import { createNewCode } from '../../../actions';
 
 class New extends Component {
-  state = {
-    desc: '',
-    file: [Date.now()],
-    data: {}
+  constructor(props) {
+    super(props);
+    const id = Date.now();
+    this.state = {
+      desc: '',
+      file: [id],
+      data: {[id]: { name: '', code: '' }},
+      enabled: false
+    }
   }
 
   handleSubmit = type => {
-    const { desc, data } = this.state;
+    const { desc, data, enabled } = this.state;
     const { options, createNewCode } = this.props;
     const { token } = options.github;
     const objectToSend = {
@@ -20,12 +25,21 @@ class New extends Component {
       public: type === 'public',
       files: {}
     };
-    Object.keys(data).forEach(one => {
-      objectToSend.files[data[one].name] = {
+    Object.keys(data).forEach((one, index) => {
+      objectToSend.files[data[one].name || `gistfile${index + 1}.txt`] = {
         content: data[one].code
       }
     });
-    createNewCode(objectToSend, token);
+    if(enabled) {
+      createNewCode(objectToSend, token);
+      this.setState({ desc: '', file: [Date.now()], data: {}, enabled: false });
+    }
+  }
+
+  handleNewFile = () => {
+    const { file, data } = this.state;
+    const id = Date.now();
+    this.setState({ file: [...file, id], data: { ...data, [id]: { name: '', code: '' } } })
   }
 
   handleInput = (e, file, type) => {
@@ -52,7 +66,7 @@ class New extends Component {
   }
 
   renderForm = () => {
-    const { desc, file, data } = this.state;
+    const { desc, file, data, enabled } = this.state;
     return (
       <React.Fragment>
         <div className="code-new-desc">
@@ -60,22 +74,22 @@ class New extends Component {
         </div>
         <div className="code-new-files">
           {file.map(every => (
-            <div className="code-new-file">
+            <div key={every} className="code-new-file">
               <div className="code-new-file-name">
-                <input value={data[every] ? data[every].name : ''} onChange={(e) => this.handleInput(e, every, 'name')} name={`new-file file[${every}]`} placeholder="Filename including extension..." />
+                <input className="new-file" type="text" value={data[every] ? data[every].name : ''} onChange={(e) => this.handleInput(e, every, 'name')} name={`file[${every}]`} placeholder="Filename including extension..." />
                 {file.length >1 && <p className="code-file-remove" onClick={this.handleRemoveFile.bind(this, every)}><FiTrash /></p>}
               </div>
               <div className="code-new-code-area">
-                <textarea value={data[every] ? data[every].code : ''} onChange={(e) => this.handleInput(e, every, 'code')} name={`new-code code[${every}]`}></textarea>
+                <textarea className="new-code" value={data[every] ? data[every].code : ''} onChange={(e) => this.handleInput(e, every, 'code')} name={`code[${every}]`}></textarea>
               </div>
             </div>
           ))}
         </div>
         <div className="code-new-action">
-          <button onClick={() => this.setState({ file: [...file, Date.now()] })}><FiPlus /></button>
+          <button onClick={this.handleNewFile.bind(this)}><FiPlus /></button>
           <div>
-            <button onClick={this.handleSubmit.bind(this, 'secret')}>Secret</button>
-            <button onClick={this.handleSubmit.bind(this, 'public')}>Public</button>
+            <button className={`code-btn-secret ${!enabled && `btn-disabled`}`} onClick={this.handleSubmit.bind(this, 'secret')}>Secret</button>
+            <button className={`code-btn-public ${!enabled && `btn-disabled`}`} onClick={this.handleSubmit.bind(this, 'public')}>Public</button>
           </div>
         </div>
       </React.Fragment>

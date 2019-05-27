@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FiRefreshCcw, FiPlus, FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
+import { FiRefreshCcw, FiPlus, FiMinus, FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 
 import New from './New';
 import Content from './Content';
@@ -74,7 +74,7 @@ class Code extends Component {
   renderPagination = () => {
     const { page } = this.state;
     const { codes } = this.props;
-    if(!codes.loading) {
+    if(!codes.loading && !codes.error) {
       return (
         <div className="nav">
           <ul>
@@ -92,8 +92,8 @@ class Code extends Component {
     return (
       <div className="code-area">
         <Head title="Code">
-          <li onClick={() => this.setState({ addForm: !addForm })} className="new"><FiPlus /></li>
-          <li className="refresh"><FiRefreshCcw /></li>
+          <li onClick={() => this.setState({ addForm: !addForm })} className="new">{addForm ? <FiMinus /> : <FiPlus />}</li>
+          <li onClick={this.getCode.bind(this)} className="refresh"><FiRefreshCcw /></li>
         </Head>
         {this.rednerAddNew()}
         {this.renderContent()}

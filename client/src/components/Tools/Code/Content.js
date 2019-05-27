@@ -4,7 +4,6 @@ import { FiFileText, FiEye, FiEyeOff } from 'react-icons/fi';
 import EmbeddedGist from './EmbeddedGist';
 
 const { ipcRenderer } = window.require('electron');
-// const ipcRenderer = electron.ipcRenderer;
 
 class Content extends Component {
   state = {
@@ -37,7 +36,7 @@ class Content extends Component {
     const { data } = this.props;
     const files = Object.keys(data.files);
     return (
-      <div className="single-code card" log={console.log(data)}>
+      <div className="single-code card">
         <div className="tools">
           <ul>
             <li onClick={this.handleCopyUrl.bind(this, data.html_url)}>Copy</li>

@@ -182,6 +182,15 @@
   padding: 15px;
 }
 
+.code-btn-secret {
+  background: #FFEB3B;
+}
+
+.code-new-action button.btn-disabled {
+  cursor: not-allowed;
+  background: #eee;
+}
+
 .code-new-action {
   display: flex;
   margin-bottom: 15px;
