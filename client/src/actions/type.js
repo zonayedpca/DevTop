@@ -13,6 +13,14 @@ export const GET_LINK_LOADING = 'get_link_loading';
 export const GET_LINK = 'get_link';
 export const GET_LINK_ERROR = 'get_link_error';
 
+// Todo Types
+export const ADD_TODO = 'add_todo';
+export const COMPLETED_TODO = 'completed_todo';
+export const REMOVE_TODO = 'remove_todo';
+export const REMOVE_ALL_TODO = 'remove_all_todo';
+
+// Timer Types
+
 // Bookmark Types
 export const ADD_BOOKMARK = 'add_bookmark';
 export const REMOVE_BOOKMARK = 'remove_bookmark';

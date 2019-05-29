@@ -4,7 +4,7 @@ import optionReducer from './optionReducer';
 import clipboardReducer from './clipboardReducer';
 import codeReducer from './codeReducer';
 import shortlinkReducer from './shortlinkReducer';
-// todo
+import todoReducer from './todoReducer';
 // timer
 import bookmarkReducer from './bookmarkReducer';
 
@@ -13,5 +13,6 @@ export default combineReducers({
   clipboards: clipboardReducer,
   codes: codeReducer,
   shortlinks: shortlinkReducer,
+  todos: todoReducer,
   bookmarks: bookmarkReducer
 });
