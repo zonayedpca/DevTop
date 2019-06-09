@@ -3,16 +3,18 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import { FiClipboard, FiCode, FiClock, FiLink, FiList, FiGrid } from "react-icons/fi";
+import { FiClipboard, FiCode, FiLink, FiList, FiGrid, FiSettings } from 'react-icons/fi';
 
 import ClipBoard from './Tools/ClipBoard';
 import Code from './Tools/Code';
 import ShortLink from './Tools/ShortLink';
 import Todo from './Tools/Todo';
-import Timer from './Tools/Timer';
 import Bookmark from './Tools/Bookmark';
 
 import './tab.css'
+
+const electron = window.require('electron');
+const ipcRenderer = electron.ipcRenderer;
 
 const TabContainer = props => (
   <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -34,7 +36,6 @@ class MenuTab extends Component {
     const { iconStyle } = styles;
     const clipBoardIcon = <FiClipboard style={iconStyle} />;
     const codeIcon = <FiCode style={iconStyle} />;
-    const clockIcon = <FiClock style={iconStyle} />;
     const listIcon = <FiList style={iconStyle} />;
     const linkIcon = <FiLink style={iconStyle} />;
     const toolIcon = <FiGrid style={iconStyle} />;
@@ -51,7 +52,6 @@ class MenuTab extends Component {
             <Tab icon={codeIcon} aria-label="Code" />
             <Tab icon={linkIcon} aria-label="ShortLink" />
             <Tab icon={listIcon} aria-label="Todo" />
-            <Tab icon={clockIcon} aria-label="Clock" />
             <Tab icon={toolIcon} aria-label="Tools" />
           </Tabs>
         </AppBar>
@@ -69,11 +69,11 @@ class MenuTab extends Component {
             <TabContainer><Todo /></TabContainer>
           </div>
           <div className={value === 4 ? "show":"hidden"}>
-            <TabContainer><Timer /></TabContainer>
-          </div>
-          <div className={value === 5 ? "show":"hidden"}>
             <TabContainer><Bookmark /></TabContainer>
           </div>
+        </div>
+        <div onClick={() => ipcRenderer.send('window:settings')} className="settings">
+          <FiSettings />
         </div>
       </div>
     )

@@ -19,8 +19,6 @@ export const COMPLETED_TODO = 'completed_todo';
 export const REMOVE_TODO = 'remove_todo';
 export const REMOVE_ALL_TODO = 'remove_all_todo';
 
-// Timer Types
-
 // Bookmark Types
 export const ADD_BOOKMARK = 'add_bookmark';
 export const REMOVE_BOOKMARK = 'remove_bookmark';

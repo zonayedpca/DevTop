@@ -4,13 +4,13 @@ const path = require('path');
 const MainWindow = require('./src/module/MainWindow');
 const ApplicationTray = require('./src/module/ApplicationTray');
 
-const { clipboard, code } = require('./src/service');
+const { clipboard, code, settings } = require('./src/service');
 
 function isDev() {
   return process.mainModule.filename.indexOf('app.asar') === -1;
 }
 
-// require('electron-reload')(__dirname);
+require('electron-reload')(__dirname);
 
 const currentClientDir = path.resolve('client');
 const WINDOW_URL = isDev() ? `http://localhost:3000` : 'currentClientDir/build/index.html';
@@ -32,4 +32,5 @@ app.on('ready', () => {
   tray = new ApplicationTray(iconPath, mainWindow);
   clipboard(mainWindow);
   code(mainWindow);
+  settings(mainWindow);
 })

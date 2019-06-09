@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Settings - DevTop</title>
+    <link rel="stylesheet" href="settings.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="settings-area">
+          <h3>DevTop Option</h3>
+          <ul>
+            <li class="github">
+              <form class="github-form">
+                <h4>GitHub Token</h4>
+                <input type="text" placeholder="GitHub Personal Access Token" name="github_token">
+                <button type="submit" name="button">Ok</button>
+              </form>
+              <p class="info">Get GitHub Token From <a href="https://github.com/settings/tokens/new">Here</a>(Select Gists Scope)</p>
+              <p class="message hide">Please try again by checking your token once again</p>
+            </li>
+            <li class="bitly">
+              <form class="bitly-form">
+                <h4>Bitly Token</h4>
+                <input type="text" placeholder="Bilty Personal Access Token" name="bitly_token">
+                <button type="submit" name="button">Ok</button>
+              </form>
+              <p class="info">Get Bitly Token From <a href="https://support.bitly.com/hc/en-us/articles/230647907-How-do-I-find-my-OAuth-access-token-">Here</a>(Select Gists Scope)</p>
+              <p class="message hide">Please try again by checking your token once again</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const electron = window.require('electron');
+      const ipcRenderer = electron.ipcRenderer;
+
+      const githubForm = document.querySelector('.github-form'),
+          githubInput = document.querySelector('.github-form input'),
+          githubInfo = document.querySelector('.github .info'),
+          githubMessage = document.querySelector('.github .message');
+      githubForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const githubToken = githubInput.value;
+        if(githubToken) {
+          console.log('time to send this toen: ', githubToken);
+          ipcRenderer.send('option:githubToken', githubToken);
+        }
+      });
+
+      const bitlyForm = document.querySelector('.bitly-form'),
+          bitlyInput = document.querySelector('.bitly-form input'),
+          bitlyInfo = document.querySelector('.bitly .info'),
+          bitlyMessage = document.querySelector('.bitly .message');
+      bitlyForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const bitlyToken = bitlyInput.value;
+        if(bitlyToken) {
+          console.log('time to send this toen: ', bitlyToken);
+          ipcRenderer.send('option:bitlyToken', bitlyToken);
+        }
+      });
+
+      ipcRenderer.on('option:githubTokenRight', () => {
+        githubMessage.classList.add('hide');
+        githubInfo.classList.remove('hide');
+        githubInput.value = '*****';
+      });
+
+      ipcRenderer.on('option:bitlyTokenRight', () => {
+        bitlyMessage.classList.add('hide');
+        bitlyInfo.classList.remove('hide');
+        bitlyInput.value = '*****';
+      });
+
+      ipcRenderer.on('option:githubTokenWrong', () => {
+        console.log('githubTokenWrong');
+        githubInfo.classList.add('hide');
+        githubMessage.classList.remove('hide');
+      });
+
+      ipcRenderer.on('option:bitlyTokenWrong', () => {
+        bitlyInfo.classList.add('hide');
+        bitlyMessage.classList.remove('hide');
+      });
+    </script>
+  </body>
+</html>

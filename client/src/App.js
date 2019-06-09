@@ -1,24 +1,27 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reduxThunk from 'redux-thunk';
-
-import reducers from './reducers';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import './App.css';
 
 import MenuTab from './components/MenuTab';
 
-const store = createStore(reducers, applyMiddleware(reduxThunk))
+import { verifyGithubToken } from './actions';
 
-function App() {
+const electron = window.require('electron');
+const ipcRenderer = electron.ipcRenderer;
+
+function App({ verifyGithubToken }) {
+  useEffect(() => {
+    ipcRenderer.on('option:githubToken', (event, token) => {
+      verifyGithubToken(token)
+    });
+  })
+
   return (
-    <Provider store={store}>
-      <div className="App">
-        <MenuTab />
-      </div>
-    </Provider>
+    <div className="App">
+      <MenuTab />
+    </div>
   );
 }
 
-export default App;
+export default connect(null, { verifyGithubToken })(App);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './error.css';
+import './showbox.css';
 
 export const ShowBox = ({ children }) => (
   <div className="showbox-area">

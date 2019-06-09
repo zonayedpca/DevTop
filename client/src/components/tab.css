@@ -20,3 +20,12 @@ header.MuiPaper-root {
 .MuiTabs-flexContainer .MuiTabs-indicator {
   background-color: #108ee9;
 }
+
+.settings {
+  position: fixed;
+  top: 13px;
+  right: 10px;
+  z-index: 2000;
+  font-size: 22px;
+  cursor: pointer;
+}
