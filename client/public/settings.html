@@ -19,6 +19,7 @@
               </form>
               <p class="info">Get GitHub Token From <a href="https://github.com/settings/tokens/new">Here</a>(Select Gists Scope)</p>
               <p class="message hide">Please try again by checking your token once again</p>
+              <p class="success-message hide">Your token has been stored successfully</p>
             </li>
             <li class="bitly">
               <form class="bitly-form">
@@ -28,6 +29,7 @@
               </form>
               <p class="info">Get Bitly Token From <a href="https://support.bitly.com/hc/en-us/articles/230647907-How-do-I-find-my-OAuth-access-token-">Here</a>(Select Gists Scope)</p>
               <p class="message hide">Please try again by checking your token once again</p>
+              <p class="success-message hide">Your token has been stored successfully</p>
             </li>
           </ul>
         </div>
@@ -40,7 +42,8 @@
       const githubForm = document.querySelector('.github-form'),
           githubInput = document.querySelector('.github-form input'),
           githubInfo = document.querySelector('.github .info'),
-          githubMessage = document.querySelector('.github .message');
+          githubMessage = document.querySelector('.github .message'),
+          githubSuccessMessage = document.querySelector('.github .success-message');
       githubForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const githubToken = githubInput.value;
@@ -63,7 +66,8 @@
 
       ipcRenderer.on('option:githubTokenRight', () => {
         githubMessage.classList.add('hide');
-        githubInfo.classList.remove('hide');
+        githubInfo.classList.add('hide');
+        githubSuccessMessage.classList.remove('hide');
         githubInput.value = '*****';
       });
 
@@ -76,6 +80,7 @@
       ipcRenderer.on('option:githubTokenWrong', () => {
         githubInfo.classList.add('hide');
         githubMessage.classList.remove('hide');
+        githubSuccessMessage.classList.add('hide');
       });
 
       ipcRenderer.on('option:bitlyTokenWrong', () => {

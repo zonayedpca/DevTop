@@ -3,11 +3,14 @@ import { FiFileText, FiEye, FiEyeOff } from 'react-icons/fi';
 
 import EmbeddedGist from './EmbeddedGist';
 
+import { Info } from '../../common';
+
 const { ipcRenderer } = window.require('electron');
 
 class Content extends Component {
   state = {
-    code: false
+    code: false,
+    info: false
   }
 
   renderCode = file => {
@@ -27,16 +30,25 @@ class Content extends Component {
     this.setState({ code: !code });
   }
 
+  handleInfoWindow = () => {
+    this.setState({ info: true });
+    setTimeout(() => {
+      this.setState({ info: false });
+    }, 2000)
+  }
+
   handleCopyUrl = link => {
     ipcRenderer.send('code:copy', link);
+    this.handleInfoWindow();
   }
 
   render() {
-    const { code } = this.state;
+    const { code, info } = this.state;
     const { data } = this.props;
     const files = Object.keys(data.files);
     return (
       <div className="single-code card">
+        <Info visible={info} text="Gist Link Copied" />
         <div className="tools">
           <ul>
             <li onClick={this.handleCopyUrl.bind(this, data.html_url)}>Copy</li>

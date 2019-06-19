@@ -8,6 +8,7 @@
   font-weight: 400;
   color: #fff;
   border-radius: 4px;
+  z-index: 10;
 }
 
 .info-float p {

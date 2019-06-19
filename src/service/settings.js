@@ -20,7 +20,7 @@ module.exports = mainWindow => {
   }, WINDOW_URL);
 
   settingsWindow.on('close', event => {
-    // event.preventDefault();
+    event.preventDefault();
     settingsWindow.hide();
   })
 
@@ -52,7 +52,6 @@ module.exports = mainWindow => {
   });
 
   ipcMain.on('option:githubTokenWrong', () => {
-    console.log('option:githubTokenWrong');
     settingsWindow.webContents.send('option:githubTokenWrong');
   });
 

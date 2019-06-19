@@ -67,6 +67,10 @@ body {
   opacity: 1;
 }
 
+.settings-area ul li p.success-message {
+  color: #4CAF50;
+}
+
 .settings-area ul li p.hide {
   display: none;
 }
