@@ -45,7 +45,6 @@
         e.preventDefault();
         const githubToken = githubInput.value;
         if(githubToken) {
-          console.log('time to send this toen: ', githubToken);
           ipcRenderer.send('option:githubToken', githubToken);
         }
       });
@@ -58,7 +57,6 @@
         e.preventDefault();
         const bitlyToken = bitlyInput.value;
         if(bitlyToken) {
-          console.log('time to send this toen: ', bitlyToken);
           ipcRenderer.send('option:bitlyToken', bitlyToken);
         }
       });
@@ -76,7 +74,6 @@
       });
 
       ipcRenderer.on('option:githubTokenWrong', () => {
-        console.log('githubTokenWrong');
         githubInfo.classList.add('hide');
         githubMessage.classList.remove('hide');
       });

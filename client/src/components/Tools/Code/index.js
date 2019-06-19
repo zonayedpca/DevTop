@@ -21,7 +21,7 @@ class Code extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.page !== this.state.page) {
+    if(prevState.page !== this.state.page || prevProps.options.github.token !== this.props.options.github.token) {
       this.getCode();
     }
   }
@@ -29,7 +29,7 @@ class Code extends Component {
   getCode = () => {
     const { page } = this.state;
     const { options, getCode } = this.props;
-    const { token } = options.github;
+    const token = options.github;
     getCode(token, page);
   }
 

@@ -21,7 +21,7 @@ header.MuiPaper-root {
   background-color: #108ee9;
 }
 
-.settings {
+.app-settings {
   position: fixed;
   top: 13px;
   right: 10px;

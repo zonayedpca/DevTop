@@ -72,7 +72,7 @@ class MenuTab extends Component {
             <TabContainer><Bookmark /></TabContainer>
           </div>
         </div>
-        <div onClick={() => ipcRenderer.send('window:settings')} className="settings">
+        <div onClick={() => ipcRenderer.send('window:settings')} className="app-settings">
           <FiSettings />
         </div>
       </div>

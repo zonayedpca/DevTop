@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FiPauseCircle, FiPlayCircle, FiTrash2 } from 'react-icons/fi';
 
 import Content from './Content';
-import { Head, ShowBox } from '../../common';
+import { Head, ShowBox, Info } from '../../common';
 
 import { clipboardSend, clipboardRemove, clipboardRemoveAll } from '../../../actions';
 
@@ -12,11 +12,11 @@ const ipcRenderer = electron.ipcRenderer;
 
 class ClipBoard extends Component {
   state = {
-    enabled: true
+    enabled: true,
+    info: false
   }
 
   componentDidMount() {
-    // all to be moved in Actions
     const { clipboardSend } = this.props;
     this.onPlay();
     ipcRenderer.on('clipboard:send', (event, data) => {
@@ -31,10 +31,22 @@ class ClipBoard extends Component {
     });
   }
 
+  componentWillUnmout() {
+    window.clearTimeout();
+  }
+
+  controlInfoWindow = () => {
+    this.setState({ info: true });
+    setTimeout(() => {
+      this.setState({ info: false });
+    }, 2000)
+  }
+
   onCopy = id => {
     const { clipboards } = this.props;
     const data = clipboards[id].data;
     ipcRenderer.send('clipboard:copy', data)
+    this.controlInfoWindow();
   }
 
   onRemove = id => {
@@ -76,10 +88,11 @@ class ClipBoard extends Component {
   }
 
   render() {
-    const { enabled } = this.state;
+    const { enabled, info } = this.state;
 
     return (
       <div className="clipboard-area">
+        <Info visible={info} text="Text Copied" />
         <Head title="ClipBoard">
           {enabled ? <li onClick={this.onPause.bind(this)} className="pause"><FiPauseCircle /></li> :
           <li onClick={this.onPlay.bind(this)} className="play"><FiPlayCircle /></li>}

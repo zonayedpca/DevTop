@@ -1,0 +1,15 @@
+.info-float {
+  position: fixed;
+  bottom: 25px;
+  left: calc(50% - 58px);
+  background: #333;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.info-float p {
+  font-size: 13px;
+}

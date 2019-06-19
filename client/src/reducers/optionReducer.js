@@ -1,3 +1,8 @@
+import {
+  TOKEN_RIGHT,
+  TOKEN_WRONG
+} from '../actions/type';
+
 const INITIAL_STATE = {
   github: {
     token: null
@@ -8,5 +13,10 @@ const INITIAL_STATE = {
 }
 
 export default(state=INITIAL_STATE, action) => {
-  return state;
+  switch (action.type) {
+    case TOKEN_RIGHT:
+      return { ...state, [action.payload.name] : action.payload.token }
+    default:
+      return state;
+  }
 }

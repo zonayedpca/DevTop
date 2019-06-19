@@ -39,9 +39,8 @@ export const createNewCode = (object, token) => {
         },
         data: object
       });
-      console.dir(data);
     } catch(err) {
-      console.log(err);
+      
     }
   }
 }

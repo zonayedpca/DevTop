@@ -1,3 +1,8 @@
+import {
+  TOKEN_RIGHT,
+  TOKEN_WRONG
+} from './type';
+
 import axios from 'axios';
 
 const electron = window.require('electron');
@@ -13,17 +18,18 @@ export const verifyGithubToken = token => {
       });
       if(data.length) {
         dispatch({
-          type: 'GITHUB_TOKEN_RIGHT',
-          payload: token
+          type: TOKEN_RIGHT,
+          payload: {
+            name: 'github',
+            token
+          }
         });
-        console.log('Token is right');
         ipcRenderer.send('option:githubTokenRight');
       }
     } catch (e) {
       dispatch({
-        type: 'GITHUB_TOKEN_WRONG'
-      })
-      console.log('Token is wrong');
+        type: TOKEN_WRONG
+      });
       ipcRenderer.send('option:githubTokenWrong');
     }
   }

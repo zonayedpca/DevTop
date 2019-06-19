@@ -23,3 +23,7 @@ export const REMOVE_ALL_TODO = 'remove_all_todo';
 export const ADD_BOOKMARK = 'add_bookmark';
 export const REMOVE_BOOKMARK = 'remove_bookmark';
 export const REMOVE_ALL_BOOKMARK = 'remove_all_bookmark';
+
+// Options
+export const TOKEN_RIGHT = 'token_right';
+export const TOKEN_WRONG = 'token_wrong';
