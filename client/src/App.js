@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
 import MenuTab from './components/MenuTab';
+import Settings from './components/Settings';
 
 import { verifyGithubToken } from './actions';
 
@@ -18,9 +20,12 @@ function App({ verifyGithubToken }) {
   })
 
   return (
-    <div className="App">
-      <MenuTab />
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={MenuTab} />
+        <Route exact path="/settings" component={Settings} />
+      </div>
+    </Router>
   );
 }
 

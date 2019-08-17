@@ -1,0 +1,12 @@
+.settings .MuiToolbar-regular {
+  min-height: 48px;
+}
+
+.settings .MuiIconButton-root:hover {
+  border-radius: 100%;
+}
+
+.settings .content {
+  margin-top: 45px;
+  padding: 15px;
+}

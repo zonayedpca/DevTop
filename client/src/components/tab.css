@@ -23,7 +23,7 @@ header.MuiPaper-root {
 
 .app-settings {
   position: fixed;
-  top: 13px;
+  top: 0px;
   right: 10px;
   z-index: 2000;
   font-size: 22px;

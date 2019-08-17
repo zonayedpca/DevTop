@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { FiClipboard, FiCode, FiLink, FiList, FiGrid, FiSettings } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 import ClipBoard from './Tools/ClipBoard';
 import Code from './Tools/Code';
@@ -72,8 +74,12 @@ class MenuTab extends Component {
             <TabContainer><Bookmark /></TabContainer>
           </div>
         </div>
-        <div onClick={() => ipcRenderer.send('window:settings')} className="app-settings">
-          <FiSettings />
+        <div className="app-settings">
+          <Link to="/settings">
+            <IconButton edge="start" color="inherit" aria-label="menu">
+              <FiSettings />
+            </IconButton>
+          </Link>
         </div>
       </div>
     )
