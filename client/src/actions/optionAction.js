@@ -5,13 +5,16 @@ import {
 
 import axios from 'axios';
 
+const GITHUB_LINK = `https://api.github.com`;
+const BITLY_LINK = `https://api-ssl.bitly.com/v4`;
+
 const electron = window.require('electron');
 const ipcRenderer = electron.ipcRenderer;
 
 export const verifyGithubToken = token => {
   return async dispatch => {
     try {
-      const { data } = await axios(`https://api.github.com/gists`, {
+      const { data } = await axios(`${GITHUB_LINK}/gists`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -24,13 +27,45 @@ export const verifyGithubToken = token => {
             token
           }
         });
-        ipcRenderer.send('option:githubTokenRight');
       }
     } catch (e) {
       dispatch({
-        type: TOKEN_WRONG
+        type: TOKEN_WRONG,
+        payload: {
+          name: 'github',
+          error: true
+        }
       });
-      ipcRenderer.send('option:githubTokenWrong');
+    }
+  }
+}
+
+export const verifyBitlyToken = token => {
+  return async dispatch => {
+    try {
+      const { data } = await axios(`${BITLY_LINK}/user`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      if(data.login) {
+        dispatch({
+          type: TOKEN_RIGHT,
+          payload: {
+            name: 'bitly',
+            token,
+            id: data.default_group_guid
+          }
+        });
+      }
+    } catch (e) {
+      dispatch({
+        type: TOKEN_WRONG,
+        payload: {
+          name: 'bitly',
+          error: true
+        }
+      });
     }
   }
 }

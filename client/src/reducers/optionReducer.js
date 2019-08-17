@@ -5,17 +5,24 @@ import {
 
 const INITIAL_STATE = {
   github: {
-    token: null
+    token: null,
+    error: false
   },
   bitly: {
-    token: null
+    token: null,
+    error: false
   }
 }
 
 export default(state=INITIAL_STATE, action) => {
+  let provider;
   switch (action.type) {
     case TOKEN_RIGHT:
-      return { ...state, [action.payload.name] : action.payload.token }
+      provider = state[action.payload.name];
+      return { ...state, [action.payload.name]: { ...provider, error: false, token: action.payload.token } }
+    case TOKEN_WRONG:
+      provider = state[action.payload.name];
+      return { ...state, [action.payload.name]: { ...provider, error: true } }
     default:
       return state;
   }

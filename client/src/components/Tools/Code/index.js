@@ -29,7 +29,7 @@ class Code extends Component {
   getCode = () => {
     const { page } = this.state;
     const { options, getCode } = this.props;
-    const token = options.github;
+    const { token } = options.github;
     getCode(token, page);
   }
 

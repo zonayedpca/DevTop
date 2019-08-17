@@ -1,5 +1,9 @@
-input,
-button {
+.token-input {
+  margin-bottom: 15px;
+}
+
+.token-input input,
+.token-input button {
   display: block;
   border: solid 1px #9e9e9e;
   font-size: 16px;
@@ -8,18 +12,18 @@ button {
   width: 100%;
 }
 
-input {
+.token-input input {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   border-bottom: none;
 }
 
-button {
+.token-input button {
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   cursor: pointer;
 }
 
-button.disabled {
+.token-input button.disabled {
   cursor: not-allowed;
 }
