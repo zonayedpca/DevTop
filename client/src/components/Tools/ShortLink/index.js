@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FiRefreshCcw, FiSettings } from 'react-icons/fi';
+import { FiRefreshCcw, FiSettings, FiPlus } from 'react-icons/fi';
 
 import Content from './Content';
 import { Head, ShowBox } from '../../common';
@@ -60,8 +60,8 @@ class ShortLink extends Component {
     return (
       <div className="shortlink-area">
         <Head title="ShortLink">
+          <li className="new"><FiPlus /></li>
           <li className="refresh"><FiRefreshCcw /></li>
-          <li className="settings"><FiSettings /></li>
         </Head>
         {this.renderContent()}
       </div>
