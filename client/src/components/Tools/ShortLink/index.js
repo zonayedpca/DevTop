@@ -7,7 +7,14 @@ import { Head, ShowBox } from '../../common';
 
 import { getLink } from '../../../actions';
 
+import './index.css';
+import New from './New';
+
 class ShortLink extends Component {
+  state = {
+    show: false
+  }
+
   componentDidMount() {
     this.getLink();
   }
@@ -43,7 +50,7 @@ class ShortLink extends Component {
     }
     return (
       <React.Fragment>
-        <ul log={console.log(shortlinks)}>
+        <ul>
           {shortlinks.data.links.map(link => <Content key={link.created_at} data={link} />)}
         </ul>
         <div className="nav">
@@ -57,12 +64,14 @@ class ShortLink extends Component {
   }
 
   render() {
+    const { show } = this.state;
     return (
       <div className="shortlink-area">
         <Head title="ShortLink">
-          <li className="new"><FiPlus /></li>
+          <li onClick={() => this.setState({ show: !show })} className="new"><FiPlus /></li>
           <li className="refresh"><FiRefreshCcw /></li>
         </Head>
+        {show && <New />}
         {this.renderContent()}
       </div>
     )

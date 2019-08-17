@@ -1,0 +1,7 @@
+.card {
+    position: relative;
+}
+
+.card:hover .tools {
+    opacity: 1;
+}

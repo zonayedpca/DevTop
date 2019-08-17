@@ -1,10 +1,36 @@
 import React, { Component } from 'react';
+import { Info } from '../../common';
+
+const { ipcRenderer } = window.require('electron');
 
 class Content extends Component {
+  state = {
+    info: false
+  }
+
+  handleInfoWindow = () => {
+    this.setState({ info: true });
+    setTimeout(() => {
+      this.setState({ info: false });
+    }, 2000)
+  }
+
+  handleCopyUrl = link => {
+    ipcRenderer.send('code:copy', link);
+    this.handleInfoWindow();
+  }
+
   render() {
+    const { info } = this.state;
     const { data } = this.props;
     return (
       <li className="card">
+        <Info visible={info} text="Bitly Link Copied" />
+        <div className="tools">
+          <ul>
+            <li onClick={this.handleCopyUrl.bind(this, data.link)}>Copy</li>
+          </ul>
+        </div>
         <span className="created-at">
           {data.created_at}
         </span>

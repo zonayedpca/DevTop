@@ -33,7 +33,7 @@ class Code extends Component {
     getCode(token, page);
   }
 
-  rednerAddNew = () => {
+  renderAddNew = () => {
     const { addForm } = this.state;
     const { codes } = this.props;
     if(addForm && !codes.error && !codes.loading) {
@@ -95,7 +95,7 @@ class Code extends Component {
           <li onClick={() => this.setState({ addForm: !addForm })} className="new">{addForm ? <FiMinus /> : <FiPlus />}</li>
           <li onClick={this.getCode.bind(this)} className="refresh"><FiRefreshCcw /></li>
         </Head>
-        {this.rednerAddNew()}
+        {this.renderAddNew()}
         {this.renderContent()}
         {this.renderPagination()}
       </div>

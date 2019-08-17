@@ -12,6 +12,9 @@ export const GET_CODE_ERROR = 'get_code_error';
 export const GET_LINK_LOADING = 'get_link_loading';
 export const GET_LINK = 'get_link';
 export const GET_LINK_ERROR = 'get_link_error';
+export const CREATE_LINK_LOADING = 'CREATE_LINK_LOADING';
+export const CREATE_LINK_SUCCESS = 'CREATE_LINK_SUCCESS';
+export const CREATE_LINK_ERROR = 'CREATE_LINK_ERROR';
 
 // Todo Types
 export const ADD_TODO = 'add_todo';
