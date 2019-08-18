@@ -4,20 +4,18 @@ import {
   GET_LINK_LOADING,
   GET_LINK,
   GET_LINK_ERROR,
-  CREATE_LINK_SUCCESS,
-  CREATE_LINK_ERROR,
-  CREATE_LINK_LOADING
+  CREATE_LINK_ERROR
 } from './type';
 
-const DEFAULT_GET_LINK = `https://api-ssl.bitly.com/v4/groups/Be3ae4aTy6h/bitlinks`;
+const API_LINK = `https://api-ssl.bitly.com/v4`;
 
-export const getLink = (token, link=DEFAULT_GET_LINK) => {
+export const getLink = (token, id, page) => {
   return async dispatch => {
     dispatch({
       type: GET_LINK_LOADING
     })
     try {
-      const { data } = await axios(`${link}`, {
+      const { data } = await axios(`${API_LINK}/groups/${id}/bitlinks?page=${page}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -35,10 +33,10 @@ export const getLink = (token, link=DEFAULT_GET_LINK) => {
   }
 }
 
-export const createNewLink = (link, cb, token) => {
+export const createNewLink = (link, cb, { token, id }) => {
   return async dispatch => {
     try {
-      await axios.post(`https://api-ssl.bitly.com/v4/bitlinks`, null, {
+      await axios.post(`${API_LINK}/bitlinks`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -47,7 +45,7 @@ export const createNewLink = (link, cb, token) => {
           long_url: link
         }
       });
-      cb(token);
+      cb(token, id, 1);
     } catch(err) {
       return dispatch({
         type: CREATE_LINK_ERROR

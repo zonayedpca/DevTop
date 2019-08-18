@@ -88,12 +88,16 @@ class Code extends Component {
 
   render() {
     const { addForm } = this.state;
+    const { options } = this.props;
+    const { token } = options.github;
 
     return (
       <div className="code-area">
         <Head title="Code">
-          <li onClick={() => this.setState({ addForm: !addForm })} className="new">{addForm ? <FiMinus /> : <FiPlus />}</li>
-          <li onClick={this.getCode.bind(this)} className="refresh"><FiRefreshCcw /></li>
+          { token && <>
+            <li onClick={() => this.setState({ addForm: !addForm })} className="new">{addForm ? <FiMinus /> : <FiPlus />}</li>
+            <li onClick={this.getCode.bind(this)} className="refresh"><FiRefreshCcw /></li>
+          </> }
         </Head>
         {this.renderAddNew()}
         {this.renderContent()}

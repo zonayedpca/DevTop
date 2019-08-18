@@ -8,9 +8,6 @@ import axios from 'axios';
 const GITHUB_LINK = `https://api.github.com`;
 const BITLY_LINK = `https://api-ssl.bitly.com/v4`;
 
-const electron = window.require('electron');
-const ipcRenderer = electron.ipcRenderer;
-
 export const verifyGithubToken = token => {
   return async dispatch => {
     try {
@@ -53,8 +50,10 @@ export const verifyBitlyToken = token => {
           type: TOKEN_RIGHT,
           payload: {
             name: 'bitly',
-            token,
-            id: data.default_group_guid
+            token: {
+              token,
+              id: data.default_group_guid
+            }
           }
         });
       }

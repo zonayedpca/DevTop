@@ -32,7 +32,7 @@ class Content extends Component {
           </ul>
         </div>
         <span className="created-at">
-          {data.created_at}
+          {new Date(String(data.created_at)).toDateString()}
         </span>
         <h4>{data.title ? data.title : data.long_url}</h4>
         <p>{ data.custom_bitlinks.length ? data.custom_bitlinks[0] : data.link }</p>

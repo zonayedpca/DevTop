@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FiRefreshCcw, FiSettings, FiPlus } from 'react-icons/fi';
+import { FiRefreshCcw, FiPlus, FiArrowRightCircle, FiArrowLeftCircle } from 'react-icons/fi';
 
 import Content from './Content';
 import { Head, ShowBox } from '../../common';
@@ -12,6 +12,7 @@ import New from './New';
 
 class ShortLink extends Component {
   state = {
+    page: 1,
     show: false
   }
 
@@ -19,10 +20,19 @@ class ShortLink extends Component {
     this.getLink();
   }
 
-  getLink = link => {
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.page !== this.state.page || prevProps.options.bitly.token !== this.props.options.bitly.token) {
+      this.getLink();
+    }
+  }
+
+  getLink = () => {
+    const { page } = this.state;
     const { options, getLink } = this.props;
-    const { token } = options.bitly;
-    getLink(token, link);
+    if(options.bitly.token) {
+      const { token, id } = options.bitly.token;
+      getLink(token, id, page);
+    }
   }
 
   renderContent = () => {
@@ -49,30 +59,44 @@ class ShortLink extends Component {
       )
     }
     return (
-      <React.Fragment>
-        <ul>
-          {shortlinks.data.links.map(link => <Content key={link.created_at} data={link} />)}
-        </ul>
+      <ul>
+        {shortlinks.data.links.map(link => <Content key={link.created_at} data={link} />)}
+      </ul>
+    )
+  }
+
+  renderPagination = () => {
+    const { page } = this.state;
+    const { shortlinks } = this.props;
+    console.log(shortlinks);
+    if(shortlinks.data.links && shortlinks.data.links.length && !shortlinks.loading && !shortlinks.error) {
+      return (
         <div className="nav">
           <ul>
-            <li>Prev</li>
-            <li>Next</li>
+            { page !== 1 && <li onClick={() => page > 1 && this.setState({ page: page - 1 })}><FiArrowLeftCircle /></li>}
+            { shortlinks.data.pagination.next && <li onClick={() => this.setState({ page: page + 1 })}><FiArrowRightCircle /></li>}
           </ul>
         </div>
-      </React.Fragment>
-    )
+      )
+    }
   }
 
   render() {
     const { show } = this.state;
+    const { options } = this.props;
+    const { token } = options.bitly;
+
     return (
       <div className="shortlink-area">
         <Head title="ShortLink">
-          <li onClick={() => this.setState({ show: !show })} className="new"><FiPlus /></li>
-          <li className="refresh"><FiRefreshCcw /></li>
+          { token && <>
+            <li onClick={() => this.setState({ show: !show })} className="new"><FiPlus /></li>
+            <li className="refresh"><FiRefreshCcw /></li>
+          </> }
         </Head>
         {show && <New />}
         {this.renderContent()}
+        {this.renderPagination()}
       </div>
     )
   }

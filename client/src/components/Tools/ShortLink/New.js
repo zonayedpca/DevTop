@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FiPlus, FiTrash } from 'react-icons/fi';
 import { connect } from 'react-redux';
 
 import { getLink, createNewLink } from '../../../actions';

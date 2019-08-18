@@ -58,7 +58,7 @@ class Content extends Component {
           <div className="info-left">
             <div className="file-info">
               <p className="file-name">{files[0]}<span className="privacy">{data.public ? 'Public' : 'Secret'}</span></p>
-              <p className="file-created">{data.created_at}</p>
+              <p className="file-created">{new Date(String(data.created_at)).toDateString()}</p>
               <p className="file-desc">{data.description ? data.description : 'No description Found!'}</p>
             </div>
           </div>
