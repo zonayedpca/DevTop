@@ -24,9 +24,9 @@ app.on('ready', () => {
   mainWindow = new MainWindow({
     height: 420,
     width: 360,
-    // frame: false,
-    // resizable: false,
-    // show: false,
+    frame: false,
+    resizable: false,
+    show: false,
     webPreferences: { backgroundThrottling: false, nodeIntegration: true }
   }, WINDOW_URL);
   tray = new ApplicationTray(iconPath, mainWindow);

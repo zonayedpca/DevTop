@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { FiPauseCircle, FiPlayCircle, FiTrash2 } from 'react-icons/fi';
 
@@ -10,9 +10,7 @@ import { clipboardSend, clipboardRemove, clipboardRemoveAll } from '../../../act
 const electron = window.require('electron');
 const ipcRenderer = electron.ipcRenderer;
 
-let timeOut;
-
-class ClipBoard extends Component {
+class ClipBoard extends PureComponent {
   state = {
     enabled: true,
     info: false
@@ -28,21 +26,20 @@ class ClipBoard extends Component {
     ipcRenderer.on('clipboard:pause', () => {
       this.setState({ enabled: false });
     });
+    // problem of memory leaks
     ipcRenderer.on('clipboard:play', () => {
       this.setState({ enabled: true });
     });
+    //
   }
 
   componentWillUnmout() {
-    window.clearTimeout(timeOut);
-    ipcRenderer.removeAllListeners('clipboard:send');
-    ipcRenderer.removeAllListeners('clipboard:pause');
-    ipcRenderer.removeAllListeners('clipboard:play');
+    window.clearTimeout();
   }
 
   controlInfoWindow = () => {
     this.setState({ info: true });
-    timeOut = setTimeout(() => {
+    setTimeout(() => {
       this.setState({ info: false });
     }, 2000)
   }
