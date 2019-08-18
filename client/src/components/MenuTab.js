@@ -15,9 +15,6 @@ import Bookmark from './Tools/Bookmark';
 
 import './tab.css'
 
-const electron = window.require('electron');
-const ipcRenderer = electron.ipcRenderer;
-
 const TabContainer = props => (
   <Typography component="div" style={{ padding: 8 * 3 }}>
     {props.children}

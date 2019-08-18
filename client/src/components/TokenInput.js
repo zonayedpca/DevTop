@@ -9,10 +9,11 @@ const TokenInput = ({ options, onSubmit, name }) => {
   const provider = options[String(name).toLowerCase()];
   const status = provider.token;
   const isError = provider.error;
-  console.log(provider);
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(input);
+    if(!status) {
+      onSubmit(input);
+    }
   }
 
   return (

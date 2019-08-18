@@ -7,16 +7,11 @@ import './App.css';
 import MenuTab from './components/MenuTab';
 import Settings from './components/Settings';
 
-import { verifyGithubToken } from './actions';
+import { getLocalAuth } from './actions';
 
-const electron = window.require('electron');
-const ipcRenderer = electron.ipcRenderer;
-
-function App({ verifyGithubToken }) {
+function App({ getLocalAuth }) {
   useEffect(() => {
-    ipcRenderer.on('option:githubToken', (event, token) => {
-      verifyGithubToken(token)
-    });
+    getLocalAuth();
   })
 
   return (
@@ -29,4 +24,4 @@ function App({ verifyGithubToken }) {
   );
 }
 
-export default connect(null, { verifyGithubToken })(App);
+export default connect(null, { getLocalAuth })(App);

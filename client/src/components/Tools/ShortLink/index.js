@@ -68,7 +68,6 @@ class ShortLink extends Component {
   renderPagination = () => {
     const { page } = this.state;
     const { shortlinks } = this.props;
-    console.log(shortlinks);
     if(shortlinks.data.links && shortlinks.data.links.length && !shortlinks.loading && !shortlinks.error) {
       return (
         <div className="nav">

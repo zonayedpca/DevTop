@@ -10,6 +10,8 @@ import { clipboardSend, clipboardRemove, clipboardRemoveAll } from '../../../act
 const electron = window.require('electron');
 const ipcRenderer = electron.ipcRenderer;
 
+let timeOut;
+
 class ClipBoard extends Component {
   state = {
     enabled: true,
@@ -32,12 +34,15 @@ class ClipBoard extends Component {
   }
 
   componentWillUnmout() {
-    window.clearTimeout();
+    window.clearTimeout(timeOut);
+    ipcRenderer.removeAllListeners('clipboard:send');
+    ipcRenderer.removeAllListeners('clipboard:pause');
+    ipcRenderer.removeAllListeners('clipboard:play');
   }
 
   controlInfoWindow = () => {
     this.setState({ info: true });
-    setTimeout(() => {
+    timeOut = setTimeout(() => {
       this.setState({ info: false });
     }, 2000)
   }
