@@ -3,8 +3,11 @@ import {
   REMOVE_BOOKMARK,
   REMOVE_ALL_BOOKMARK
 } from '../actions/type';
+import { getLocalStorageData } from '../utils';
 
-export default(state=[], action) => {
+const [localBookmarks] = getLocalStorageData(['bookmarks']);
+
+export default(state = localBookmarks || [], action) => {
   switch (action.type) {
     case ADD_BOOKMARK:
       return [ { id: action.payload.id, name: action.payload.name, link: action.payload.link }, ...state]
