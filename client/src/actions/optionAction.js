@@ -6,8 +6,7 @@ import {
 
 import axios from 'axios';
 
-import { setLocalStorageData } from '../utils/setLocalStorageData';
-import { unSetLocalStorageData } from '../utils';
+import { setLocalStorageData, unSetLocalStorageData } from '../utils';
 
 const GITHUB_LINK = `https://api.github.com`;
 const BITLY_LINK = `https://api-ssl.bitly.com/v4`;
