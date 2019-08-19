@@ -4,16 +4,11 @@ import {
   REMOVE_TODO,
   REMOVE_ALL_TODO
 } from '../actions/type';
+import { getLocalStorageData } from '../utils';
 
-export default(state = [{
-  id: 12342443,
-  text: 'Hello Something',
-  done: false
-}, {
-  id: 38472438753,
-  text: 'Something else than anything',
-  done: false
-}], action) => {
+const [localTodos] = getLocalStorageData(['todos']);
+
+export default(state = localTodos || [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [{ id: action.payload.id, text: action.payload.text, done: false }, ...state];
