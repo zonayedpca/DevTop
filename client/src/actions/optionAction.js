@@ -6,14 +6,13 @@ import {
 
 import axios from 'axios';
 
-import { setLocalStorageData, unSetLocalStorageData } from '../utils';
+import { getLocalStorageData, setLocalStorageData, unSetLocalStorageData } from '../utils';
 
 const GITHUB_LINK = `https://api.github.com`;
 const BITLY_LINK = `https://api-ssl.bitly.com/v4`;
 
 export const getLocalAuth = () => {
-  const github_token = JSON.parse(localStorage.getItem('github'));
-  const bitly_token = JSON.parse(localStorage.getItem('bitly'));
+  const [github_token, bitly_token] = getLocalStorageData(['github', 'bitly']);
   return dispatch => {
     if(github_token) {
       dispatch({
