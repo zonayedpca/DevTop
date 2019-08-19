@@ -1,6 +1,7 @@
 import {
   TOKEN_RIGHT,
-  TOKEN_WRONG
+  TOKEN_WRONG,
+  TOKEN_RESET
 } from '../actions/type';
 
 const INITIAL_STATE = {
@@ -23,6 +24,8 @@ export default(state=INITIAL_STATE, action) => {
     case TOKEN_WRONG:
       provider = state[action.payload.name];
       return { ...state, [action.payload.name]: { ...provider, error: true } }
+    case TOKEN_RESET:
+      return INITIAL_STATE;
     default:
       return state;
   }

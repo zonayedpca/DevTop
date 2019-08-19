@@ -1,6 +1,7 @@
 import {
   TOKEN_RIGHT,
-  TOKEN_WRONG
+  TOKEN_WRONG,
+  TOKEN_RESET
 } from './type';
 
 import axios from 'axios';
@@ -100,5 +101,11 @@ export const verifyBitlyToken = token => {
         }
       });
     }
+  }
+}
+
+export const resetTokens = () => {
+  return {
+    type: TOKEN_RESET
   }
 }

@@ -9,11 +9,11 @@ import { connect } from 'react-redux';
 
 import TokenInput from './TokenInput';
 
-import { verifyGithubToken, verifyBitlyToken } from '../actions';
+import { verifyGithubToken, verifyBitlyToken, resetTokens } from '../actions';
 
 import './settings.css';
 
-const Settings = ({ verifyGithubToken, verifyBitlyToken }) => {
+const Settings = ({ verifyGithubToken, verifyBitlyToken, resetTokens }) => {
   return (
     <div className="settings">
       <AppBar position="static" color="default" style={{ background: '#fff' }}>
@@ -31,9 +31,12 @@ const Settings = ({ verifyGithubToken, verifyBitlyToken }) => {
       <div className="content">
         <TokenInput onSubmit={verifyGithubToken} name="GitHub" />
         <TokenInput onSubmit={verifyBitlyToken} name="Bitly" />
+        <div className="aciton">
+          <button onClick={() => resetTokens()} className="btn-reset">Reset</button>
+        </div>
       </div>
     </div>
   )
 }
 
-export default connect(null, { verifyGithubToken, verifyBitlyToken })(Settings);
+export default connect(null, { verifyGithubToken, verifyBitlyToken, resetTokens })(Settings);

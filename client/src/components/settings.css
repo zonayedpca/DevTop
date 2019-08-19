@@ -10,3 +10,16 @@
   margin-top: 45px;
   padding: 15px;
 }
+
+.settings .content .btn-reset {
+  display: block;
+  border: solid 1px #F44336;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px 15px;
+  text-align: center;
+  width: 100%;
+  background: #F44336;
+  border-radius: 4px;
+}

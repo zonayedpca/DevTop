@@ -30,3 +30,4 @@ export const REMOVE_ALL_BOOKMARK = 'remove_all_bookmark';
 // Options
 export const TOKEN_RIGHT = 'token_right';
 export const TOKEN_WRONG = 'token_wrong';
+export const TOKEN_RESET = 'token_reset';
