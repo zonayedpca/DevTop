@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -15,7 +15,7 @@ function App({ getLocalAuth }) {
   })
 
   return (
-    <Router>
+    <Router basename={window.location.href}>
       <div className="App">
         <Route exact path="/" component={MenuTab} />
         <Route exact path="/settings" component={Settings} />

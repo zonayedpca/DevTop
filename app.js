@@ -10,8 +10,7 @@ function isDev() {
   return process.mainModule.filename.indexOf('app.asar') === -1;
 }
 
-const currentClientDir = path.resolve('client');
-const WINDOW_URL = isDev() ? `http://localhost:3000` : 'currentClientDir/build/index.html';
+const WINDOW_URL = isDev() ? `http://localhost:3000` : `file://${__dirname}/client/build/index.html`;
 const iconName = process.platform === 'darwin' ? 'iconTemplate.png':'windows-icon.png';
 const iconPath = path.join(__dirname, `./src/assets/img/${iconName}`);
 
