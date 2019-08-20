@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FiPlus, FiTrash } from 'react-icons/fi';
 import { connect } from 'react-redux';
 
-import { createNewCode } from '../../../actions';
+import { getCode, createNewCode } from '../../../actions';
 
 class New extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class New extends Component {
 
   handleSubmit = type => {
     const { desc, data, enabled } = this.state;
-    const { options, createNewCode } = this.props;
+    const { options, getCode, createNewCode } = this.props;
     const { token } = options.github;
     const objectToSend = {
       description: desc,
@@ -42,7 +42,7 @@ class New extends Component {
       }
     });
     if(enabled) {
-      createNewCode(objectToSend, token);
+      createNewCode(objectToSend, token, getCode);
       this.setState({ desc: '', file: [Date.now()], data: {}, enabled: false });
     }
   }
@@ -116,4 +116,4 @@ class New extends Component {
   }
 }
 
-export default connect(({ options }) => ({ options }), { createNewCode })(New);
+export default connect(({ options }) => ({ options }), { getCode, createNewCode })(New);

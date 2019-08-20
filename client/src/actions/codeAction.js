@@ -30,15 +30,16 @@ export const getCode = (token, page) => {
   }
 }
 
-export const createNewCode = (object, token) => {
+export const createNewCode = (object, token, cb) => {
   return async dispatch => {
     try {
-      const { data } = await axios.post(`https://api.github.com/gists`, null, {
+      await axios.post(`https://api.github.com/gists`, null, {
         headers: {
           Authorization: `Bearer ${token}`
         },
         data: object
       });
+      cb(token, 1);
     } catch(err) {
       
     }
