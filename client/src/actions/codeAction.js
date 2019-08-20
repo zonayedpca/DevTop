@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
   GET_CODE_LOADING,
   GET_CODE,
-  GET_CODE_ERROR
+  GET_CODE_ERROR,
+  CREATE_CODE_ERROR
 } from './type';
 
 export const getCode = (token, page) => {
@@ -41,7 +42,9 @@ export const createNewCode = (object, token, cb) => {
       });
       cb(token, 1);
     } catch(err) {
-      
+      return {
+        type: CREATE_CODE_ERROR
+      }
     }
   }
 }

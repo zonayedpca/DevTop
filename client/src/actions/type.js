@@ -7,6 +7,7 @@ export const CLIPBOARD_REMOVE_ALL = 'clipboard_remove_all';
 export const GET_CODE_LOADING = 'get_code_loading';
 export const GET_CODE = 'get_code';
 export const GET_CODE_ERROR = 'get_code_error';
+export const CREATE_CODE_ERROR = 'create_code_error';
 
 // ShortLink Types
 export const GET_LINK_LOADING = 'get_link_loading';

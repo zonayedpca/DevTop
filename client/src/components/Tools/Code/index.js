@@ -30,7 +30,9 @@ class Code extends Component {
     const { page } = this.state;
     const { options, getCode } = this.props;
     const { token } = options.github;
-    getCode(token, page);
+    if(token) {
+      getCode(token, page);
+    }
   }
 
   renderAddNew = () => {
