@@ -16,6 +16,17 @@ class New extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    this.updateStatus();
+  }
+
+  updateStatus = () => {
+    const enabled = Object.keys(this.state.data).every(oneData => this.state.data[oneData].code);
+    if(this.state.enabled !== enabled) {
+      this.setState({ enabled });
+    }
+  }
+
   handleSubmit = type => {
     const { desc, data, enabled } = this.state;
     const { options, createNewCode } = this.props;
