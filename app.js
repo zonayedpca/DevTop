@@ -4,11 +4,9 @@ const path = require('path');
 const MainWindow = require('./src/module/MainWindow');
 const ApplicationTray = require('./src/module/ApplicationTray');
 
-const { clipboard, code, settings } = require('./src/service');
+const { clipboard, code } = require('./src/service');
 
-function isDev() {
-  return process.mainModule.filename.indexOf('app.asar') === -1;
-}
+const { isDev } = require('./src/utils');
 
 const WINDOW_URL = isDev() ? `http://localhost:3000` : `file://${__dirname}/client/build/index.html`;
 const iconName = process.platform === 'darwin' ? 'iconTemplate.png':'windows-icon.png';
@@ -24,10 +22,9 @@ app.on('ready', () => {
     frame: isDev() ? true : false,
     resizable: isDev() ? true : false,
     show: isDev() ? true : false,
-    webPreferences: { backgroundThrottling: false, nodeIntegration: true }
+    webPreferences: { devTools: isDev() ? true : false, backgroundThrottling: false, nodeIntegration: true }
   }, WINDOW_URL);
   tray = new ApplicationTray(iconPath, mainWindow);
   clipboard(mainWindow);
   code(mainWindow);
-  settings(mainWindow);
 })
