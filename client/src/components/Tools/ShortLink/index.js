@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FiRefreshCcw, FiPlus, FiArrowRightCircle, FiArrowLeftCircle } from 'react-icons/fi';
+import { FiRefreshCcw, FiPlus, FiArrowRightCircle, FiArrowLeftCircle, FiMinus } from 'react-icons/fi';
 
 import Content from './Content';
 import { Head, ShowBox } from '../../common';
@@ -89,8 +89,8 @@ class ShortLink extends Component {
       <div className="shortlink-area">
         <Head title="ShortLink">
           { token && <>
-            <li onClick={() => this.setState({ show: !show })} className="new"><FiPlus /></li>
-            <li className="refresh"><FiRefreshCcw /></li>
+            <li onClick={() => this.setState({ show: !show })} className="new">{ !show ? <FiPlus /> : <FiMinus /> }</li>
+            <li onClick={() => this.getLink()} className="refresh"><FiRefreshCcw /></li>
           </> }
         </Head>
         {show && <New />}
