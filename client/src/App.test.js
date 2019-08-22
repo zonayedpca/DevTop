@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+const App = () => {
+  return (
+    <div>
+      For Testing Purpose Only!
+    </div>
+  )
+}
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
