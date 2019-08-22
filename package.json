@@ -4,13 +4,17 @@
   "description": "DevTop - Essential Tools for Developers",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-client": "npm run test --prefix client -- --watchAll=false",
+    "test": "npm run test-client",
     "client": "npm start --prefix client",
     "build": "npm run build --prefix client",
     "electron": "electron .",
     "start": "concurrently \"npm run client\" \"npm run electron\"",
     "pack": "npm run build && electron-builder --dir",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder",
+    "dist-win32": "npm run build && electron-builder build --win --ia32",
+    "dist-win64": "npm run build && electron-builder build --win --x64",
+    "dist-linux": "npm run build && electron-builder build --linux"
   },
   "build": {
     "appId": "devtop.essential",
