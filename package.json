@@ -1,6 +1,6 @@
 {
   "name": "devtop",
-  "version": "1.0.0",
+  "version": "0.2.1",
   "description": "DevTop - Essential Tools for Developers",
   "main": "app.js",
   "scripts": {
@@ -10,9 +10,12 @@
     "build": "npm run build --prefix client",
     "electron": "electron .",
     "start": "concurrently \"npm run client\" \"npm run electron\"",
+    "v:major": "npm version major",
+    "v:minor": "npm version minor",
+    "v:patch": "npm version patch",
     "pack": "npm run build && electron-builder --dir",
     "dist": "npm run build && electron-builder",
-    "dist-win32": "npm run build && electron-builder build --win --ia32",
+    "dist-win32": "npm run build && electron-builder build --win --ia3",
     "dist-win64": "npm run build && electron-builder build --win --x64",
     "dist-linux": "npm run build && electron-builder build --linux"
   },
