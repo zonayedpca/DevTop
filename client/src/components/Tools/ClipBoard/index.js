@@ -26,15 +26,16 @@ class ClipBoard extends PureComponent {
     ipcRenderer.on('clipboard:pause', () => {
       this.setState({ enabled: false });
     });
-    // problem of memory leaks
     ipcRenderer.on('clipboard:play', () => {
       this.setState({ enabled: true });
     });
-    //
   }
 
-  componentWillUnmout() {
+  componentWillUnmount() {
     window.clearTimeout();
+    ipcRenderer.removeAllListeners('clipboard:play');
+    ipcRenderer.removeAllListeners('clipboard:pause');
+    ipcRenderer.removeAllListeners('clipboard:send');
   }
 
   controlInfoWindow = () => {
@@ -66,7 +67,7 @@ class ClipBoard extends PureComponent {
   }
 
   onPlay = () => {
-    ipcRenderer.send('clipboard:play')
+    ipcRenderer.send('clipboard:play');
   }
 
   renderContent() {
