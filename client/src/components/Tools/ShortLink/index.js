@@ -36,7 +36,8 @@ class ShortLink extends Component {
   }
 
   renderContent = () => {
-    const { shortlinks } = this.props;
+    const { options, shortlinks } = this.props;
+    const { token } = options.bitly;
     if(shortlinks.loading) {
       return (
         <ShowBox>
@@ -55,6 +56,7 @@ class ShortLink extends Component {
       return (
         <ShowBox>
           <p>Nothing to show!</p>
+          {!token && <p><small>Please add a Bilty token from the Settings</small></p>}
         </ShowBox>
       )
     }

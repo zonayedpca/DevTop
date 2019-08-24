@@ -44,7 +44,8 @@ class Code extends Component {
   }
 
   renderContent = () => {
-    const { codes } = this.props;
+    const { options, codes } = this.props;
+    const { token } = options.github;
     if(codes.loading) {
       return (
         <ShowBox>
@@ -63,6 +64,7 @@ class Code extends Component {
       return (
         <ShowBox>
           <p>Nothing to show!</p>
+          {!token && <p><small>Please, add a Github token from the Settings</small></p>}
         </ShowBox>
       )
     }
@@ -76,7 +78,7 @@ class Code extends Component {
   renderPagination = () => {
     const { page } = this.state;
     const { codes } = this.props;
-    if(!codes.loading && !codes.error) {
+    if(!codes.loading && !codes.error && codes.data.length) {
       return (
         <div className="nav">
           <ul>
