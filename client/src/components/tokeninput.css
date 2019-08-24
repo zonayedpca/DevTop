@@ -27,3 +27,14 @@
 .token-input button.disabled {
   cursor: not-allowed;
 }
+
+.token-input .info {
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.token-input .info.error {
+  color: #F44336;
+}

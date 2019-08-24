@@ -29,10 +29,13 @@ const Settings = ({ verifyGithubToken, verifyBitlyToken, resetTokens }) => {
         </Toolbar>
       </AppBar>
       <div className="content">
-        <TokenInput onSubmit={verifyGithubToken} name="GitHub" />
-        <TokenInput onSubmit={verifyBitlyToken} name="Bitly" />
+        <TokenInput onSubmit={verifyGithubToken} name="GitHub" instruction="Generate a personal access token from GitHub. This access token should have the scope to 'Create Gists'" />
+        <TokenInput onSubmit={verifyBitlyToken} name="Bitly" instruction="Genrate a Generic Access token from Bitly" />
         <div className="aciton">
           <button onClick={() => resetTokens()} className="btn-reset">Reset</button>
+        </div>
+        <div className="privacy">
+          <p><strong>We don't store any of these keys. Everything is done locally. Thus your information is kept safe.</strong></p>
         </div>
       </div>
     </div>

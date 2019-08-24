@@ -1,7 +1,8 @@
 import {
   TOKEN_RIGHT,
   TOKEN_WRONG,
-  TOKEN_RESET
+  TOKEN_RESET,
+  TOKEN_LOADING
 } from './type';
 
 import axios from 'axios';
@@ -40,6 +41,12 @@ export const getLocalAuth = () => {
 
 export const verifyGithubToken = token => {
   return async dispatch => {
+    dispatch({
+      type: TOKEN_LOADING,
+      payload: {
+        name: 'github'
+      }
+    });
     try {
       const { data } = await axios(`${GITHUB_LINK}/gists`, {
         headers: {
@@ -70,6 +77,12 @@ export const verifyGithubToken = token => {
 
 export const verifyBitlyToken = token => {
   return async dispatch => {
+    dispatch({
+      type: TOKEN_LOADING,
+      payload: {
+        name: 'bitly'
+      }
+    });
     try {
       const { data } = await axios(`${BITLY_LINK}/user`, {
         headers: {
