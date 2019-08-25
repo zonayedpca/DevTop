@@ -2,6 +2,10 @@ language: node_js
 os: 
   - linux
   - windows
+matrix:
+  fast_finish: true
+  allow_failures:
+    - os: windows
 cache:
   directories:
     - node_modules
