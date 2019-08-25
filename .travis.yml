@@ -10,5 +10,3 @@ cache:
     - node_modules
 before_install: 
   - npm run install:client
-after_success:
-  - npm test
