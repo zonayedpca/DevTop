@@ -8,8 +8,8 @@
     "test": "npm run test-client",
     "client": "npm start --prefix client",
     "build": "npm run build --prefix client",
-    "electron": "electron .",
-    "start": "concurrently \"npm run client\" \"npm run electron\"",
+    "electron": "nodemon --watch * --exec \"electron .\"",
+    "start": "concurrently --kill-others \"npm run client\" \"npm run electron\"",
     "v:major": "npm version major",
     "v:minor": "npm version minor",
     "v:patch": "npm version patch",
@@ -45,6 +45,7 @@
   "devDependencies": {
     "concurrently": "^4.1.0",
     "electron": "^5.0.2",
-    "electron-builder": "^20.40.2"
+    "electron-builder": "^20.40.2",
+    "nodemon": "^1.19.1"
   }
 }
