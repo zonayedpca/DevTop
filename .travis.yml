@@ -1,7 +1,7 @@
 language: node_js
-os: windows
-node_js:
-  - 'stable'
+os: 
+  - linux
+  - windows
 cache:
   directories:
     - node_modules
