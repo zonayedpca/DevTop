@@ -6,6 +6,5 @@ cache:
     - node_modules
 before_install: 
   - npm run install:client
-script:
+after_success:
   - npm test
-  - npm run pack
