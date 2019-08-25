@@ -4,6 +4,7 @@
   "description": "DevTop - Essential Tools for Developers",
   "main": "app.js",
   "scripts": {
+    "install:client": "npm install --prefix client",
     "test-client": "npm run test --prefix client -- --watchAll=false",
     "test": "npm run test-client",
     "client": "npm start --prefix client",
