@@ -4,7 +4,8 @@ os:
   - osx
   - windows
 node_js:
-  - 'stable'
+  - if [ "$TRAVIS_OS_NAME" != "windows" ]; then 'stable'; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then 'node'; fi
 cache:
   directories:
     - node_modules
