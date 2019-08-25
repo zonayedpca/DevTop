@@ -10,14 +10,10 @@
     "build": "npm run build --prefix client",
     "electron": "nodemon --watch * --exec \"electron .\"",
     "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:3000 && npm run electron\"",
-    "v:major": "npm version major",
-    "v:minor": "npm version minor",
-    "v:patch": "npm version patch",
-    "pack": "npm run build && electron-builder --dir",
-    "dist": "npm run build && electron-builder",
-    "dist-win32": "npm run build && electron-builder build --win --ia3",
-    "dist-win64": "npm run build && electron-builder build --win --x64",
-    "dist-linux": "npm run build && electron-builder build --linux"
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch",
+    "pack": "npm run build && electron-builder"
   },
   "build": {
     "appId": "devtop.essential",
