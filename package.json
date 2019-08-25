@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "build": "npm run build --prefix client",
     "electron": "nodemon --watch * --exec \"electron .\"",
-    "start": "concurrently --kill-others \"npm run client\" \"npm run electron\"",
+    "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:3000 && npm run electron\"",
     "v:major": "npm version major",
     "v:minor": "npm version minor",
     "v:patch": "npm version patch",
@@ -46,6 +46,7 @@
     "concurrently": "^4.1.0",
     "electron": "^5.0.2",
     "electron-builder": "^20.40.2",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "wait-on": "^3.3.0"
   }
 }
