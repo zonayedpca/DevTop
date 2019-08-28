@@ -15,6 +15,7 @@ export const CREATE_CODE_ERROR = 'create_code_error';
 export const GET_LINK_LOADING = 'get_link_loading';
 export const GET_LINK = 'get_link';
 export const GET_LINK_ERROR = 'get_link_error';
+export const SET_NEW_INPUT = 'set_new_input';
 export const CREATE_LINK_LOADING = 'CREATE_LINK_LOADING';
 export const CREATE_LINK_SUCCESS = 'CREATE_LINK_SUCCESS';
 export const CREATE_LINK_ERROR = 'CREATE_LINK_ERROR';

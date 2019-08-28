@@ -4,7 +4,9 @@ import {
   GET_LINK_LOADING,
   GET_LINK,
   GET_LINK_ERROR,
-  CREATE_LINK_ERROR
+  CREATE_LINK_ERROR,
+  SET_NEW_INPUT,
+  CREATE_LINK_SUCCESS
 } from './type';
 
 const API_LINK = `https://api-ssl.bitly.com/v4`;
@@ -33,10 +35,17 @@ export const getLink = (token, id, page) => {
   }
 }
 
-export const createNewLink = (link, cb, { token, id }) => {
+export const handleInput = text => {
+  return {
+    type: SET_NEW_INPUT,
+    payload: text
+  }
+}
+
+export const createNewLink = (link, { token, id }) => {
   return async dispatch => {
     try {
-      await axios.post(`${API_LINK}/bitlinks`, null, {
+      const { data } = await axios.post(`${API_LINK}/bitlinks`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -45,11 +54,15 @@ export const createNewLink = (link, cb, { token, id }) => {
           long_url: link
         }
       });
-      cb(token, id, 1);
+      return dispatch({
+        type: CREATE_LINK_SUCCESS,
+        payload: data
+      });
     } catch(err) {
       return dispatch({
-        type: CREATE_LINK_ERROR
-      })
+        type: CREATE_LINK_ERROR,
+        payload: err.message || 'Something Went Wrong! Try Again.'
+      });
     }
   }
 }
