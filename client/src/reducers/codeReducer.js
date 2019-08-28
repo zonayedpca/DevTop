@@ -1,12 +1,23 @@
 import {
   GET_CODE_LOADING,
   GET_CODE,
-  GET_CODE_ERROR
+  SET_NEW_CODE,
+  GET_CODE_ERROR,
+  CREATE_CODE_ERROR,
+  CREATE_CODE_SUCCESS
 } from '../actions/type';
 
+const INITIAL_INPUT = {
+  desc: '',
+  file: [Date.now()],
+  data: {[Date.now()]: { name: '', code: '' }}
+};
+
 const INITIAL_STATE = {
-  data: []
-}
+  input: INITIAL_INPUT,
+  data: [],
+  loading: false
+};
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -14,8 +25,18 @@ export default (state = INITIAL_STATE, action) => {
       return { ...INITIAL_STATE, loading: true }
     case GET_CODE:
       return { ...state, data: action.payload, loading: false };
+    case SET_NEW_CODE:
+      let newInputs = state.input;
+      newInputs = { ...newInputs, ...action.payload };
+      return { ...state, input: newInputs }
     case GET_CODE_ERROR:
       return { ...INITIAL_STATE, loading: false, error: action.payload  }
+    case CREATE_CODE_ERROR:
+      return { ...state };
+    case CREATE_CODE_SUCCESS:
+      let newData = state.data;
+      newData = [action.payload, ...newData];
+      return { ...state, data: newData, input: INITIAL_INPUT };
     default:
       return state;
   }

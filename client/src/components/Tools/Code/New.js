@@ -2,18 +2,11 @@ import React, { Component } from 'react';
 import { FiPlus, FiTrash } from 'react-icons/fi';
 import { connect } from 'react-redux';
 
-import { getCode, createNewCode } from '../../../actions';
+import { getCode, createNewCode, handleNewInput } from '../../../actions';
 
 class New extends Component {
-  constructor(props) {
-    super(props);
-    const id = Date.now();
-    this.state = {
-      desc: '',
-      file: [id],
-      data: {[id]: { name: '', code: '' }},
-      enabled: false
-    }
+  state = {
+    enabled: false
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -21,15 +14,18 @@ class New extends Component {
   }
 
   updateStatus = () => {
-    const enabled = Object.keys(this.state.data).every(oneData => this.state.data[oneData].code);
+    const { codes } = this.props;
+    const { input } = codes;
+    const enabled = Object.keys(input.data).every(oneData => input.data[oneData].code);
     if(this.state.enabled !== enabled) {
       this.setState({ enabled });
     }
   }
 
   handleSubmit = type => {
-    const { desc, data, enabled } = this.state;
-    const { options, getCode, createNewCode } = this.props;
+    const { enabled } = this.state;
+    const { options, codes, createNewCode } = this.props;
+    const { desc, data } = codes.input;
     const { token } = options.github;
     const objectToSend = {
       description: desc,
@@ -42,26 +38,29 @@ class New extends Component {
       }
     });
     if(enabled) {
-      createNewCode(objectToSend, token, getCode);
-      this.setState({ desc: '', file: [Date.now()], data: {}, enabled: false });
+      createNewCode(objectToSend, token);
+      this.setState({ enabled: false });
     }
   }
 
   handleNewFile = () => {
-    const { file, data } = this.state;
+    const { codes, handleNewInput } = this.props;
+    const { file, data } = codes.input;
     const id = Date.now();
-    this.setState({ file: [...file, id], data: { ...data, [id]: { name: '', code: '' } } })
+    handleNewInput({ file: [...file, id], data: { ...data, [id]: { name: '', code: '' } } });
   }
 
   handleInput = (e, file, type) => {
-    const { data } = this.state;
+    const { codes, handleNewInput } = this.props;
+    const { data } = codes.input;
     let prevData = data[file];
-    prevData = { ...data[file], [type]: e.target.value }
-    this.setState({ data: { ...data, [file]: prevData } });
+    prevData = { ...data[file], [type]: e.target.value };
+    handleNewInput({ data: { ...data, [file]: prevData } });
   }
 
   handleRemoveFile = fileno => {
-    const { file, data } = this.state;
+    const { codes, handleNewInput } = this.props;
+    const { file, data } = codes.input;
     const newFile = file.filter(one => one !== fileno);
     let newData = data;
     if(data[fileno]) {
@@ -73,15 +72,17 @@ class New extends Component {
       });
       newData = newObject;
     }
-    this.setState({ file: newFile, data: newData });
+    handleNewInput({ file: newFile, data: newData });
   }
 
   renderForm = () => {
-    const { desc, file, data, enabled } = this.state;
+    const { enabled } = this.state;
+    const { codes, handleNewInput } = this.props;
+    const { desc, file, data } = codes.input;
     return (
       <React.Fragment>
         <div className="code-new-desc">
-          <input value={desc} onChange={(e) => this.setState({ desc: e.target.value })} name="desc" placeholder="Gist Description" />
+          <input value={desc} onChange={(e) => handleNewInput({ desc: e.target.value })} name="desc" placeholder="Gist Description" />
         </div>
         <div className="code-new-files">
           {file.map(every => (
@@ -116,4 +117,4 @@ class New extends Component {
   }
 }
 
-export default connect(({ options }) => ({ options }), { getCode, createNewCode })(New);
+export default connect(({ options, codes }) => ({ options, codes }), { getCode, createNewCode, handleNewInput })(New);

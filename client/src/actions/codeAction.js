@@ -4,7 +4,9 @@ import {
   GET_CODE_LOADING,
   GET_CODE,
   GET_CODE_ERROR,
-  CREATE_CODE_ERROR
+  SET_NEW_CODE,
+  CREATE_CODE_ERROR,
+  CREATE_CODE_SUCCESS
 } from './type';
 
 export const getCode = (token, page) => {
@@ -31,16 +33,26 @@ export const getCode = (token, page) => {
   }
 }
 
-export const createNewCode = (object, token, cb) => {
+export const handleNewInput = data => {
+  return {
+    type: SET_NEW_CODE,
+    payload: data
+  }
+}
+
+export const createNewCode = (object, token) => {
   return async dispatch => {
     try {
-      await axios.post(`https://api.github.com/gists`, null, {
+      const { data } = await axios.post(`https://api.github.com/gists`, null, {
         headers: {
           Authorization: `Bearer ${token}`
         },
         data: object
       });
-      cb(token, 1);
+      return dispatch({
+        type: CREATE_CODE_SUCCESS,
+        payload: data
+      })
     } catch(err) {
       return {
         type: CREATE_CODE_ERROR
