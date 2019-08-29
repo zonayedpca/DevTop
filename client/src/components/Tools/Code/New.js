@@ -78,7 +78,7 @@ class New extends Component {
   renderForm = () => {
     const { enabled } = this.state;
     const { codes, handleNewInput } = this.props;
-    const { desc, file, data } = codes.input;
+    const { desc, file, data, error } = codes.input;
     return (
       <React.Fragment>
         <div className="code-new-desc">
@@ -103,6 +103,7 @@ class New extends Component {
             <button className={`code-btn-secret ${!enabled && `btn-disabled`}`} onClick={this.handleSubmit.bind(this, 'secret')}>Secret</button>
             <button className={`code-btn-public ${!enabled && `btn-disabled`}`} onClick={this.handleSubmit.bind(this, 'public')}>Public</button>
           </div>
+          {error && <p className="alert error">{error}</p>}
         </div>
       </React.Fragment>
     )

@@ -54,9 +54,10 @@ export const createNewCode = (object, token) => {
         payload: data
       })
     } catch(err) {
-      return {
-        type: CREATE_CODE_ERROR
-      }
+      return dispatch({
+        type: CREATE_CODE_ERROR,
+        payload: err ? (err.response ? err.response.data.message : err.message) : 'Something went wrong! Please, Try Again...'
+      })
     }
   }
 }

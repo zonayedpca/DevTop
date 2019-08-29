@@ -61,7 +61,7 @@ export const createNewLink = (link, { token, id }) => {
     } catch(err) {
       return dispatch({
         type: CREATE_LINK_ERROR,
-        payload: err.message || 'Something Went Wrong! Try Again.'
+        payload: err ? (err.response ? err.response.data.description : err.message) : 'Something Went Wrong! Try Again...'
       });
     }
   }

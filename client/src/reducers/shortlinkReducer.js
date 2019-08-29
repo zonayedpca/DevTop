@@ -4,12 +4,14 @@ import {
   GET_LINK_ERROR,
   CREATE_LINK_SUCCESS,
   SET_NEW_INPUT,
-  CREATE_CODE_ERROR
+  CREATE_CODE_ERROR,
+  CREATE_LINK_ERROR
 } from '../actions/type';
 
 const INITIAL_STATE = {
   input: {
-    text: ''
+    text: '',
+    error: ''
   },
   data: [],
   error: ''
@@ -30,9 +32,9 @@ export default (state = INITIAL_STATE, action) => {
       let newLinks = newData.links;
       newLinks = [action.payload, ...newLinks];
       newData.links = newLinks;
-      return { ...state, input: { text: '' }, data: newData };
-    case CREATE_CODE_ERROR:
-      return { ...state, error: action.payload };
+      return { ...state, input: { text: '', error: '' }, data: newData };
+    case CREATE_LINK_ERROR:
+      return { ...state, input: { text: state.input.text, error: action.payload } };
     default:
       return state;
   }

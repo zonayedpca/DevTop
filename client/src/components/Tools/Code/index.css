@@ -212,3 +212,17 @@
 .code-new-action div button {
   margin-left: 5px;
 }
+
+p.alert.error {
+  background: #F44336;
+}
+
+p.alert {
+  width: 100%;
+  text-align: center;
+  padding: 5px 10px;
+  margin-top: 15px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+}
