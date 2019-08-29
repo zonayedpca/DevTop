@@ -4,7 +4,6 @@ import {
   GET_LINK_ERROR,
   CREATE_LINK_SUCCESS,
   SET_NEW_INPUT,
-  CREATE_CODE_ERROR,
   CREATE_LINK_ERROR
 } from '../actions/type';
 
