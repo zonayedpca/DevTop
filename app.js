@@ -1,6 +1,8 @@
 const { app } = require('electron');
 const path = require('path');
 
+const { setScreenSize } = require('./src/config');
+
 const MainWindow = require('./src/module/MainWindow');
 const ApplicationTray = require('./src/module/ApplicationTray');
 
@@ -16,6 +18,7 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
+  setScreenSize();
   mainWindow = new MainWindow({
     height: 420,
     width: 360,
