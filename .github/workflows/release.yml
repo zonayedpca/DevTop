@@ -9,13 +9,21 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - uses: actions/checkout@master
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        version: ${{ matrix.node_version }}
+        
+    - uses: actions/checkout@master
+    - name: Package Build
+      run: |
+        npm install
+        npm run install:client
+        npm run pack
+        
     - name: Create a Release
       uses: elgohr/Github-Release-Action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: MyReleaseMessage
-      run: |
-        npm install
-        npm run install:client
-        npm run pack
