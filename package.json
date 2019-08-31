@@ -45,6 +45,7 @@
     "electron-builder": "^20.40.2",
     "eslint": "^6.3.0",
     "nodemon": "^1.19.1",
+    "prettier": "1.18.2",
     "wait-on": "^3.3.0"
   }
 }
