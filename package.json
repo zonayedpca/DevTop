@@ -43,6 +43,7 @@
     "concurrently": "^4.1.0",
     "electron": "^5.0.2",
     "electron-builder": "^20.40.2",
+    "eslint": "^6.3.0",
     "nodemon": "^1.19.1",
     "wait-on": "^3.3.0"
   }
