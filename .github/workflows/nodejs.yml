@@ -21,3 +21,4 @@ jobs:
         npm install
         npm run install:client
         npm test
+        npm run pack
