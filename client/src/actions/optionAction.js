@@ -1,11 +1,11 @@
+import axios from 'axios';
+
 import {
   TOKEN_RIGHT,
   TOKEN_WRONG,
   TOKEN_RESET,
   TOKEN_LOADING
 } from './type';
-
-import axios from 'axios';
 
 import { getLocalStorageData, setLocalStorageData, unSetLocalStorageData } from '../utils';
 

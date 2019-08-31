@@ -13,10 +13,6 @@
   border-top-right-radius: 4px;
 }
 
-.bookmark-add form input[name=link] {
-
-}
-
 .bookmark-add form button {
   border-top: none;
   border-bottom-left-radius: 4px;

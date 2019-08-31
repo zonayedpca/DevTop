@@ -13,7 +13,6 @@ class Add extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { name, link } = this.state;
     const regex= /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/g;
-    // const regex= /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/g;
     const validLink = regex.test(link)
     if(name !== prevState.name || link !== prevState.link) {
       if(name && link && validLink) {
