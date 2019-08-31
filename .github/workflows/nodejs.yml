@@ -21,5 +21,7 @@ jobs:
       run:
         npm install
         npm run pack
+    - name: Upload to Release
+      uses: JasonEtco/upload-to-release@v0.1.1
       env:
         CI: true
