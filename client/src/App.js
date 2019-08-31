@@ -10,18 +10,21 @@ import Settings from './components/Settings';
 import { getLocalAuth } from './actions';
 
 function App({ getLocalAuth }) {
-  useEffect(() => {
-    getLocalAuth();
-  })
+    useEffect(() => {
+        getLocalAuth();
+    });
 
-  return (
-    <Router basename={window.location.href}>
-      <div className="App">
-        <Route exact path="/" component={MenuTab} />
-        <Route exact path="/settings" component={Settings} />
-      </div>
-    </Router>
-  );
+    return (
+        <Router basename={window.location.href}>
+            <div className="App">
+                <Route exact path="/" component={MenuTab} />
+                <Route exact path="/settings" component={Settings} />
+            </div>
+        </Router>
+    );
 }
 
-export default connect(null, { getLocalAuth })(App);
+export default connect(
+    null,
+    { getLocalAuth }
+)(App);
