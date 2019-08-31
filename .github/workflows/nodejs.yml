@@ -16,7 +16,7 @@ jobs:
       with:
         version: ${{ matrix.node_version }}
 
-    - name: Package Install & Test
+    - name: Package Install And Test
       run:
         npm install
         npm run install:client
