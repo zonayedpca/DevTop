@@ -1,27 +1,14 @@
-name: Node CI
+name: Release
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: windows-latest
-
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
-
+        node-version: [10.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: build pack
+    - name: Testing the Application
       run:
-        npm install
-        npm run pack
-    - name: Upload to Release
-      uses: JasonEtco/upload-to-release@v0.1.1
-      env:
-        CI: true
+        npm run test
