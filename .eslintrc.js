@@ -6,6 +6,8 @@ module.exports = {
 	},
 	'extends': 'eslint:recommended',
 	'globals': {
+		'process': true,
+		'__dirname': true,
 		'Atomics': 'readonly',
 		'SharedArrayBuffer': 'readonly'
 	},
@@ -14,8 +16,8 @@ module.exports = {
 	},
 	'rules': {
 		'indent': [
-			'warning',
-			'tab'
+			2,
+			4
 		],
 		'linebreak-style': [
 			'error',

@@ -1,1 +1,1 @@
-module.exports = () => global.process.mainModule.filename.indexOf('app.asar') === -1;
+module.exports = () => process.mainModule.filename.indexOf('app.asar') === -1;

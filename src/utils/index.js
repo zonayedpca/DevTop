@@ -4,4 +4,4 @@ const getPosition = require('./getPosition');
 module.exports = {
     isDev,
     getPosition
-}
+};
