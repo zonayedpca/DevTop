@@ -22,11 +22,39 @@
             "category": "devtop.essential",
             "publish": [
                 "github"
+            ],
+            "target": [
+                "default",
+                "dmg",
+                "mas",
+                "mas-dev",
+                "pkg",
+                "7z",
+                "zip",
+                "tar.xz",
+                "tar.lz",
+                "tar.gz",
+                "tar.bz2",
+                "dir"
             ]
         },
         "win": {
             "publish": [
                 "github"
+            ],
+            "target": [
+                "nsis",
+                "nsis-web",
+                "portable",
+                "appx",
+                "msi",
+                "7z",
+                "zip",
+                "tar.xz",
+                "tar.lz",
+                "tar.gz",
+                "tar.bz2",
+                "dir"
             ]
         },
         "linux": {
