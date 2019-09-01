@@ -1,6 +1,6 @@
 {
     "name": "devtop",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "DevTop - Essential Tools for Developers",
     "main": "app.js",
     "scripts": {
@@ -14,7 +14,7 @@
         "version:major": "npm version major",
         "version:minor": "npm version minor",
         "version:patch": "npm version patch",
-        "pack": "npm run build && electron-builder"
+        "pack": "npm run build && electron-builder -p always"
     },
     "build": {
         "appId": "devtop.essential",
