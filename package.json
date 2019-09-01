@@ -1,6 +1,6 @@
 {
     "name": "devtop",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "DevTop - Essential Tools for Developers",
     "main": "app.js",
     "scripts": {
@@ -21,14 +21,12 @@
         "mac": {
             "category": "devtop.essential",
             "publish": [
-                "github",
-                "bintray"
+                "github"
             ]
         },
         "win": {
             "publish": [
-                "github",
-                "bintray"
+                "github"
             ]
         }
     },
