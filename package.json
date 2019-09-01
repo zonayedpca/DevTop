@@ -1,6 +1,6 @@
 {
     "name": "devtop",
-    "version": "0.5.0",
+    "version": "0.4.0",
     "description": "DevTop - Essential Tools for Developers",
     "main": "app.js",
     "scripts": {
@@ -29,34 +29,26 @@
                 "github"
             ]
         },
-        "dmg": {
-            "publish": [
-                "github"
-            ]
-        },
-        "nsis": {
-            "publish": [
-                "github"
-            ]
-        },
         "linux": {
             "publish": [
                 "github"
-            ]
-        },
-        "portable": {
-            "publish": [
-                "github"
-            ]
-        },
-        "deb": {
-            "publish": [
-                "github"
-            ]
-        },
-        "rpm": {
-            "publish": [
-                "github"
+            ],
+            "target": [
+                "AppImage",
+                "snap",
+                "deb",
+                "rpm",
+                "freebsd",
+                "pacman",
+                "p5p",
+                "apk",
+                "7z",
+                "zip",
+                "tar.xz",
+                "tar.lz",
+                "tar.gz",
+                "tar.bz2",
+                "dir"
             ]
         }
     },
