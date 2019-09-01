@@ -28,6 +28,36 @@
             "publish": [
                 "github"
             ]
+        },
+        "dmg": {
+            "publish": [
+                "github"
+            ]
+        },
+        "nsis": {
+            "publish": [
+                "github"
+            ]
+        },
+        "linux": {
+            "publish": [
+                "github"
+            ]
+        },
+        "portable": {
+            "publish": [
+                "github"
+            ]
+        },
+        "deb": {
+            "publish": [
+                "github"
+            ]
+        },
+        "rpm": {
+            "publish": [
+                "github"
+            ]
         }
     },
     "repository": {
