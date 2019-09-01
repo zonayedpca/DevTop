@@ -9,3 +9,4 @@ cache:
         - node_modules
 before_install:
     - npm run install:client
+    - npm run pack
