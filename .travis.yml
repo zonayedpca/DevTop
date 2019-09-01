@@ -9,14 +9,3 @@ cache:
         - node_modules
 before_install:
     - npm run install:client
-after_success:
-    - npm run pack
-deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: $GH_TOKEN
-    local_dir: dist
-    target-branch: release
-    keep-history: true
-    on:
-        branch: master
