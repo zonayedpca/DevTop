@@ -32,21 +32,21 @@ mac:
 #       path: "/Applications"
 
 # Windows configuration
-# win:
-# icon: "src/app/assets/images/icon.ico"
-# target:
-# - 'nsis'
-# - 'nsis-web'
-# - 'portable'
-# - 'appx'
-# - 'msi'
-# - '7z'
-# - 'zip'
-# - 'tar.xz'
-# - 'tar.lz'
-# - 'tar.gz'
-# - 'tar.bz2'
-# publish: ['github']
+win:
+    # icon: "src/app/assets/images/icon.ico"
+    target:
+        - 'nsis'
+        - 'nsis-web'
+        - 'portable'
+        - 'appx'
+        - 'msi'
+        - '7z'
+        - 'zip'
+        - 'tar.xz'
+        - 'tar.lz'
+        - 'tar.gz'
+        - 'tar.bz2'
+    publish: ['github']
 
 # Config for the windows installer
 nsis:
