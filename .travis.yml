@@ -1,11 +1,8 @@
 language: node_js
 matrix:
-  include:
-    - os: linux
-    - os: osx
-    - os: windows
-  allow_failures:
-    - os: windows
+    include:
+        - os: linux
+        - os: osx
 node_js:
     - 8
 cache:
@@ -13,6 +10,5 @@ cache:
         - node_modules
 before_install:
     - npm run install:client
-script:
-    - if [ "$TRAVIS_OS_NAME" != "windows" ]; then npm test          ; fi
+after_success:
     - npm run pack
