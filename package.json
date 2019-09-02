@@ -1,5 +1,6 @@
 {
     "name": "devtop",
+    "email": "contact@zonayed.me",
     "version": "0.3.0",
     "description": "DevTop - Essential Tools for Developers",
     "main": "app.js",
