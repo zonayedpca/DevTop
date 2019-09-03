@@ -7,6 +7,7 @@ asar: true
 # Mac OS configuration
 mac:
     # icon: "src/app/assets/images/icon.icns"
+    identity: null
     target:
         # - 'default'
         - 'dmg'
@@ -35,10 +36,10 @@ mac:
 win:
     # icon: "src/app/assets/images/icon.ico"
     target:
-        - 'nsis'
-        - 'nsis-web'
-        - 'portable'
-        - 'appx'
+        # - 'nsis'
+        # - 'nsis-web'
+        # - 'portable'
+        # - 'appx'
         - 'msi'
         # - '7z'
         - 'zip'
@@ -58,17 +59,17 @@ linux:
     category: Development
     target:
         - 'AppImage'
-        - 'snap'
-        - 'deb'
-        - 'rpm'
-        - 'freebsd'
-        - 'pacman'
-        - 'p5p'
-        - 'apk'
+        # - 'snap'
+        # - 'deb'
+        # - 'rpm'
+        # - 'freebsd'
+        # - 'pacman'
+        # - 'p5p'
+        # - 'apk'
         - '7z'
         - 'zip'
-        - 'tar.xz'
+        # - 'tar.xz'
         # - 'tar.lz'
-        - 'tar.gz'
-        - 'tar.bz2'
+        # - 'tar.gz'
+        # - 'tar.bz2'
     publish: ['github']
