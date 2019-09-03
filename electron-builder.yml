@@ -6,7 +6,7 @@ asar: true
 
 # Mac OS configuration
 mac:
-    # icon: "src/app/assets/images/icon.icns"
+    icon: "src/assets/img/iconTemplate.png"
     identity: null
     target:
         - 'dmg'
@@ -20,25 +20,16 @@ win:
     target:
         - 'nsis'
         - 'portable'
-        # - 'msi'
         - 'zip'
     publish: ['github']
 
 # Linux configuration
 linux:
+    icon: "src/assets/img/iconTemplate.png"
     target:
         - 'AppImage'
-        # - 'snap'
-        # - 'deb'
-        # - 'rpm'
-        # - 'freebsd'
-        # - 'pacman'
-        # - 'p5p'
-        # - 'apk'
-        # - '7z'
-        # - 'zip'
-        # - 'tar.xz'
-        # - 'tar.lz'
+        - 'deb'
+        - 'rpm'
+        - 'zip'
         - 'tar.gz'
-        # - 'tar.bz2'
     publish: ['github']
