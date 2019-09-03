@@ -20,7 +20,7 @@ win:
         - 'nsis'
         - 'portable'
         - 'zip'
-    # publish: ['github']
+    publish: ['github']
 
 # Linux configuration
 linux:
