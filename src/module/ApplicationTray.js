@@ -13,21 +13,34 @@ class ApplicationTray extends Tray {
 
     onClick() {
         const { setX, setY } = getPosition(this, this.mainWindow);
-        this.mainWindow.isVisible() ? this.mainWindow.hide() : this.mainWindow.show();
+        this.mainWindow.isVisible()
+            ? this.mainWindow.hide()
+            : this.mainWindow.show();
         this.mainWindow.setBounds({
             x: setX,
-            y: setY
+            y: setY,
         });
     }
 
     onRightClick() {
         const menuConfig = Menu.buildFromTemplate([
             {
+                label: 'DevTop',
+            },
+            {
+                label: 'Check for Updates',
+            },
+            {
+                label: 'Start on Startup',
+                type: 'radio',
+                checked: true,
+            },
+            {
                 label: 'Quit',
                 click: () => {
                     app.quit();
-                }
-            }
+                },
+            },
         ]);
         this.popUpContextMenu(menuConfig);
     }
