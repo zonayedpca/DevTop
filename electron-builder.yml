@@ -12,7 +12,7 @@ mac:
         # - 'default'
         - 'dmg'
         - 'mas'
-        - 'mas-dev'
+        # - 'mas-dev'
         - 'pkg'
         # - '7z'
         - 'zip'
@@ -36,13 +36,13 @@ mac:
 win:
     # icon: "src/app/assets/images/icon.ico"
     target:
-        # - 'nsis'
-        # - 'nsis-web'
+        - 'nsis'
+        - 'nsis-web'
         # - 'portable'
-        # - 'appx'
+        - 'appx'
         - 'msi'
         # - '7z'
-        - 'zip'
+        # - 'zip'
         # - 'tar.xz'
         # - 'tar.lz'
         # - 'tar.gz'
