@@ -6,7 +6,6 @@ asar: true
 
 # Mac OS configuration
 mac:
-    icon: "src/assets/img/iconTemplate.png"
     identity: null
     target:
         - 'dmg'
@@ -16,7 +15,7 @@ mac:
 
 # Windows configuration
 win:
-    icon: "src/assets/img/windows-icon.png"
+    icon: 'src/assets/img/windows-icon.png'
     target:
         - 'nsis'
         - 'portable'
@@ -25,10 +24,10 @@ win:
 
 # Linux configuration
 linux:
-    icon: "src/assets/img/iconTemplate.png"
+    icon: 'src/assets/img/iconTemplate.png'
     target:
         - 'AppImage'
-        - 'deb'
+        # - 'deb'
         - 'rpm'
         - 'zip'
         - 'tar.gz'
