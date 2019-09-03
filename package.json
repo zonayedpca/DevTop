@@ -1,9 +1,12 @@
 {
     "name": "devtop",
-    "email": "contact@zonayed.me",
     "version": "0.3.0",
     "description": "DevTop - Essential Tools for Developers",
     "main": "app.js",
+    "author": {
+      "name": "Zonayed Ahmed",
+      "email": "contact@zonayed.me"
+    },
     "scripts": {
         "install:client": "cd client && npm install",
         "test-client": "npm run test --prefix client -- --watchAll=false",
