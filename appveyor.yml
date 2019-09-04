@@ -1,7 +1,12 @@
 image: Visual Studio 2017
 
+branches:
+    only:
+        - master
+
 platform:
     - x64
+    - x86
 
 cache:
     - node_modules
@@ -11,11 +16,18 @@ init:
     - git config --global core.autocrlf input
 
 install:
-    - ps: Install-Product node 8 x64
-    - yarn run install:client
+    - ps: Install-Product node 8 $env:platform
     - yarn install
 
+build: off
+
+test_script:
+    - yarn test
+
 build_script:
+    - ''
+
+deploy_script:
     - yarn run pack
 
 test: on
