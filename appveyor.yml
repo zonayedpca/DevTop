@@ -26,4 +26,7 @@ test_script:
 build_script:
     - ''
 
+deploy_script:
+    - yarn run pack
+
 test: on
