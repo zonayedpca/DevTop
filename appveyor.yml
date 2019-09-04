@@ -16,9 +16,6 @@ install:
     - ps: Install-Product node 8 x64
     - yarn install
 
-test_script:
-    - yarn test
-
 deploy_script:
     - yarn run pack
 
