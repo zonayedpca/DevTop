@@ -14,7 +14,6 @@ init:
 
 install:
     - ps: Install-Product node 8 x64
-    - yarn run install:client
     - yarn install
 
 build_script:
