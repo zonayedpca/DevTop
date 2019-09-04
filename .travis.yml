@@ -8,7 +8,8 @@ node_js:
 cache:
     directories:
         - node_modules
-before_install:
-    - npm run install:client
-after_success:
-    - npm run pack
+deploy:
+    provider: script
+    script: npm run pack
+    on:
+        branch: master
