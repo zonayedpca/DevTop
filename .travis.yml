@@ -10,8 +10,4 @@ cache:
         - node_modules
 after_success:
     - if [ "$TRAVIS_BRANCH" == "master" ]; then npm run pack fi
-deploy:
-    provider: script
-    script: npm run pack
-    on:
-        branch: master
+    - if [ $TRAVIS_BRANCH == "master" ]; then npm run pack; fi
