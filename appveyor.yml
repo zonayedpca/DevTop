@@ -1,6 +1,8 @@
 image: Visual Studio 2017
 
-skip_tags: true
+branches:
+    only:
+        - master
 
 platform:
     - x64
@@ -18,10 +20,10 @@ install:
 
 build: off
 
-build_script:
+test_script:
     - yarn test
 
-deploy_script:
+build_script:
     - yarn run pack
 
 test: on
