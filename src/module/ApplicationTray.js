@@ -81,16 +81,14 @@ class ApplicationTray extends Tray {
             new MenuItem({
                 label: 'Check for Updates',
                 type: 'checkbox',
-                // checked: this.status,
                 click: () => {
-                    // this.status = !this.status;
                     const dialogOpts = {
                         type: 'info',
-                        buttons: ['Download', 'Later'],
-                        title: 'New Update Available',
-                        message: 'DevTop Essential Update!',
+                        buttons: ['Ok', 'Cancel'],
+                        title: 'Update is coming soon...',
+                        message: 'DevTop Essential Update',
                         detail:
-                            'A new version is available. Please download it and get more features!',
+                            'Automated update option is going to be implemented in future, please update manually for now.',
                     };
                     dialog.showMessageBox(dialogOpts, response => {
                         if (response === 0) {
