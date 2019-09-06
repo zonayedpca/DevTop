@@ -1,15 +1,51 @@
 const { app, Tray, Menu, MenuItem } = require('electron');
+const AutoLaunch = require('auto-launch');
 
 const { getPosition } = require('../utils');
 
+const devTopAutoLauncher = new AutoLaunch({
+    name: 'DevTop',
+});
+
 class ApplicationTray extends Tray {
-    constructor(iconPath, mainWindow, appAutoLaunch) {
+    constructor(iconPath, mainWindow) {
         super(iconPath);
         this.mainWindow = mainWindow;
         this.on('click', this.onClick.bind(this));
         this.on('right-click', this.onRightClick.bind(this));
         this.setToolTip('DevTop');
-        this.appAutoLaunch = appAutoLaunch;
+        this.autoStart = false;
+        this.setAutoStart();
+    }
+
+    setAutoStart() {
+        devTopAutoLauncher.isEnabled().then(isEnabled => {
+            this.autoStart = isEnabled;
+        });
+    }
+
+    toggleAutoLaunch() {
+        devTopAutoLauncher.isEnabled().then(isEnabled => {
+            if (isEnabled) {
+                devTopAutoLauncher
+                    .disable()
+                    .then(() => {
+                        this.autoStart = false;
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            } else {
+                devTopAutoLauncher
+                    .enable()
+                    .then(() => {
+                        this.autoStart = true;
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            }
+        });
     }
 
     onClick() {
@@ -35,20 +71,20 @@ class ApplicationTray extends Tray {
             new MenuItem({
                 label: 'Start on Startup',
                 type: 'checkbox',
+                checked: this.autoStart,
                 click: () => {
-                    this.appAutoLaunch.toggleAutoLaunch();
+                    this.toggleAutoLaunch();
                 },
-                checked: this.appAutoLaunch.status,
             })
         );
         menu.append(
             new MenuItem({
                 label: 'Check for Updates',
                 type: 'checkbox',
-                checked: this.status,
-                click: () => {
-                    this.status = !this.status;
-                },
+                // checked: this.status,
+                // click: () => {
+                //     this.status = !this.status;
+                // },
             })
         );
         menu.append(new MenuItem({ type: 'separator' }));
