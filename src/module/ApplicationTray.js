@@ -1,4 +1,4 @@
-const { app, Tray, Menu, MenuItem } = require('electron');
+const { app, Tray, Menu, MenuItem, dialog } = require('electron');
 const AutoLaunch = require('auto-launch');
 
 const { getPosition } = require('../utils');
@@ -82,9 +82,22 @@ class ApplicationTray extends Tray {
                 label: 'Check for Updates',
                 type: 'checkbox',
                 // checked: this.status,
-                // click: () => {
-                //     this.status = !this.status;
-                // },
+                click: () => {
+                    // this.status = !this.status;
+                    const dialogOpts = {
+                        type: 'info',
+                        buttons: ['Download', 'Later'],
+                        title: 'New Update Available',
+                        message: 'DevTop Essential Update!',
+                        detail:
+                            'A new version is available. Please download it and get more features!',
+                    };
+                    dialog.showMessageBox(dialogOpts, response => {
+                        if (response === 0) {
+                            console.log('Dialog');
+                        }
+                    });
+                },
             })
         );
         menu.append(new MenuItem({ type: 'separator' }));
