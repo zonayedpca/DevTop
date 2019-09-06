@@ -32,6 +32,10 @@ win:
               - ia32
     publish: ['github']
 
+# Config for the windows installer
+nsis:
+    oneClick: false
+
 # Linux configuration
 linux:
     icon: 'src/assets/img/iconTemplate.png'
