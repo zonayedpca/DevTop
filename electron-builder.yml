@@ -1,5 +1,6 @@
 productName: 'DevTop'
 appId: 'devtop.essential'
+artifactName: ${productName}-${version}-${os}-${arch}.${ext}
 
 # Package electron code into a asar archive. Set to false to debug issues.
 asar: true
@@ -17,9 +18,18 @@ mac:
 win:
     icon: 'src/assets/img/windows-icon.png'
     target:
-        - 'nsis'
-        - 'portable'
-        - 'zip'
+        - target: 'nsis'
+          arch:
+              - x64
+              - ia32
+        - target: 'portable'
+          arch:
+              - x64
+              - ia32
+        - target: 'zip'
+          arch:
+              - x64
+              - ia32
     publish: ['github']
 
 # Linux configuration
