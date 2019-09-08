@@ -89,18 +89,25 @@ class ApplicationTray extends Tray {
                 label: 'Check for Updates',
                 type: 'checkbox',
                 click: () => {
+                    const status = this.updateStatus;
+                    const detail = status.updateAvailable
+                        ? status.updateAvailable.releaseNotes
+                        : status.details;
                     const dialogOpts = {
                         type: 'info',
-                        buttons: ['Ok', 'Cancel'],
+                        buttons: [
+                            status.details.releaseNotes ? 'Update' : 'Ok',
+                            'Cancel',
+                        ],
                         title: 'DevTop Essential Update',
-                        message: this.updateStatus.message,
-                        detail: this.updateStatus.available
-                            ? this.updateStatus.message
-                            : 'Fetching information, check back later',
+                        message: status.message,
+                        detail,
                     };
                     dialog.showMessageBox(dialogOpts, response => {
-                        if (response === 0) {
-                            console.log('Cancelled');
+                        if (status.details.releaseNotes && response === 0) {
+                            console.log('Update Now');
+                        } else if (response === 0) {
+                            console.log('Okay go out');
                         }
                     });
                 },

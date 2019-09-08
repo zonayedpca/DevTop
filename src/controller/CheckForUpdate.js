@@ -2,22 +2,30 @@ const { autoUpdater } = require('electron-updater');
 
 const status = {
     available: false,
-    message: '',
+    message: 'Cheking for the update...',
+    details: 'We are currently checking your update. Please come back later...',
+    updateAvailable: null,
 };
 
-const onUpdateAvailable = () => {
+const onUpdateAvailable = info => {
     status.available = true;
     status.message = 'Update Available.';
+    status.details = 'A new update is available...';
+    status.updateAvailable = info;
 };
 
 const onUpdateNotAvailable = () => {
     status.available = true;
     status.message = 'Update Not Available.';
+    status.details = 'No Update Available';
+    status.updateAvailable = null;
 };
 
 const onCheckingUpdate = () => {
     status.available = true;
     status.message = 'Checking the Update...';
+    status.details =
+        'We are currently checking your update. Please come back later...';
 };
 
 const checkForUpdate = () => {
