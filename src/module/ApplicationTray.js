@@ -2,6 +2,7 @@ const { app, Tray, Menu, MenuItem, dialog } = require('electron');
 const AutoLaunch = require('auto-launch');
 
 const { getPosition } = require('../utils');
+const { checkForUpdate } = require('../controller');
 
 const devTopAutoLauncher = new AutoLaunch({
     name: 'DevTop',
@@ -15,7 +16,13 @@ class ApplicationTray extends Tray {
         this.on('right-click', this.onRightClick.bind(this));
         this.setToolTip('DevTop');
         this.autoStart = false;
+        this.updateStatus = null;
         this.setAutoStart();
+        this.onUpdate();
+    }
+
+    onUpdate() {
+        this.updateStatus = checkForUpdate();
     }
 
     setAutoStart() {
@@ -85,14 +92,15 @@ class ApplicationTray extends Tray {
                     const dialogOpts = {
                         type: 'info',
                         buttons: ['Ok', 'Cancel'],
-                        title: 'Update is coming soon...',
-                        message: 'DevTop Essential Update',
-                        detail:
-                            'Automated update option is going to be implemented in future, please update manually for now.',
+                        title: 'DevTop Essential Update',
+                        message: this.updateStatus.message,
+                        detail: this.updateStatus.available
+                            ? this.updateStatus.message
+                            : 'Fetching information, check back later',
                     };
                     dialog.showMessageBox(dialogOpts, response => {
                         if (response === 0) {
-                            console.log('Dialog');
+                            console.log('Cancelled');
                         }
                     });
                 },
