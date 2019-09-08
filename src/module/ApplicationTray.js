@@ -1,7 +1,7 @@
 const { app, Tray, Menu, MenuItem, dialog } = require('electron');
 
 const { getPosition } = require('../utils');
-const { checkForUpdate, autoLaunch } = require('../controller');
+const { checkForUpdate, showDialog, autoLaunch } = require('../controller');
 
 class ApplicationTray extends Tray {
     constructor(iconPath, mainWindow) {
@@ -11,13 +11,12 @@ class ApplicationTray extends Tray {
         this.on('right-click', this.onRightClick.bind(this));
         this.setToolTip('DevTop');
         this.autoStart = false;
-        this.updateStatus = null;
         this.setAutoStart();
         this.onUpdate();
     }
 
     onUpdate() {
-        this.updateStatus = checkForUpdate();
+        checkForUpdate();
     }
 
     setAutoStart() {
@@ -87,29 +86,7 @@ class ApplicationTray extends Tray {
             new MenuItem({
                 label: 'Check for Updates',
                 type: 'checkbox',
-                click: () => {
-                    const status = this.updateStatus;
-                    const detail = status.updateAvailable
-                        ? status.updateAvailable.releaseNotes
-                        : status.details;
-                    const dialogOpts = {
-                        type: 'info',
-                        buttons: [
-                            status.details.releaseNotes ? 'Update' : 'Ok',
-                            'Cancel',
-                        ],
-                        title: 'DevTop Essential Update',
-                        message: status.message,
-                        detail,
-                    };
-                    dialog.showMessageBox(dialogOpts, response => {
-                        if (status.details.releaseNotes && response === 0) {
-                            console.log('Update Now');
-                        } else if (response === 0) {
-                            console.log('Okay go out');
-                        }
-                    });
-                },
+                click: () => showDialog(),
             })
         );
         menu.append(new MenuItem({ type: 'separator' }));

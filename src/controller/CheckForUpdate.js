@@ -1,3 +1,4 @@
+const { dialog } = require('electron');
 const { autoUpdater } = require('electron-updater');
 
 const status = {
@@ -37,6 +38,28 @@ const checkForUpdate = () => {
     return status;
 };
 
+const showDialog = () => {
+    // const status = this.updateStatus;
+    const detail = status.updateAvailable
+        ? status.updateAvailable.releaseNotes
+        : status.details;
+    const dialogOpts = {
+        type: 'info',
+        buttons: [status.details.releaseNotes ? 'Update' : 'Ok', 'Cancel'],
+        title: 'DevTop Essential Update',
+        message: status.message,
+        detail,
+    };
+    dialog.showMessageBox(dialogOpts, response => {
+        if (status.details.releaseNotes && response === 0) {
+            console.log('Update Now');
+        } else if (response === 0) {
+            console.log('Okay go out');
+        }
+    });
+};
+
 module.exports = {
     checkForUpdate,
+    showDialog,
 };
