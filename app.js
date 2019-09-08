@@ -18,6 +18,7 @@ const iconName =
 const iconPath = path.join(__dirname, `./src/assets/img/${iconName}`);
 
 let mainWindow;
+// eslint-disable-next-line no-unused-vars
 let tray;
 
 app.on('ready', () => {

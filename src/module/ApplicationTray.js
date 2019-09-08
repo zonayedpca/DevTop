@@ -1,12 +1,7 @@
 const { app, Tray, Menu, MenuItem, dialog } = require('electron');
-const AutoLaunch = require('auto-launch');
 
 const { getPosition } = require('../utils');
-const { checkForUpdate } = require('../controller');
-
-const devTopAutoLauncher = new AutoLaunch({
-    name: 'DevTop',
-});
+const { checkForUpdate, autoLaunch } = require('../controller');
 
 class ApplicationTray extends Tray {
     constructor(iconPath, mainWindow) {
@@ -26,33 +21,37 @@ class ApplicationTray extends Tray {
     }
 
     setAutoStart() {
-        devTopAutoLauncher.isEnabled().then(isEnabled => {
-            this.autoStart = isEnabled;
-        });
+        autoLaunch()
+            .isEnabled()
+            .then(isEnabled => {
+                this.autoStart = isEnabled;
+            });
     }
 
     toggleAutoLaunch() {
-        devTopAutoLauncher.isEnabled().then(isEnabled => {
-            if (isEnabled) {
-                devTopAutoLauncher
-                    .disable()
-                    .then(() => {
-                        this.autoStart = false;
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            } else {
-                devTopAutoLauncher
-                    .enable()
-                    .then(() => {
-                        this.autoStart = true;
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            }
-        });
+        autoLaunch()
+            .isEnabled()
+            .then(isEnabled => {
+                if (isEnabled) {
+                    autoLaunch()
+                        .disable()
+                        .then(() => {
+                            this.autoStart = false;
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                } else {
+                    autoLaunch()
+                        .enable()
+                        .then(() => {
+                            this.autoStart = true;
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                }
+            });
     }
 
     onClick() {
