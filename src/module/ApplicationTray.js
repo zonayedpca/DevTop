@@ -1,7 +1,11 @@
-const { app, Tray, Menu, MenuItem } = require('electron');
+const { app, Tray, Menu, MenuItem, dialog } = require('electron');
+const { autoUpdater } = require('electron-updater');
 
 const { getPosition } = require('../utils');
-const { autoLaunch } = require('../controller');
+const { autoLaunch, checkForUpdates } = require('../controller');
+
+autoUpdater.allowPrerelease = true;
+autoUpdater.autoDownload = false;
 
 class ApplicationTray extends Tray {
     constructor(iconPath, mainWindow) {
@@ -12,6 +16,8 @@ class ApplicationTray extends Tray {
         this.setToolTip('DevTop');
         this.autoStart = false;
         this.setAutoStart();
+        this.autoUpdater = autoUpdater;
+        this.updates = checkForUpdates();
     }
 
     setAutoStart() {
@@ -21,6 +27,8 @@ class ApplicationTray extends Tray {
                 this.autoStart = isEnabled;
             });
     }
+
+    checkForUpdates() {}
 
     toggleAutoLaunch() {
         autoLaunch()
