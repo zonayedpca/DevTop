@@ -1,11 +1,7 @@
-const { app, Tray, Menu, MenuItem, dialog } = require('electron');
-const AutoLaunch = require('auto-launch');
+const { app, Tray, Menu, MenuItem } = require('electron');
 
 const { getPosition } = require('../utils');
-
-const devTopAutoLauncher = new AutoLaunch({
-    name: 'DevTop',
-});
+const { autoLaunch } = require('../controller');
 
 class ApplicationTray extends Tray {
     constructor(iconPath, mainWindow) {
@@ -19,33 +15,37 @@ class ApplicationTray extends Tray {
     }
 
     setAutoStart() {
-        devTopAutoLauncher.isEnabled().then(isEnabled => {
-            this.autoStart = isEnabled;
-        });
+        autoLaunch()
+            .isEnabled()
+            .then(isEnabled => {
+                this.autoStart = isEnabled;
+            });
     }
 
     toggleAutoLaunch() {
-        devTopAutoLauncher.isEnabled().then(isEnabled => {
-            if (isEnabled) {
-                devTopAutoLauncher
-                    .disable()
-                    .then(() => {
-                        this.autoStart = false;
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            } else {
-                devTopAutoLauncher
-                    .enable()
-                    .then(() => {
-                        this.autoStart = true;
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            }
-        });
+        autoLaunch()
+            .isEnabled()
+            .then(isEnabled => {
+                if (isEnabled) {
+                    autoLaunch()
+                        .disable()
+                        .then(() => {
+                            this.autoStart = false;
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                } else {
+                    autoLaunch()
+                        .enable()
+                        .then(() => {
+                            this.autoStart = true;
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                }
+            });
     }
 
     onClick() {
@@ -82,19 +82,7 @@ class ApplicationTray extends Tray {
                 label: 'Check for Updates',
                 type: 'checkbox',
                 click: () => {
-                    const dialogOpts = {
-                        type: 'info',
-                        buttons: ['Ok', 'Cancel'],
-                        title: 'Update is coming soon...',
-                        message: 'DevTop Essential Update',
-                        detail:
-                            'Automated update option is going to be implemented in future, please update manually for now.',
-                    };
-                    dialog.showMessageBox(dialogOpts, response => {
-                        if (response === 0) {
-                            console.log('Dialog');
-                        }
-                    });
+                    console.log('Update check will be implemented here...');
                 },
             })
         );
