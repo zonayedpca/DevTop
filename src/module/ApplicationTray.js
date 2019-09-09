@@ -1,7 +1,7 @@
-const { app, Tray, Menu, MenuItem, dialog } = require('electron');
+const { app, Tray, Menu, MenuItem } = require('electron');
 
 const { getPosition } = require('../utils');
-const { checkForUpdate, showDialog, autoLaunch } = require('../controller');
+const { autoLaunch } = require('../controller');
 
 class ApplicationTray extends Tray {
     constructor(iconPath, mainWindow) {
@@ -12,11 +12,6 @@ class ApplicationTray extends Tray {
         this.setToolTip('DevTop');
         this.autoStart = false;
         this.setAutoStart();
-        this.onUpdate();
-    }
-
-    onUpdate() {
-        checkForUpdate();
     }
 
     setAutoStart() {
@@ -86,7 +81,9 @@ class ApplicationTray extends Tray {
             new MenuItem({
                 label: 'Check for Updates',
                 type: 'checkbox',
-                click: () => showDialog(),
+                click: () => {
+                    console.log('Update check will be implemented here...');
+                },
             })
         );
         menu.append(new MenuItem({ type: 'separator' }));
