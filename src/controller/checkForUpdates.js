@@ -1,11 +1,15 @@
 const { dialog } = require('electron');
 const { autoUpdater } = require('electron-updater');
 
+const { isDev } = require('../utils');
+
 let updater;
 let appUpdater = {
     enabled: false,
 };
+
 autoUpdater.autoDownload = false;
+autoUpdater.allowPrerelease = true;
 
 autoUpdater.on('error', error => {
     dialog.showErrorBox(
@@ -42,6 +46,13 @@ autoUpdater.on('update-not-available', () => {
     updater = null;
 });
 
+autoUpdater.on('download-progress', ({ progress, percent, total }) => {
+    dialog.showMessageBox({
+        title: `${percent} Update in progress...`,
+        message: `Update is in progress: ${progress}, total: ${total}`,
+    });
+});
+
 autoUpdater.on('update-downloaded', () => {
     dialog.showMessageBox(
         {
@@ -50,16 +61,16 @@ autoUpdater.on('update-downloaded', () => {
                 'Updates downloaded, application will be quit for update...',
         },
         () => {
+            // eslint-disable-next-line no-undef
             setImmediate(() => autoUpdater.quitAndInstall());
         }
     );
 });
 
-// export this to MenuItem click callback
 function checkForUpdates(menuItem, focusedWindow, event) {
     updater = menuItem;
     appUpdater.enabled = false;
-    autoUpdater.checkForUpdates();
+    if (!isDev()) autoUpdater.checkForUpdates();
 }
 
 module.exports = {
