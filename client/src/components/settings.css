@@ -1,38 +1,38 @@
 .settings .MuiToolbar-regular {
-  min-height: 48px;
+    min-height: 48px;
 }
 
 .settings .MuiIconButton-root:hover {
-  border-radius: 100%;
+    border-radius: 100%;
 }
 
 .settings .content {
-  margin-top: 45px;
-  padding: 15px;
-  height: 320px;
-  overflow-y: scroll;
+    margin-top: 45px;
+    padding: 15px;
+    height: 380px;
+    overflow-y: scroll;
 }
 
 .settings .content .btn-reset {
-  display: block;
-  border: solid 1px #F44336;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 15px 15px;
-  text-align: center;
-  width: 100%;
-  background: #F44336;
-  border-radius: 4px;
+    display: block;
+    border: solid 1px #f44336;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px 15px;
+    text-align: center;
+    width: 100%;
+    background: #f44336;
+    border-radius: 4px;
 }
 
 .settings .privacy {
-  margin-top: 15px;
-  text-align: center;
-  color: #b7b7b7;
-  text-transform: uppercase;
+    margin-top: 15px;
+    text-align: center;
+    color: #b7b7b7;
+    text-transform: uppercase;
 }
 
 .settings .privacy p {
-  font-size: 11px;
+    font-size: 11px;
 }
