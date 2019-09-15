@@ -1,4 +1,4 @@
-const { app, Tray, Menu, MenuItem } = require('electron');
+const { app, Tray, Menu, MenuItem, shell } = require('electron');
 
 const { getPosition } = require('../utils');
 const { autoLaunch, checkForUpdates } = require('../controller');
@@ -64,6 +64,11 @@ class ApplicationTray extends Tray {
         menu.append(
             new MenuItem({
                 label: 'DevTop Essentials',
+                click: () => {
+                    shell.openExternalSync(
+                        'https://github.com/zonayedpca/DevTop'
+                    );
+                },
             })
         );
         menu.append(new MenuItem({ type: 'separator' }));

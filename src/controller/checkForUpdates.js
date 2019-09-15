@@ -1,8 +1,9 @@
-const { dialog } = require('electron');
+const { dialog, shell } = require('electron');
 const { autoUpdater } = require('electron-updater');
 
 const { isDev } = require('../utils');
 
+// eslint-disable-next-line no-unused-vars
 let updater;
 let appUpdater = {
     enabled: false,
@@ -18,17 +19,23 @@ autoUpdater.on('error', error => {
     );
 });
 
-autoUpdater.on('update-available', () => {
+autoUpdater.on('update-available', ({ releaseNotes }) => {
     dialog.showMessageBox(
         {
             type: 'info',
             title: 'Found Updates',
-            message: 'Found updates, do you want update now?',
-            buttons: ['Sure', 'No'],
+            message: `New Update Found. You can manaullay download it
+            
+            Changelog:
+            ${releaseNotes}
+            `,
+            buttons: ['Download Now', 'No'],
         },
         buttonIndex => {
             if (buttonIndex === 0) {
-                autoUpdater.downloadUpdate();
+                shell.openExternalSync(
+                    'https://github.com/zonayedpca/DevTop/releases'
+                );
             } else {
                 appUpdater.enabled = true;
                 updater = null;
@@ -46,28 +53,7 @@ autoUpdater.on('update-not-available', () => {
     updater = null;
 });
 
-autoUpdater.on('download-progress', ({ progress, percent, total }) => {
-    dialog.showMessageBox({
-        title: `${percent} Update in progress...`,
-        message: `Update is in progress: ${progress}, total: ${total}`,
-    });
-});
-
-autoUpdater.on('update-downloaded', () => {
-    dialog.showMessageBox(
-        {
-            title: 'Install Updates',
-            message:
-                'Updates downloaded, application will be quit for update...',
-        },
-        () => {
-            // eslint-disable-next-line no-undef
-            setImmediate(() => autoUpdater.quitAndInstall());
-        }
-    );
-});
-
-function checkForUpdates(menuItem, focusedWindow, event) {
+function checkForUpdates(menuItem) {
     updater = menuItem;
     appUpdater.enabled = false;
     if (!isDev()) autoUpdater.checkForUpdates();
