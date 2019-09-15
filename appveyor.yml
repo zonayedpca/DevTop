@@ -6,7 +6,7 @@ branches:
 
 platform:
     - x64
-    - x86
+    # - x86
 
 cache:
     - node_modules
