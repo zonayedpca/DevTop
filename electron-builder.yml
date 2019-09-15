@@ -40,9 +40,21 @@ nsis:
 linux:
     icon: 'src/assets/img/iconTemplate.png'
     target:
-        - 'AppImage'
-        # - 'deb'
-        - 'rpm'
-        - 'zip'
-        - 'tar.gz'
+        - target: 'AppImage'
+          arch:
+              - x64
+              - ia32
+        # - target: 'deb'
+        - target: 'rpm'
+          arch:
+              - x64
+              - ia32
+        - target: 'zip'
+          arch:
+              - x64
+              - ia32
+        - target: 'tar.gz'
+          arch:
+              - x64
+              - ia32
     publish: ['github']
