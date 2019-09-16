@@ -1,33 +1,128 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  font-size: 18px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+body {
+  background-color: #eee;
+}
+
+.header {
+  background-color: #333;
+  padding: 0 50px;
+}
+
+.header .nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+
+.header .nav .brand {
+  display: flex;
+  align-items: center;
+}
+
+.header .nav .brand img {
+  width: 50px;
+}
+
+.header .nav .brand p {
+  margin: 0;
+  color: #eee;
+  margin-left: 15px;
+  font-weight: bolder;
+  font-size: 28px;
+}
+
+.header .intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 560px;
+}
+
+.header .intro > * {
+  flex: 1;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.header .intro .img img {
+  width: 420px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header .meta {
+  padding-bottom: 50px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.features {
+  padding: 100px 50px;
+  color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.features .feature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.features .feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.features .feature > * {
+  flex: 1;
+  text-align: center;
+}
+
+.features .feature .ui img {
+  width: 320px;
+}
+
+.features .feature .description {
+  /* align-self: flex-start; */
+  text-align: left;
+  padding-right: 50px;
+}
+
+.features .feature.reverse .description {
+  padding-right: 0;
+  padding-left: 50px;
+}
+
+.features .feature .description h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.features .feature .description ul {
+  margin-top: 15px;
+  padding-left: 25px;
+  list-style: disc;
+}
+
+.features .feature .description ul li {
+  padding: 5px 0;
+}
+
+.footer {
+  background-color: #333;
+  padding: 25px 50px;
+  display: flex;
+  color: #eee;
+  justify-content: space-between;
 }
