@@ -23,7 +23,15 @@ function App() {
           </div>
           <div className="details">
             <ul>
-              <li>Github</li>
+              <li>
+                <a
+                  target="__blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/zonayedpca/DevTop"
+                >
+                  Github
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -34,18 +42,29 @@ function App() {
           <div className="download">
             <ul>
               <li>
-                <p>DevTop</p>
-                <span>Some details here!</span>
+                <p>DevTop Essentials</p>
+                <span>Download Now</span>
               </li>
               <li>
-                <p>Current Version</p>
-                <span>Your OS!</span>
+                <p>v0.7.0-beta</p>
+                <span>
+                  <a href="#">See Release Notes</a>
+                </span>
               </li>
               <li>
-                <p>Download Button</p>
-                <span>Other Downloads</span>
+                <p>Windows (64-bit)</p>
+                <span>Your Platform</span>
               </li>
-              <li></li>
+              <li>
+                <p>
+                  <a className="btn" href="#">
+                    Download
+                  </a>
+                </p>
+                <span>
+                  <a href="#">Other Downloads</a>
+                </span>
+              </li>
             </ul>
           </div>
         </div>
