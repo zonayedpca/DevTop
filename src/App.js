@@ -179,14 +179,37 @@ function App() {
         <div>
           <ul>
             <li>Open Source</li>
-            <li>Electron</li>
             <li>
-              <a>Links</a>
+              <a
+                target="__blank"
+                rel="noopener noreferrer"
+                href="https://electronjs.org"
+              >
+                Electron JS
+              </a>
+            </li>
+            <li>
+              <a
+                target="__blank"
+                rel="noopener noreferrer"
+                href="https://reactjs.org"
+              >
+                React JS
+              </a>
             </li>
           </ul>
         </div>
         <div>
-          <p>Made By Zonayed Ahmed</p>
+          <p>
+            Made with <span>❤</span> By{" "}
+            <a
+              target="__blank"
+              rel="noopener noreferrer"
+              href="https://zonayed.me"
+            >
+              Zonayed Ahmed
+            </a>
+          </p>
         </div>
       </footer>
     </div>

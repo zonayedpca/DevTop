@@ -126,3 +126,25 @@ body {
   color: #eee;
   justify-content: space-between;
 }
+
+.footer ul {
+  display: flex;
+}
+
+.footer ul li {
+  margin-right: 15px;
+}
+
+.footer span {
+  color: #f44336;
+}
+
+.footer a {
+  color: #333;
+  font-weight: bolder;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #eee;
+  padding: 0 5px;
+  border-radius: 4px;
+}
