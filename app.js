@@ -22,16 +22,19 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
+    if (process.platform === 'darwin') {
+        app.dock.hide();
+    }
     setScreenSize();
     mainWindow = new MainWindow(
         {
             height: 420,
             width: 360,
-            frame: isDev() ? true : false,
-            resizable: isDev() ? true : false,
-            show: isDev() ? true : false,
+            frame: isDev() ? false : false,
+            resizable: isDev() ? false : false,
+            show: isDev() ? false : false,
             webPreferences: {
-                devTools: isDev() ? true : false,
+                devTools: isDev() ? false : false,
                 backgroundThrottling: false,
                 nodeIntegration: true,
             },
