@@ -15,7 +15,7 @@ const WINDOW_URL = isDev()
     : `file://${__dirname}/client/build/index.html`;
 const iconName =
     process.platform === 'darwin' ? 'iconTemplate.png' : 'windows-icon.png';
-const iconPath = path.join(__dirname, `./src/assets/img/${iconName}`);
+const iconPath = path.join(__dirname, `src/assets/img/${iconName}`);
 
 let mainWindow;
 // eslint-disable-next-line no-unused-vars
