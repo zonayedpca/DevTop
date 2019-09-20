@@ -8,5 +8,7 @@ node_js:
 cache:
     directories:
         - node_modules
+env:
+    - ELECTRON_FORCE_WINDOW_MENU_BAR=true
 after_success:
     - if [ $TRAVIS_BRANCH == "master" ]; then npm run pack; fi

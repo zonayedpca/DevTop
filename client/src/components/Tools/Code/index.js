@@ -16,6 +16,8 @@ import { getCode } from '../../../actions';
 
 import './index.css';
 
+const MAX_GIST = 30;
+
 class Code extends Component {
     state = {
         page: 1,
@@ -110,9 +112,15 @@ class Code extends Component {
                                 <FiArrowLeftCircle />
                             </li>
                         )}
-                        <li onClick={() => this.setState({ page: page + 1 })}>
-                            <FiArrowRightCircle />
-                        </li>
+                        {codes.data.length === MAX_GIST && (
+                            <li
+                                onClick={() =>
+                                    this.setState({ page: page + 1 })
+                                }
+                            >
+                                <FiArrowRightCircle />
+                            </li>
+                        )}
                     </ul>
                 </div>
             );

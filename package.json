@@ -1,49 +1,52 @@
 {
-    "name": "devtop",
-    "version": "0.7.0-beta",
-    "description": "DevTop - Essential Tools for Developers",
-    "main": "app.js",
-    "author": "Zonayed Ahmed",
-    "scripts": {
-        "preinstall": "cd client && yarn install",
-        "test-client": "npm run test --prefix client -- --watchAll=false",
-        "test": "npm run test-client",
-        "client": "npm start --prefix client",
-        "build": "npm run build --prefix client",
-        "electron": "nodemon --watch * --exec \"electron .\"",
-        "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:3000 && npm run electron\"",
-        "version:major": "npm version major",
-        "version:minor": "npm version minor",
-        "version:patch": "npm version patch",
-        "pack": "npm run build && electron-builder -p always"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/zonayedpca/DevTop.git"
-    },
-    "keywords": [
-        "desktop",
-        "dev-tools",
-        "developer-tools",
-        "essential-dev",
-        "essential-developer"
-    ],
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/zonayedpca/DevTop/issues"
-    },
-    "homepage": "https://github.com/zonayedpca/DevTop#readme",
-    "devDependencies": {
-        "concurrently": "^4.1.0",
-        "electron": "^5.0.2",
-        "electron-builder": "^21.2.0",
-        "eslint": "^6.3.0",
-        "nodemon": "^1.19.1",
-        "prettier": "1.18.2",
-        "wait-on": "^3.3.0"
-    },
-    "dependencies": {
-        "auto-launch": "^5.0.5",
-        "electron-updater": "^4.1.2"
-    }
+  "name": "devtop",
+  "version": "0.8.0-beta",
+  "description": "DevTop - Essential Tools for Developers",
+  "main": "app.js",
+  "author": {
+    "name": "Zonayed Ahmed",
+    "email": "contact@zonayed.me"
+  },
+  "scripts": {
+    "preinstall": "cd client && yarn install",
+    "test-client": "npm run test --prefix client -- --watchAll=false",
+    "test": "npm run test-client",
+    "client": "npm start --prefix client",
+    "build": "npm run build --prefix client",
+    "electron": "nodemon --watch * --exec \"electron .\"",
+    "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:3000 && npm run electron\"",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch",
+    "pack": "npm run build && electron-builder -p always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zonayedpca/DevTop.git"
+  },
+  "keywords": [
+    "desktop",
+    "dev-tools",
+    "developer-tools",
+    "essential-dev",
+    "essential-developer"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zonayedpca/DevTop/issues"
+  },
+  "homepage": "https://github.com/zonayedpca/DevTop#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "electron": "^5.0.2",
+    "electron-builder": "^21.2.0",
+    "eslint": "^6.3.0",
+    "nodemon": "^1.19.1",
+    "prettier": "1.18.2",
+    "wait-on": "^3.3.0"
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "electron-updater": "^4.1.2"
+  }
 }
