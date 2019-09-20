@@ -98,12 +98,7 @@ class Code extends Component {
     renderPagination = () => {
         const { page } = this.state;
         const { codes } = this.props;
-        if (
-            !codes.loading &&
-            !codes.error &&
-            codes.data.length &&
-            codes.data.length >= MAX_GIST
-        ) {
+        if (!codes.loading && !codes.error && codes.data.length) {
             return (
                 <div className="nav">
                     <ul>
@@ -117,9 +112,15 @@ class Code extends Component {
                                 <FiArrowLeftCircle />
                             </li>
                         )}
-                        <li onClick={() => this.setState({ page: page + 1 })}>
-                            <FiArrowRightCircle />
-                        </li>
+                        {codes.data.length === MAX_GIST && (
+                            <li
+                                onClick={() =>
+                                    this.setState({ page: page + 1 })
+                                }
+                            >
+                                <FiArrowRightCircle />
+                            </li>
+                        )}
                     </ul>
                 </div>
             );
