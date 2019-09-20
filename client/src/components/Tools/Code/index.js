@@ -16,6 +16,8 @@ import { getCode } from '../../../actions';
 
 import './index.css';
 
+const MAX_GIST = 30;
+
 class Code extends Component {
     state = {
         page: 1,
@@ -96,7 +98,12 @@ class Code extends Component {
     renderPagination = () => {
         const { page } = this.state;
         const { codes } = this.props;
-        if (!codes.loading && !codes.error && codes.data.length) {
+        if (
+            !codes.loading &&
+            !codes.error &&
+            codes.data.length &&
+            codes.data.length >= MAX_GIST
+        ) {
             return (
                 <div className="nav">
                     <ul>
