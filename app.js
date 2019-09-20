@@ -30,11 +30,11 @@ app.on('ready', () => {
         {
             height: 420,
             width: 360,
-            frame: isDev() ? false : false,
-            resizable: isDev() ? false : false,
-            show: isDev() ? false : false,
+            frame: isDev() ? true : false,
+            resizable: isDev() ? true : false,
+            show: isDev() ? true : false,
             webPreferences: {
-                devTools: isDev() ? false : false,
+                devTools: isDev() ? true : false,
                 backgroundThrottling: false,
                 nodeIntegration: true,
             },
