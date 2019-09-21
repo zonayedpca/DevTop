@@ -1,6 +1,7 @@
 {
   "name": "devtop",
   "version": "0.1.0",
+  "homepage": "https://zonayedpca.github.io/DevTop",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
