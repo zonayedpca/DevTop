@@ -13,7 +13,7 @@ const Download = () => {
 
   useEffect(() => {
     fetchData();
-  }, [info]);
+  });
 
   const platform = detectPlatform();
 
