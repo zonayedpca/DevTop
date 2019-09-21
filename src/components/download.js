@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { detectPlatform, elaboratePlatform } from "../utils";
+import {
+  detectPlatform,
+  elaboratePlatform,
+  createDownloadLink
+} from "../utils";
 
 const Download = () => {
   const [info, setInfo] = useState(null);
+  const [downloads, setDownloads] = useState("");
+
   useEffect(() => {
     fetchData();
   }, [info]);
+
+  const platform = detectPlatform();
 
   const fetchData = async () => {
     if (!info) {
@@ -15,12 +23,12 @@ const Download = () => {
         data: { data }
       } = await axios("https://devtop.now.sh/latest");
       setInfo(data);
+      const version = String(data.tag_name).replace("v", "");
+      setDownloads(createDownloadLink(platform, version));
     }
-    console.log(info);
   };
 
-  const platform = elaboratePlatform(detectPlatform());
-
+  const platformElab = elaboratePlatform(platform);
   return (
     <div className="download">
       <ul>
@@ -35,18 +43,33 @@ const Download = () => {
           </span>
         </li>
         <li>
-          <p>{platform}</p>
+          <p>{platformElab}</p>
           <span>Your Platform</span>
         </li>
         <li>
-          <p>
-            <a className="btn" href="#">
-              Download
-            </a>
-          </p>
-          <span>
-            <a href="#">Other Downloads</a>
-          </span>
+          {downloads ? (
+            <>
+              <p>
+                <a className="btn" href={`${downloads.primary}`}>
+                  Download
+                </a>
+              </p>
+              {downloads.secondary && (
+                <span>
+                  Other:{" "}
+                  {Object.keys(downloads.secondary).map(download => (
+                    <React.Fragment key={download}>
+                      <a key={download} href={downloads.secondary[download]}>
+                        {download}
+                      </a>{" "}
+                    </React.Fragment>
+                  ))}
+                </span>
+              )}
+            </>
+          ) : (
+            <p>Please Wait...</p>
+          )}
         </li>
       </ul>
     </div>
