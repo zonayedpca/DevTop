@@ -1,16 +1,22 @@
-.settings .MuiToolbar-regular {
+.settings-area .MuiToolbar-regular {
     min-height: 48px;
 }
 
-.settings .MuiIconButton-root:hover {
+.settings-area .MuiIconButton-root:hover {
     border-radius: 100%;
 }
 
+.settings {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
 .settings .content {
+    flex: 1;
     margin-top: 45px;
     padding: 15px;
-    height: 380px;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 .settings .content .btn-reset {

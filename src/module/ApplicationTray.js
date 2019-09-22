@@ -9,7 +9,7 @@ class ApplicationTray extends Tray {
         this.mainWindow = mainWindow;
         this.on('click', this.onClick.bind(this));
         this.on('right-click', this.onRightClick.bind(this));
-        this.setToolTip('DevTop');
+        this.setToolTip('DevTop Essentials');
         this.autoStart = false;
         this.setAutoStart();
     }
