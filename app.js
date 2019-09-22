@@ -14,7 +14,7 @@ const WINDOW_URL = isDev()
     ? 'http://localhost:3000'
     : `file://${__dirname}/client/build/index.html`;
 const iconName =
-    process.platform === 'darwin' ? 'iconTemplate.png' : 'windows-icon.png';
+    process.platform === 'win32' ? 'windows-icon.png' : 'mac-icon.png';
 const iconPath = path.join(__dirname, `src/assets/img/${iconName}`);
 
 let mainWindow;
@@ -22,9 +22,6 @@ let mainWindow;
 let tray;
 
 app.on('ready', () => {
-    if (process.platform === 'darwin') {
-        app.dock.hide();
-    }
     setScreenSize();
     mainWindow = new MainWindow(
         {
