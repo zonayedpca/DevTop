@@ -21,6 +21,10 @@ let mainWindow;
 // eslint-disable-next-line no-unused-vars
 let tray;
 
+if (process.platform === 'darwin') {
+    app.dock.hide();
+}
+
 app.on('ready', () => {
     setScreenSize();
     mainWindow = new MainWindow(
