@@ -16,7 +16,7 @@ mac:
 
 # Windows configuration
 win:
-    icon: 'src/assets/img/windows-icon.png'
+    icon: 'src/assets/img/icon256x256.png'
     target:
         - target: 'nsis'
           arch:
