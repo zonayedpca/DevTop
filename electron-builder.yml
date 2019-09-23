@@ -38,7 +38,7 @@ nsis:
 
 # Linux configuration
 linux:
-    icon: 'src/assets/img/iconTemplate.png'
+    icon: 'src/assets/img/icon256x256.png'
     target:
         - target: 'AppImage'
           arch:
