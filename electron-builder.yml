@@ -35,3 +35,29 @@ win:
 # Config for the windows installer
 nsis:
     oneClick: false
+
+# Linux configuration
+linux:
+    icon: 'src/assets/img/iconTemplate.png'
+    target:
+        - target: 'AppImage'
+          arch:
+              - x64
+              - ia32
+        - target: 'deb'
+          arch:
+              - x64
+              - ia32
+        - target: 'rpm'
+          arch:
+              - x64
+              - ia32
+        - target: 'zip'
+          arch:
+              - x64
+              - ia32
+        - target: 'tar.gz'
+          arch:
+              - x64
+              - ia32
+    publish: ['github']
