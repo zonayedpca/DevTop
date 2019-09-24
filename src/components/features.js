@@ -13,13 +13,7 @@ const contents = [
     title: "Clipboard Manager",
     description: `A Simple Clipboard manager to save you from copying stuff over and over again. It preserves the format and also you can pause it anytime you want. Handy time saver!`,
     image: clipboard,
-    features: ["Keep exact Format", "Anytime Pause", "Easy Copy", "Remove All"],
-    action: [
-      {
-        title: "info",
-        link: "https://zonayed.me"
-      }
-    ]
+    features: ["Keep exact Format", "Anytime Pause", "Easy Copy", "Remove All"]
   },
   {
     title: "Gist Manager",
@@ -30,12 +24,6 @@ const contents = [
       "Multiple File",
       "View Files Individually",
       "Copy the Link"
-    ],
-    action: [
-      {
-        title: "info",
-        link: "https://zonayed.me"
-      }
     ]
   },
   {
@@ -47,12 +35,6 @@ const contents = [
       "View Older links",
       "Copy the links",
       "Everything is stored in your account"
-    ],
-    action: [
-      {
-        title: "info",
-        link: "https://zonayed.me"
-      }
     ]
   },
   {
@@ -64,12 +46,6 @@ const contents = [
       "Mark todo as complete",
       "Remove individual todo",
       "Remove All todos"
-    ],
-    action: [
-      {
-        title: "info",
-        link: "https://zonayed.me"
-      }
     ]
   },
   {
@@ -81,17 +57,11 @@ const contents = [
       "Remove Individually",
       "Remove All",
       "One-click to open"
-    ],
-    action: [
-      {
-        title: "info",
-        link: "https://zonayed.me"
-      }
     ]
   },
   {
     title: "Many more to come...",
-    description: `Our feature goal is to make all the tools portable. We will create a separate ecosystem in which developers will be able to develop tools as extension and user will have the option to choose from them. Now we have only 5 tools built-in permanently. But we are looking forward to making it portable and tools as an extension based project.`,
+    description: `Our feature goal is to make all the tools portable. We will create a separate ecosystem in which developers will be able to develop tools as extension and user will have the option to choose from them. Now we have only 5 tools built-in permanently. But we are looking forward to making it portable and tools as an extension based project. But until then, you can always suggest us which feature you would like to see here and also if anything from these tools seems unnecessary. Let us know.`,
     image: more,
     features: [
       "Every tool is an extension",
@@ -101,8 +71,8 @@ const contents = [
     ],
     action: [
       {
-        title: "info",
-        link: "https://zonayed.me"
+        title: "Suggestions & Problems",
+        link: "https://github.com/zonayedpca/DevTop/issues/new"
       }
     ]
   }

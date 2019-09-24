@@ -175,6 +175,23 @@ body {
   padding: 5px 0;
 }
 
+.features .feature .description .action-btn {
+  margin-top: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.features .feature .description .action-btn a {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
 .footer {
   background-color: #333;
   padding: 25px 50px;
