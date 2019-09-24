@@ -1,6 +1,6 @@
 {
     "name": "devtop",
-    "version": "0.10.0-beta",
+    "version": "1.0.0",
     "description": "DevTop - Essential Tools for Developers",
     "main": "app.js",
     "author": {

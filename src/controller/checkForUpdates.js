@@ -10,7 +10,6 @@ let appUpdater = {
 };
 
 autoUpdater.autoDownload = false;
-autoUpdater.allowPrerelease = true;
 
 autoUpdater.on('error', error => {
     dialog.showErrorBox(
