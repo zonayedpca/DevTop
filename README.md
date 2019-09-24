@@ -47,4 +47,4 @@ The Linux version does not currently automatically update so you will need to re
 
 ## License
 
-[MIT](https://github.com/atom/atom/blob/master/LICENSE.md)
+[MIT](https://github.com/zonayedpca/DevTop/blob/master/LICENSE)
