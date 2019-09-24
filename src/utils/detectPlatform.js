@@ -29,16 +29,20 @@ export const detectPlatform = () => {
       result = "Win32";
     }
   } else if (String(os).includes("Linux")) {
-    if (os.includes("64")) {
-      result = "Linux64";
+    if (os.includes("i686")) {
+      result = "Linuxi686";
+    } else if (os.includes("x86_64")) {
+      result = "Linuxx86_64";
     } else {
-      result = "Linux32";
+      result = "Linux";
     }
   } else if (String(os).includes("BSD")) {
-    if (os.includes("64")) {
-      result = "FreeBSD64";
+    if (os.includes("i386")) {
+      result = "FreeBSDi386";
+    } else if (os.includes("amd64")) {
+      result = "FreeBSDamd64";
     } else {
-      result = "FreeBSD32";
+      result = "FreeBSD";
     }
   } else if (String(os).includes("Mac")) {
     result = "MacOS";

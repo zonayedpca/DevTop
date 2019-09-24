@@ -14,7 +14,7 @@ const downloads = {
       portable: "DevTop-%version%-win-x64.zip"
     }
   },
-  MacIntel: {
+  MacOS: {
     primary: "DevTop-%version%-mac.dmg",
     secondary: {
       pkg: "DevTop-%version%-mac.pkg",
@@ -30,7 +30,7 @@ const downloads = {
     }
   },
   // eslint-disable-next-line no-useless-computed-key
-  ["FreeBSD i386"]: {
+  FreeBSDi386: {
     primary: "DevTop-%version%-linux-i386.AppImage",
     secondary: {
       // eslint-disable-next-line no-useless-computed-key
@@ -39,7 +39,7 @@ const downloads = {
     }
   },
   // eslint-disable-next-line no-useless-computed-key
-  ["FreeBSD amd64"]: {
+  FreeBSDamd64: {
     primary: "DevTop-%version%-linux-x86_64.AppImage",
     secondary: {
       // eslint-disable-next-line no-useless-computed-key
@@ -56,7 +56,7 @@ const downloads = {
     }
   },
   // eslint-disable-next-line no-useless-computed-key
-  ["Linux i686"]: {
+  Linuxi686: {
     primary: "DevTop-%version%-linux-i386.deb",
     secondary: {
       // eslint-disable-next-line no-useless-computed-key
@@ -65,7 +65,7 @@ const downloads = {
     }
   },
   // eslint-disable-next-line no-useless-computed-key
-  ["Linux x86_64"]: {
+  Linuxx86_64: {
     primary: "DevTop-%version%-linux-amd64.deb",
     secondary: {
       // eslint-disable-next-line no-useless-computed-key
