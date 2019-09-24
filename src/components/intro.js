@@ -14,7 +14,12 @@ const Intro = () => {
         <Download />
       </div>
       <div className="meta">
-        <p>Some Details Should go there!</p>
+        <p>
+          An essential desktop tool for the developers. Easy access to the
+          necessary tools like copy-paste history, gist manager , short-link
+          manager, todos and bookmarks. Just one click away! Supported in all
+          the major platform. Many more to come!
+        </p>
       </div>
     </>
   );

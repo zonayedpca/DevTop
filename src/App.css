@@ -117,6 +117,10 @@ body {
 .header .meta {
   padding-bottom: 50px;
   display: flex;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  width: 75%;
   justify-content: center;
 }
 

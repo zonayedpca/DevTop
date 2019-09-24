@@ -56,7 +56,6 @@ const Download = () => {
               </p>
               {downloads.secondary && (
                 <span>
-                  Other:{" "}
                   {Object.keys(downloads.secondary).map(download => (
                     <React.Fragment key={download}>
                       <a key={download} href={downloads.secondary[download]}>
@@ -70,6 +69,9 @@ const Download = () => {
           ) : (
             <p>Please Wait...</p>
           )}
+          <span>
+            {info ? <a href={info.html_url}>other downloads</a> : "..."}
+          </span>
         </li>
       </ul>
     </div>

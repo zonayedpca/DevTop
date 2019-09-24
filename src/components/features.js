@@ -11,19 +11,9 @@ import Feature from "./feature";
 const contents = [
   {
     title: "Clipboard Manager",
-    description: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-    in laying out print, graphic or web designs. The passage is
-    attributed to an unknown typesetter in the 15th century who is
-    thought to have scrambled parts of Cicero's De Finibus Bonorum et
-    Malorum for use in a type specimen book.`,
+    description: `A Simple Clipboard manager to save you from copying stuff over and over again. It preserves the format and also you can pause it anytime you want. Handy time saver!`,
     image: clipboard,
-    features: [
-      "One Features",
-      "Another Features",
-      "One Features",
-      "Another Features",
-      "One Features"
-    ],
+    features: ["Keep exact Format", "Anytime Pause", "Easy Copy", "Remove All"],
     action: [
       {
         title: "info",
@@ -33,18 +23,13 @@ const contents = [
   },
   {
     title: "Gist Manager",
-    description: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-    in laying out print, graphic or web designs. The passage is
-    attributed to an unknown typesetter in the 15th century who is
-    thought to have scrambled parts of Cicero's De Finibus Bonorum et
-    Malorum for use in a type specimen book.`,
+    description: `Do you want to share some pieces of codes with others? Get access to your Gist from here easily. You must have to provide your GitHub personal access token with the scope of 'Create gists'. Your token is safe as we store it inside your device only.`,
     image: code,
     features: [
-      "One Features",
-      "Another Features",
-      "One Features",
-      "Another Features",
-      "One Features"
+      "Creating New Gists",
+      "Multiple File",
+      "View Files Individually",
+      "Copy the Link"
     ],
     action: [
       {
@@ -55,18 +40,13 @@ const contents = [
   },
   {
     title: "Bitly Manager",
-    description: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-    in laying out print, graphic or web designs. The passage is
-    attributed to an unknown typesetter in the 15th century who is
-    thought to have scrambled parts of Cicero's De Finibus Bonorum et
-    Malorum for use in a type specimen book.`,
+    description: `Do want to short an URL? But it's a great hassle to go somewhere and short the URL and share it with someone. But we have got you covered. Put your Bitly access token here and we'll make your life easy. Don't get afraid as we store your token in your device only.`,
     image: shortlink,
     features: [
-      "One Features",
-      "Another Features",
-      "One Features",
-      "Another Features",
-      "One Features"
+      "Creating new Shortlinks",
+      "View Older links",
+      "Copy the links",
+      "Everything is stored in your account"
     ],
     action: [
       {
@@ -77,18 +57,13 @@ const contents = [
   },
   {
     title: "Todo List",
-    description: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-    in laying out print, graphic or web designs. The passage is
-    attributed to an unknown typesetter in the 15th century who is
-    thought to have scrambled parts of Cicero's De Finibus Bonorum et
-    Malorum for use in a type specimen book.`,
+    description: `You can't make progress without having a todo list. I have got you covered for this one as well. Make a simple todo list and get your job done one by one.`,
     image: todo,
     features: [
-      "One Features",
-      "Another Features",
-      "One Features",
-      "Another Features",
-      "One Features"
+      "Adding new todos",
+      "Mark todo as complete",
+      "Remove individual todo",
+      "Remove All todos"
     ],
     action: [
       {
@@ -99,18 +74,13 @@ const contents = [
   },
   {
     title: "Bookmark Manager",
-    description: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-    in laying out print, graphic or web designs. The passage is
-    attributed to an unknown typesetter in the 15th century who is
-    thought to have scrambled parts of Cicero's De Finibus Bonorum et
-    Malorum for use in a type specimen book.`,
+    description: `Liked a website/project/design? But don't have enough time to check it out? Bookmark is your friend in need. Cleanly list your favorite bookmarks and check them out later whenever you want.`,
     image: bookmark,
     features: [
-      "One Features",
-      "Another Features",
-      "One Features",
-      "Another Features",
-      "One Features"
+      "Add Websites",
+      "Remove Individually",
+      "Remove All",
+      "One-click to open"
     ],
     action: [
       {
@@ -121,18 +91,13 @@ const contents = [
   },
   {
     title: "Many more to come...",
-    description: `Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-    in laying out print, graphic or web designs. The passage is
-    attributed to an unknown typesetter in the 15th century who is
-    thought to have scrambled parts of Cicero's De Finibus Bonorum et
-    Malorum for use in a type specimen book.`,
+    description: `Our feature goal is to make all the tools portable. We will create a separate ecosystem in which developers will be able to develop tools as extension and user will have the option to choose from them. Now we have only 5 tools built-in permanently. But we are looking forward to making it portable and tools as an extension based project.`,
     image: more,
     features: [
-      "One Features",
-      "Another Features",
-      "One Features",
-      "Another Features",
-      "One Features"
+      "Every tool is an extension",
+      "Separate Ecosystem",
+      "Users are independent to choose their favorite tools",
+      "No more built-in tool(or only few)"
     ],
     action: [
       {
