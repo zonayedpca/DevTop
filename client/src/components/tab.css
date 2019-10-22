@@ -1,31 +1,32 @@
 header.MuiPaper-root {
-  position: fixed;
-  top: 0;
+    position: fixed;
+    top: 0;
+    box-shadow: none;
 }
 
 .tab-content {
-  margin-top: 50px;
-  height: calc(100vh - 50px);
-  overflow-y: scroll;
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
 }
 
 .tab-content .hidden {
-  display: none;
+    display: none;
 }
 
 .MuiTabs-flexContainer .MuiTab-root {
-  min-width: 45px;
+    min-width: 45px;
 }
 
 .MuiTabs-flexContainer .MuiTabs-indicator {
-  background-color: #108ee9;
+    background-color: transparent;
 }
 
 .app-settings {
-  position: fixed;
-  top: 0px;
-  right: 10px;
-  z-index: 2000;
-  font-size: 22px;
-  cursor: pointer;
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    z-index: 2000;
+    font-size: 10px;
+    cursor: pointer;
 }

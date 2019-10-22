@@ -20,6 +20,21 @@ import ShortLink from './Tools/ShortLink';
 import Todo from './Tools/Todo';
 import Bookmark from './Tools/Bookmark';
 
+import clipboard from '../assets/icon/clipboard.svg';
+import clipboardActive from '../assets/icon/clipboard-active.svg';
+import code from '../assets/icon/code.svg';
+import codeActive from '../assets/icon/code-active.svg';
+import hashtags from '../assets/icon/hashtags.svg';
+import hashtagsActive from '../assets/icon/hashtags-active.svg';
+import heart from '../assets/icon/heart.svg';
+import heartActive from '../assets/icon/heart-active.svg';
+import image from '../assets/icon/image.svg';
+import imageActive from '../assets/icon/image-active.svg';
+import links from '../assets/icon/links.svg';
+import linksActive from '../assets/icon/links-active.svg';
+import settings from '../assets/icon/settings.svg';
+import settingsActive from '../assets/icon/settings-active.svg';
+
 import './tab.css';
 
 const TabContainer = props => (
@@ -39,18 +54,30 @@ class MenuTab extends Component {
 
     render() {
         const { value } = this.state;
-        const { iconStyle } = styles;
-        const clipBoardIcon = <FiClipboard style={iconStyle} />;
-        const codeIcon = <FiCode style={iconStyle} />;
-        const listIcon = <FiList style={iconStyle} />;
-        const linkIcon = <FiLink style={iconStyle} />;
-        const toolIcon = <FiGrid style={iconStyle} />;
+        const clipBoardIcon = (
+            <img
+                alt="clipboard"
+                src={value === 0 ? clipboardActive : clipboard}
+            />
+        );
+        const codeIcon = (
+            <img alt="code" src={value === 1 ? codeActive : code} />
+        );
+        const linkIcon = (
+            <img alt="links" src={value === 2 ? linksActive : links} />
+        );
+        const listIcon = (
+            <img alt="settings" src={value === 3 ? settingsActive : settings} />
+        );
+        const toolIcon = (
+            <img alt="hashtags" src={value === 4 ? hashtagsActive : hashtags} />
+        );
 
         return (
             <div className="tab">
                 <AppBar position="static" color="default">
                     <Tabs
-                        style={{ background: '#fff' }}
+                        style={{ background: '#201659' }}
                         value={value}
                         onChange={this.handleChange}
                     >
@@ -95,7 +122,7 @@ class MenuTab extends Component {
                             color="inherit"
                             aria-label="menu"
                         >
-                            <FiSettings />
+                            <img alt="settings" src={settings} />
                         </IconButton>
                     </Link>
                 </div>
