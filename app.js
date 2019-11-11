@@ -11,7 +11,7 @@ const { clipboard, code } = require('./src/service');
 const { isDev } = require('./src/utils');
 
 const WINDOW_URL = isDev()
-    ? 'http://localhost:3000'
+    ? 'http://localhost:8000'
     : `file://${__dirname}/client/build/index.html`;
 const iconName =
     process.platform === 'win32' ? 'windows-icon.png' : 'mac-icon.png';

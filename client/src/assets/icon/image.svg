@@ -1,5 +1,7 @@
 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15.2222 1H2.77778C1.79594 1 1 1.79594 1 2.77778V15.2222C1 16.2041 1.79594 17 2.77778 17H15.2222C16.2041 17 17 16.2041 17 15.2222V2.77778C17 1.79594 16.2041 1 15.2222 1Z" stroke="#9087C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M7 9C8.10457 9 9 8.10457 9 7C9 5.89543 8.10457 5 7 5C5.89543 5 5 5.89543 5 7C5 8.10457 5.89543 9 7 9Z" stroke="#9087C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17 13.1818L12.625 10L3 17" stroke="#9087C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.2222 1H2.77778C1.79594 1 1 1.79594 1 2.77778V15.2222C1 16.2041 1.79594 17 2.77778 17H15.2222C16.2041 17 17 16.2041 17 15.2222V2.77778C17 1.79594 16.2041 1 15.2222 1Z" stroke="#6040FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M7 9C8.10457 9 9 8.10457 9 7C9 5.89543 8.10457 5 7 5C5.89543 5 5 5.89543 5 7C5 8.10457 5.89543 9 7 9Z" stroke="#00FFEA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 13.1818L12.625 10L3 17" fill="#6040FF"/>
+<path d="M17 13.1818L12.625 10L3 17L16 16L17 13.1818Z" fill="#6040FF"/>
+<path d="M17 13.1818L12.625 10L3 17L16 16L17 13.1818Z" stroke="#6040FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
