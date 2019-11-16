@@ -38,11 +38,11 @@ const Root = ({ children }) => {
                     }
 
                     ::-webkit-scrollbar-thumb {
-                        background: #20165975;
+                        background: #20165925;
                         border-radius: 4px;
                     }
                     ::-webkit-scrollbar-thumb:window-inactive {
-                        background: #20165925;
+                        background: #20165915;
                     }
                 `}
             />

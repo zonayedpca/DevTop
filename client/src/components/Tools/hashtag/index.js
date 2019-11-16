@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Content } from '../../common';
 
-const Shortlink = () => {
+const Hashtag = () => {
     const tools = () => (
         <>
             <li>Loved</li>
@@ -11,10 +11,10 @@ const Shortlink = () => {
     );
 
     return (
-        <Content title="Shortlink" renderTools={tools}>
-            <p>Shortlink</p>
+        <Content title="Hashtag" renderTools={tools}>
+            <p>Hashtags</p>
         </Content>
     );
 };
 
-export default Shortlink;
+export default Hashtag;

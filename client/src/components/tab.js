@@ -9,6 +9,10 @@ import imageIcon from '../assets/icon/image.svg';
 import settingsIcon from '../assets/icon/settings.svg';
 import { Root, Container, Content } from '../components/common';
 import ClipBoard from './Tools/clipboard';
+import Code from './Tools/code';
+import Hashtag from './Tools/hashtag';
+import Image from './Tools/image';
+import Shortlink from './Tools/shortlink';
 
 const MainArea = styled.div`
     background-color: var(--primary-color);
@@ -93,10 +97,10 @@ const Tab = () => {
             </MainArea>
             <Container>
                 {activeMenu === 'clipboard' && <ClipBoard />}
-                {activeMenu === 'code' && <p>Code</p>}
-                {activeMenu === 'links' && <p>Links</p>}
-                {activeMenu === 'hashtags' && <p>Hashtags</p>}
-                {activeMenu === 'image' && <p>Image</p>}
+                {activeMenu === 'code' && <Code />}
+                {activeMenu === 'links' && <Shortlink />}
+                {activeMenu === 'hashtags' && <Hashtag />}
+                {activeMenu === 'image' && <Image />}
             </Container>
         </>
     );

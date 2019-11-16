@@ -32,12 +32,12 @@ const ErrorMain = styled.div`
     }
 `;
 
-const Error = () => {
+const Error = ({ text }) => {
     return (
         <ErrorMain>
             <div className="msg">
                 <h3>Just a Sand Dune, Nothing Else</h3>
-                <p>Copy Anything, it will Appear Here</p>
+                <p>{text}</p>
             </div>
             <div className="img">
                 <img
@@ -47,6 +47,10 @@ const Error = () => {
             </div>
         </ErrorMain>
     );
+};
+
+Error.defaultProps = {
+    text: 'Copy Anything, it will Appear Here',
 };
 
 export { Error };

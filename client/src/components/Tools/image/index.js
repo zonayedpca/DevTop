@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Content } from '../../common';
 
-const Shortlink = () => {
+const Image = () => {
     const tools = () => (
         <>
             <li>Loved</li>
@@ -11,10 +11,10 @@ const Shortlink = () => {
     );
 
     return (
-        <Content title="Shortlink" renderTools={tools}>
-            <p>Shortlink</p>
+        <Content title="Image" renderTools={tools}>
+            <p>Image</p>
         </Content>
     );
 };
 
-export default Shortlink;
+export default Image;
