@@ -2,8 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const ContainerMain = styled.div`
-    height: 420px;
-    overflow: auto;
+    overflow: hidden;
 `;
 
 const Container = ({ children }) => {

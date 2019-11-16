@@ -29,6 +29,20 @@ const Root = ({ children }) => {
                     body {
                         font-family: 'Open Sans', sans-serif;
                         font-weight: 400;
+                        overflow: hidden;
+                    }
+
+                    ::-webkit-scrollbar {
+                        border-radius: 4px;
+                        width: 3px;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background: #20165975;
+                        border-radius: 4px;
+                    }
+                    ::-webkit-scrollbar-thumb:window-inactive {
+                        background: #20165925;
                     }
                 `}
             />

@@ -8,9 +8,12 @@ import hashtagsIcon from '../assets/icon/hashtags.svg';
 import imageIcon from '../assets/icon/image.svg';
 import settingsIcon from '../assets/icon/settings.svg';
 import { Root, Container, Content } from '../components/common';
+import ClipBoard from './Tools/clipboard';
 
 const MainArea = styled.div`
     background-color: var(--primary-color);
+    position: fixed;
+    width: 100%;
 `;
 
 const TabBar = styled.div`
@@ -90,7 +93,7 @@ const Tab = () => {
             </MainArea>
             <Container>
                 <Content>
-                    {activeMenu === 'clipboard' && <p>Clipboard</p>}
+                    {activeMenu === 'clipboard' && <ClipBoard />}
                     {activeMenu === 'code' && <p>Code</p>}
                     {activeMenu === 'links' && <p>Links</p>}
                     {activeMenu === 'hashtags' && <p>Hashtags</p>}
