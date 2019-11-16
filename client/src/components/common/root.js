@@ -27,7 +27,7 @@ const Root = ({ children }) => {
                     }
 
                     body {
-                        font-family: 'Open Sans', sans-serif;
+                        font-family: Segoe UI, 'Open Sans', sans-serif;
                         font-weight: 400;
                         overflow: hidden;
                     }

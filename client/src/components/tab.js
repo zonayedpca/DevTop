@@ -92,13 +92,11 @@ const Tab = () => {
                 </TabBar>
             </MainArea>
             <Container>
-                <Content>
-                    {activeMenu === 'clipboard' && <ClipBoard />}
-                    {activeMenu === 'code' && <p>Code</p>}
-                    {activeMenu === 'links' && <p>Links</p>}
-                    {activeMenu === 'hashtags' && <p>Hashtags</p>}
-                    {activeMenu === 'image' && <p>Image</p>}
-                </Content>
+                {activeMenu === 'clipboard' && <ClipBoard />}
+                {activeMenu === 'code' && <p>Code</p>}
+                {activeMenu === 'links' && <p>Links</p>}
+                {activeMenu === 'hashtags' && <p>Hashtags</p>}
+                {activeMenu === 'image' && <p>Image</p>}
             </Container>
         </>
     );

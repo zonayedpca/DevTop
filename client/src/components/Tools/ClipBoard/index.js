@@ -1,8 +1,27 @@
 import React from 'react';
-import { Error } from '../../common';
+import { Content } from '../../common';
 
 const ClipBoard = () => {
-    return <Error />;
+    return (
+        <Content title="Clipboard">
+            <p>
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard Clipboard Clipboard Clipboard Clipboard
+                Clipboard Clipboard{' '}
+            </p>
+        </Content>
+    );
 };
 
 export default ClipBoard;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const ContentMain = styled.div`
-    padding: 35px;
+    padding: 25px;
     height: calc(100vh - 53px);
     margin-top: 53px;
     overflow-y: auto;
