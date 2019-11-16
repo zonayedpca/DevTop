@@ -5,8 +5,24 @@ import { Content } from '../../common';
 const Image = () => {
     const tools = () => (
         <>
-            <li>Loved</li>
-            <li>Sort</li>
+            <li>
+                <img
+                    alt="favorite"
+                    src={require('../../../assets/icon/grid.svg')}
+                />
+            </li>
+            <li>
+                <img
+                    alt="favorite"
+                    src={require('../../../assets/icon/love.svg')}
+                />
+            </li>
+            <li>
+                <img
+                    alt="favorite"
+                    src={require('../../../assets/icon/down.svg')}
+                />
+            </li>
         </>
     );
 

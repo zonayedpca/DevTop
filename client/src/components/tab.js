@@ -8,11 +8,11 @@ import hashtagsIcon from '../assets/icon/hashtags.svg';
 import imageIcon from '../assets/icon/image.svg';
 import settingsIcon from '../assets/icon/settings.svg';
 import { Root, Container, Content } from '../components/common';
-import ClipBoard from './Tools/clipboard';
-import Code from './Tools/code';
-import Hashtag from './Tools/hashtag';
-import Image from './Tools/image';
-import Shortlink from './Tools/shortlink';
+import ClipBoard from './tools/clipboard';
+import Code from './tools/code';
+import Hashtag from './tools/hashtag';
+import Image from './tools/image';
+import Shortlink from './tools/shortlink';
 
 const MainArea = styled.div`
     background-color: var(--primary-color);

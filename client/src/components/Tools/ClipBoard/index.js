@@ -5,8 +5,18 @@ import { Content } from '../../common';
 const ClipBoard = () => {
     const tools = () => (
         <>
-            <li>Loved</li>
-            <li>Sort</li>
+            <li>
+                <img
+                    alt="favorite"
+                    src={require('../../../assets/icon/lovefilled.svg')}
+                />
+            </li>
+            <li>
+                <img
+                    alt="favorite"
+                    src={require('../../../assets/icon/down.svg')}
+                />
+            </li>
         </>
     );
 

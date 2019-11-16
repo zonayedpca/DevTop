@@ -2,9 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-const RootMain = styled.div`
-    border-bottom: dotted 2px #333;
-`;
+const RootMain = styled.div``;
 
 const Root = ({ children }) => {
     return (

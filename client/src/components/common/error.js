@@ -12,13 +12,13 @@ const ErrorMain = styled.div`
         h2 {
             font-size: 24px;
             line-height: 32px;
-            color: #201659;
+            color: var(--primary-color);
             margin-bottom: 8px;
         }
         p {
             font-size: 16px;
             line-height: 21px;
-            color: #9087c0;
+            color: var(--primary-light-color);
         }
     }
     .img {
