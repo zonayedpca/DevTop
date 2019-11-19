@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 const ItemMain = styled.div`
@@ -27,7 +27,7 @@ const ItemMain = styled.div`
         }
         .clickable {
             :hover {
-                color: var(--primary-color);
+                color: var(--secondary-color);
             }
         }
     }
@@ -39,12 +39,29 @@ const ItemMain = styled.div`
     }
 `;
 
+const COPY_TEXT = 'Click to Copy';
+
 const Item = ({ type, content }) => {
+    const [copyText, setCopyText] = useState(null);
+    useEffect(() => {
+        if (!copyText) {
+            setCopyText(COPY_TEXT);
+        }
+        let copyTextTimeout;
+        if (copyText !== COPY_TEXT) {
+            copyTextTimeout = setTimeout(() => {
+                setCopyText(COPY_TEXT);
+            }, 1000);
+        }
+        return () => {
+            clearTimeout(copyTextTimeout);
+        };
+    }, [copyText]);
     return (
-        <ItemMain>
+        <ItemMain onClick={() => setCopyText('Copied!')}>
             <div className={type}>{content}</div>
             <ul className="action">
-                <li>Click to Copy</li>
+                <li>{copyText}</li>
                 <li className="clickable">Favorite</li>
                 <li>6 Minutes Ago</li>
             </ul>
