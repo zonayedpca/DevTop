@@ -25,6 +25,11 @@ const ItemMain = styled.div`
                 margin-right: 0;
             }
         }
+        .clickable {
+            :hover {
+                color: var(--primary-color);
+            }
+        }
     }
     :hover {
         ul {
@@ -40,7 +45,7 @@ const Item = ({ type, content }) => {
             <div className={type}>{content}</div>
             <ul className="action">
                 <li>Click to Copy</li>
-                <li>Favorite</li>
+                <li className="clickable">Favorite</li>
                 <li>6 Minutes Ago</li>
             </ul>
         </ItemMain>
