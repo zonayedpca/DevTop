@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Content } from '../../common';
+import { Content, Item } from '../../common';
 
 const Shortlink = () => {
     const tools = () => (
@@ -22,7 +22,24 @@ const Shortlink = () => {
 
     return (
         <Content title="Shortlink" renderTools={tools}>
-            <p>Shortlink</p>
+            <div className="shortlink-content">
+                <Item
+                    type="link"
+                    content="https://www.twenty20.com/photos/5f22-nature-tree"
+                />
+                <Item
+                    type="link"
+                    content="https://reactjs.org/docs/getting-started.html"
+                />
+                <Item
+                    type="link"
+                    content="https://www.twenty20.com/photos/5f22-nature-tree"
+                />
+                <Item
+                    type="link"
+                    content="https://reactjs.org/docs/getting-started.html"
+                />
+            </div>
         </Content>
     );
 };

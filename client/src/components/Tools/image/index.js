@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Content } from '../../common';
+import { Content, Item } from '../../common';
 
 const Image = () => {
     const tools = () => (
@@ -28,7 +28,28 @@ const Image = () => {
 
     return (
         <Content title="Image" renderTools={tools}>
-            <p>Image</p>
+            <div className="clipboard-content">
+                <Item
+                    type="image"
+                    content={require('../../../assets/image/demo.jpg')}
+                />
+                <Item
+                    type="image"
+                    content={require('../../../assets/image/demo.jpg')}
+                />
+                <Item
+                    type="image"
+                    content={require('../../../assets/image/demo.jpg')}
+                />
+                <Item
+                    type="image"
+                    content={require('../../../assets/image/demo.jpg')}
+                />
+                <Item
+                    type="image"
+                    content={require('../../../assets/image/demo.jpg')}
+                />
+            </div>
         </Content>
     );
 };

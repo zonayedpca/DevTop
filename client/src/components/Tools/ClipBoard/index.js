@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Item from './item';
-
-import { Content } from '../../common';
+import { Content, Item } from '../../common';
 
 const ClipBoard = () => {
     const tools = () => (
@@ -36,6 +34,19 @@ const ClipBoard = () => {
                 <Item
                     type="text"
                     content="Creative Commons licenses are a much better and simpler way for image photographers and creators to assign..."
+                />
+                <Item type="color" content="#1A40FF" />
+                <Item
+                    type="hashtag"
+                    content="#show #off #incredible #londom #lepra #de #gamma"
+                />
+                <Item
+                    type="image"
+                    content={require('../../../assets/image/demo.jpg')}
+                />
+                <Item
+                    type="link"
+                    content="https://reactjs.org/docs/getting-started.html"
                 />
                 <Item
                     type="text"

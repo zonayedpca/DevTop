@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Content } from '../../common';
+import { Content, Item } from '../../common';
 
 const Hashtag = () => {
     const tools = () => (
@@ -22,7 +22,28 @@ const Hashtag = () => {
 
     return (
         <Content title="Hashtag" renderTools={tools}>
-            <p>Hashtags</p>
+            <div className="hashtag-content">
+                <Item
+                    type="hashtag"
+                    content="#show #off #incredible #londom #lepra #de #gamma"
+                />
+                <Item
+                    type="hashtag"
+                    content="#show #off #incredible #londom #lepra #de #gamma"
+                />
+                <Item
+                    type="hashtag"
+                    content="#show #off #incredible #londom #lepra #de #gamma"
+                />
+                <Item
+                    type="hashtag"
+                    content="#show #off #incredible #londom #lepra #de #gamma"
+                />
+                <Item
+                    type="hashtag"
+                    content="#show #off #incredible #londom #lepra #de #gamma"
+                />
+            </div>
         </Content>
     );
 };

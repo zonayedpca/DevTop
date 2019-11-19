@@ -26,13 +26,16 @@ const ContentHead = styled.div`
         justify-content: center;
         list-style: none;
         li {
-            margin-left: 15px;
+            padding: 5px 0;
+            padding-left: 15px;
             cursor: pointer;
             img {
                 height: 12px;
                 filter: grayscale(0.5) opacity(0.65);
                 transition: 0.2s all;
-                :hover {
+            }
+            :hover {
+                img {
                     filter: grayscale(0) opacity(1);
                 }
             }
