@@ -8,5 +8,7 @@ import reducers from './reducers';
 const store = createStore(reducers, applyMiddleware(reduxThunk));
 
 export default ({ element }) => {
-    <Provider store={store}>{element}</Provider>;
+    <Provider log={console.log('I am Mr. Provider works here!')} store={store}>
+        {element}
+    </Provider>;
 };

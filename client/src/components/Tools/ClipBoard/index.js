@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 
 import { Content, Item } from '../../common';
 
+// import { clipboardSend } from '../../../actions';
+
+const electron = window.require('electron');
+const ipcRenderer = electron.ipcRenderer;
+
 const ClipBoard = () => {
+    const [enable, setEnable] = useState(true);
+    useEffect(() => {
+        onPlay();
+        ipcRenderer.on('clipboard:send', (event, data) => {
+            const id = Date.now();
+            // clipboardSend({ id, data });
+            console.log({ id, data });
+        });
+        ipcRenderer.on('clipboard:pause', () => {
+            setEnable(false);
+        });
+        ipcRenderer.on('clipboard:play', () => {
+            setEnable(true);
+        });
+        return () => {
+            ipcRenderer.removeAllListeners('clipboard:play');
+            ipcRenderer.removeAllListeners('clipboard:pause');
+            ipcRenderer.removeAllListeners('clipboard:send');
+        };
+    });
+
+    const onPlay = () => {
+        ipcRenderer.send('clipboard:play');
+    };
+
     const tools = () => (
         <>
             <li>
