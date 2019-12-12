@@ -111,7 +111,7 @@ const Code = () => {
     position: relative; /* elevate links up */ 
     a { 
         position: relative; 
-        z-index: 999; 
+        z-index: 999;
     } 
 }`;
     const tools = () => (
@@ -138,8 +138,7 @@ const Code = () => {
             </CodeContent>
             <script
                 dangerouslySetInnerHTML={{
-                    __html: ` 
-    ${codePrettier}`,
+                    __html: `${codePrettier}`,
                 }}
             />
         </Content>

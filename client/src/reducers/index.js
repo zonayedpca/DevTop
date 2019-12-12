@@ -15,5 +15,5 @@ export default combineReducers({
     // shortlinks: shortlinkReducer,
     // todos: todoReducer,
     // bookmarks: bookmarkReducer
-    jaja: ['title'],
+    count: () => 'Hello',
 });

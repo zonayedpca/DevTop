@@ -13,7 +13,7 @@
         "test": "npm run test-client",
         "client": "npm start --prefix client",
         "build": "npm run build --prefix client",
-        "electron": "nodemon --ignore 'client/*' --watch * --exec \"electron .\"",
+        "electron": "electron .",
         "start": "concurrently --kill-others \"npm run client\" \"wait-on tcp:8000 && npm run electron\"",
         "version:major": "npm version major",
         "version:minor": "npm version minor",
