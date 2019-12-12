@@ -79,8 +79,9 @@ const Tab = () => {
             <MainArea>
                 <TabBar>
                     <Nav>
-                        {menus.map(menu => (
+                        {menus.map((menu, index) => (
                             <li
+                                key={index}
                                 onClick={() => setActiveMenu(menu)}
                                 className={activeMenu === menu ? 'active' : ''}
                             >
