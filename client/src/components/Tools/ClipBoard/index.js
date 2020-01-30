@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import { Content, Item } from '../../common';
+import { generateHash } from '../../../utils';
 
 // import { clipboardSend } from '../../../actions';
 
@@ -16,6 +17,7 @@ const ClipBoard = () => {
             const id = Date.now();
             // clipboardSend({ id, data });
             console.log({ id, data });
+            console.log(generateHash(data));
         });
         ipcRenderer.on('clipboard:pause', () => {
             setEnable(false);
